@@ -1,32 +1,22 @@
 *{
-    MARGIN: 0;
-    PADDING: 0;
+    margin: 0;
+    padding: 0;
 }
 
+/*For the top heading for LEARNIVERSE*/
 .navbar{
     width: 2000px;
     height: 75px;
     margin: auto;
 }
-
-.icon{
-    width: 100px;
-    float: left;
-    height: 70px;
-}
-
+/*Color & Position for logo for */
 .logo{
     color: #1E1E1E;
     font-size: 30px;
-    font-family: Arial;
+    font-family: Arial, serif;
     padding-left: 10px;
     float: left;
     padding-top: 5px;
-}
-.menu{
-    width: 400px;
-    float: left;
-    height: 70px;
 }
 
 ul{
@@ -35,29 +25,34 @@ ul{
     justify-content: center;
     align-items: center;
 }
-
+/*this change the align between main menu like home, about...*/
 ul li{
     list-style: none;
-    margin-left: 62px;
-    margin-top: 27;
-    font-size: 14px;
+    margin-left: 200px;
+    margin-top: 20px;
+    font-size: 20px;
 }
 
+/*Change the text size, color etc*/
 ul li a{
     text-decoration: none;
     color: #1D63FF;
-    font-family: Arial;
-    font-weight: bold;
+    font-family: Arial, serif;
+    font-weight: Bold;
     transition: 0.4s ease-in-out;
 }
+
+/*top icon, color change which cursor is there*/
 ul li a:hover{
     color: red;
 }
 
 .search{
-    width: 200px;
-    float: left;
-    margin-left: 270px;
+     width: 400px;
+     float: left;
+     margin-left: 270px;
+    height: 25px;
+
 }
 
 .srch{
@@ -65,9 +60,9 @@ ul li a:hover{
     width: 400px;
     height: 20px;
     border: 1px solid black;
-    margin-top: -20px;
+    margin-top: 20px;
     color: white;
-    border-right: 10+x px;
+    border-right: 2px;
     float: left;
     padding: 10px;
     border-bottom-right-radius: 5px;
@@ -75,14 +70,14 @@ ul li a:hover{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
-
+/*its a change for the search button*/
 .btn{
     width: 80px;
-    height: 20px;
+    height: 25px;
     background: orange;
     border: 1px black;
-    margin-top: -40px;
-    margin-left: 400px;
+    margin-button: 10px;
+    margin-left: 680px;
     color: white;
     font-ize: 15px;
     border-bottom-right-radius: 5px;
@@ -95,12 +90,12 @@ ul li a:hover{
 .btn:focus{
     outline:none;
 }
-
+/*This is for the introduction*/
 .content{
     width: 1200px;
     height: auto;
     margin: auto;
-    color: red;
+    color: black;
     position: relative;
 }
 
@@ -111,7 +106,7 @@ ul li a:hover{
     letter-spacing: 1.2px;
     line-height: 30px;
 }
-
+/*For the introducktion allignment*/
 .content h1{
     font-family: "Times New Roman";
     font-size: 50px;
@@ -120,7 +115,8 @@ ul li a:hover{
     letter-spacing:2px;
 }
 
-.centent .cn{
+/*For the Join us button*/
+.content .cn{
     width: 160px;
     height: 40px;
     background: orange;
@@ -137,40 +133,44 @@ ul li a:hover{
     color: black;
     transition: .3s ease;
 }
+
 .cn:hover{
     background: orange;
 }
 
+/*For the introduction*/
 .content span{
-    color: orange;
-    font-size: 60px;
+    color: black;
+    font-size: 50px;
 }
-
+/*for the log in box*/
 .form{
     width: 250px;
     height: 380px;
-    background: linear-gradient(to top. rgba(0,0,0,0.8)50%, rgba(0,0,0,0.8)50%);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.8) 50%);
     position: absolute;
-    top: -20px;
-    left: 870px;
+    top: 10px;
+    left: 800px;
     border-radius: 10px;
     padding: 25px;
 }
 
+/*For the log in button*/
 .form h2{
     width: 220px;
     font-family: sans-serif;
     text-align: center;
-    color: orange;
+    color: black;
     font-size: 22px;
-    background-color: orange;
+    background-color:white;
     border-radius: 10px;
     margin: 2px;
     padding: 8px;
 }
 
+/*For entering user name and password*/
 .form input{
-    width: 240px;
+    width: 240px; /*for the email & passwordnbox*/
     height: 35px;
     background: transparent;
     border-bottom: 1px solid orange;
@@ -178,7 +178,79 @@ ul li a:hover{
     border-right: none;
     border-left: none;
     color: orange;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: sans-serif;
 }
+
+
+/*for the background of the wholw log box*/
+::placeholder{
+    color: black;
+    font-family: Arial ;
+}
+
+/*for the log in button*/
+.btnn{
+    width: 240px;
+    height: 40px;
+    background: #ff7200;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.btnn:hover{
+    background:#fff;
+    color: #000;
+    font-weight: bold;
+}
+
+.form.link{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.form .link a{
+    text-decoration: none;
+    color: #ff7200;
+}
+
+
+.liw{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.icons a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.icons ion-icon{
+    color: #fff;
+    font-size: 30px;
+    padding-left: 14px;
+    padding-top: 5px;
+    transition: 0.3s ease;
+}
+
+.icons ion-icon:hover{
+    color: #ff7200;
+}
+
+
+
+
+
+
 
 
 
