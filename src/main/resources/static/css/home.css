@@ -3,248 +3,163 @@
     padding: 0;
 }
 
-/*For the top heading for LEARNIVERSE*/
-.navbar{
-    width: 2000px;
-    height: 75px;
-    margin: auto;
+/*background*/
+.main{
+    position: relative;
+    width: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/AI Homework Tutorship.jpeg");
+    background-position: center;
+    background-size: cover;
+    height: 109vh;
 }
-/*Color & Position for logo for */
+
+/*Navbar for Learniverse Connect*/
+.navbar{
+    width: 1200px;/*if I change the px, it will change the position of search bar as well*/
+    height: 75px;
+    margin-top: 10px;
+}
+
+.icon{
+    width:200px; /*Length of logo*/
+    float: left;/*position for logo*/
+    /*height: 70px;*/ /*WE WILL CHECK THIS HEIGHT LATER*/
+}
+
 .logo{
-    color: #1E1E1E;
-    font-size: 30px;
-    font-family: Arial, serif;
+    color: white;
+    font-size: 35px;
+    font-family: SansSerif, serif;
     padding-left: 10px;
     float: left;
     padding-top: 5px;
 }
 
-ul{
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/*this change the align between main menu like home, about...*/
-ul li{
-    list-style: none;
-    margin-left: 200px;
-    margin-top: 20px;
-    font-size: 20px;
-}
-
-/*Change the text size, color etc*/
-ul li a{
-    text-decoration: none;
-    color: #1D63FF;
-    font-family: Arial, serif;
-    font-weight: Bold;
-    transition: 0.4s ease-in-out;
-}
-
-/*top icon, color change which cursor is there*/
-ul li a:hover{
-    color: red;
-}
-
 .search{
-     width: 400px;
-     float: left;
-     margin-left: 270px;
-    height: 25px;
+    /*container expand naturally*/
+    margin-left:500px; /*Alignment for Search bar*/
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
 }
 
+/*Everything for the search bar*/
 .srch{
-    font-family: 'Times New Roman';
-    width: 400px;
-    height: 20px;
-    border: 1px solid black;
-    margin-top: 20px;
-    color: white;
-    border-right: 2px;
-    float: left;
-    padding: 10px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px ;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    width: 350px;/*width of the search bar*/
+    height: 30px;/*height of the search bar*/
+    font-size: 16px;/*size of the word inside search bar*/
+    padding: 10px;/*space form the left side for "Search for Anything"*/
+    margin-top: 10px;
+    border-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
-/*its a change for the search button*/
+
+/*Everything for the search button*/
 .btn{
-    width: 80px;
-    height: 25px;
-    background: orange;
-    border: 1px black;
-    margin-button: 10px;
-    margin-left: 680px;
-    color: white;
-    font-ize: 15px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-
+    height: 30px;
+    font-size: 16px;
+    padding: 0 20px;/*space form the left side for "Search for Anything"*/
+    margin-top: 10px;
+    border-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
-.btn:focus{
-    outline:none;
+/* Form container for login + signup */
+.form {
+    margin-left:1250px;
+    margin-top: 10px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
-/*This is for the introduction*/
+
+/*For the introduction, Web design & development course (basically for the whole paragraph)*/
 .content{
-    width: 1200px;
+    width: 1500px;
     height: auto;
     margin: auto;
-    color: black;
+    color: white;
     position: relative;
 }
 
-.content .par{
-    padding-left: 20px;
-    padding-bottom: 25px;
+/*For the intro description*/
+.content .par {
+    padding-left: 30px;/*Space from the left corner*/
+    padding-bottom: 30px;/*for the Join us button*/
     font-family: Arial;
-    letter-spacing: 1.2px;
-    line-height: 30px;
+    letter-spacing: 1.5px;
+    line-height: 35px; /*line spacing*/
 }
-/*For the introducktion allignment*/
+
+/*For the topic. "Web design & development course*/
 .content h1{
     font-family: "Times New Roman";
-    font-size: 50px;
-    padding-left: 20px;
-    margin-top: 9%;
-    letter-spacing:2px;
+    font-size: 40px;/*Size of the words*/
+    padding-left: 30px;/*space from the left side*/
+    margin-top: 10%;/*space from the top of the page*/
+    letter-spacing:2px;/*space between two lettes*/
 }
 
 /*For the Join us button*/
 .content .cn{
     width: 160px;
     height: 40px;
-    background: orange;
+    background: #708bb4;
     border: none;
     margin-bottom: 10px;
-    margin-left: 20px;
+    margin-left: 130px;
     font-size: 18px;
     border-radius: 10px;
     cursor: pointer;
-}
-
-.content .cn a{
-    text-decoration: none;
-    color: black;
-    transition: .3s ease;
 }
 
 .cn:hover{
     background: orange;
 }
 
-/*For the introduction*/
-.content span{
-    color: black;
-    font-size: 50px;
-}
-/*for the log in box*/
-.form{
-    width: 250px;
-    height: 380px;
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.8) 50%);
+/*Promo Banner*/
+.right-column {
     position: absolute;
-    top: 10px;
-    left: 800px;
-    border-radius: 10px;
-    padding: 25px;
-}
-
-/*For the log in button*/
-.form h2{
-    width: 220px;
-    font-family: sans-serif;
-    text-align: center;
-    color: black;
-    font-size: 22px;
-    background-color:white;
-    border-radius: 10px;
-    margin: 2px;
-    padding: 8px;
-}
-
-/*For entering user name and password*/
-.form input{
-    width: 240px; /*for the email & passwordnbox*/
-    height: 35px;
-    background: transparent;
-    border-bottom: 1px solid orange;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    color: orange;
-    font-size: 15px;
-    letter-spacing: 1px;
-    margin-top: 30px;
-    font-family: sans-serif;
-}
-
-
-/*for the background of the wholw log box*/
-::placeholder{
-    color: black;
-    font-family: Arial ;
-}
-
-/*for the log in button*/
-.btnn{
-    width: 240px;
-    height: 40px;
-    background: #ff7200;
-    border: none;
-    margin-top: 30px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
+    top: 60%;          /* halfway down the .main container */
+    right: 10px;       /* 30px from the right edge (adjust as you like) */
+    transform: translateY(-50%); /* shift upward by 50% of its own height for perfect centering */
+    width: 350px;      /* adjust to your liking */
+    background-color: transparent; /* dark translucent background */
     color: white;
-}
-
-.btnn:hover{
-    background:#fff;
-    color: #000;
-    font-weight: bold;
-}
-
-.form.link{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    padding-top: 20px;
-    text-align: center;
-}
-
-.form .link a{
-    text-decoration: none;
-    color: #ff7200;
+    padding: 50px;
+    border-radius: 8px;
+    text-align: center; /* center the text within the box */
 }
 
 
-.liw{
-    padding-top: 15px;
-    padding-bottom: 10px;
-    text-align: center;
-}
 
-.icons a{
-    text-decoration: none;
-    color: #fff;
-}
 
-.icons ion-icon{
-    color: #fff;
-    font-size: 30px;
-    padding-left: 14px;
-    padding-top: 5px;
-    transition: 0.3s ease;
-}
 
-.icons ion-icon:hover{
-    color: #ff7200;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
