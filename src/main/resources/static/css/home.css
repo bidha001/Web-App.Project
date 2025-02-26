@@ -7,7 +7,7 @@
 .main{
     position: relative;
     width: 100%;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/AI Homework Tutorship.jpeg");
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/CodingImage.jpeg");
     background-position: center;
     background-size: cover;
     height: 109vh;
@@ -52,10 +52,6 @@
     padding: 10px;/*space form the left side for "Search for Anything"*/
     margin-top: 10px;
     border-radius: 10px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
 }
 
 /*Everything for the search button*/
@@ -65,10 +61,6 @@
     padding: 0 20px;/*space form the left side for "Search for Anything"*/
     margin-top: 10px;
     border-radius: 10px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
 }
 
 /* Form container for login + signup */
@@ -98,14 +90,14 @@
 .content .par {
     padding-left: 30px;/*Space from the left corner*/
     padding-bottom: 30px;/*for the Join us button*/
-    font-family: Arial;
+    font-family: Arial, serif;
     letter-spacing: 1.5px;
     line-height: 35px; /*line spacing*/
 }
 
 /*For the topic. "Web design & development course*/
 .content h1{
-    font-family: "Times New Roman";
+    font-family: "Times New Roman", serif;
     font-size: 40px;/*Size of the words*/
     padding-left: 30px;/*space from the left side*/
     margin-top: 10%;/*space from the top of the page*/
