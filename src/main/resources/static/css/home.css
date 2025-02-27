@@ -4,14 +4,15 @@
 }
 
 /*background*/
-.main{
+.main {
     position: relative;
     width: 100%;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/CodingImage.jpeg");
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/demoIMG.jpg");
     background-position: center;
     background-size: cover;
     height: 109vh;
 }
+
 
 /*Navbar for Learniverse Connect*/
 .navbar{
