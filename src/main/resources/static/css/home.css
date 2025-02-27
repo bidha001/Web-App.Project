@@ -1,6 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/Wallpaper 4k.jpeg");
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    color: white;
 }
 
 /*background*/
@@ -13,60 +22,82 @@
     height: 109vh;
 }
 
-
-/*Navbar for Learniverse Connect*/
-.navbar{
-    width: 1200px;/*if I change the px, it will change the position of search bar as well*/
-    height: 75px;
-    margin-top: 10px;
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.icon{
-    width:200px; /*Length of logo*/
-    float: left;/*position for logo*/
-    /*height: 70px;*/ /*WE WILL CHECK THIS HEIGHT LATER*/
-}
-
-.logo{
+.logo {
     color: white;
     font-size: 35px;
     font-family: SansSerif, serif;
-    padding-left: 10px;
-    float: left;
-    padding-top: 5px;
 }
 
-.search{
-    /*container expand naturally*/
-    margin-left:500px; /*Alignment for Search bar*/
+.nav-links {
     display: flex;
-    align-items: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+    color: orange;
+}
+
+.search {
+    display: flex;
     gap: 10px;
-
 }
 
-/*Everything for the search bar*/
-.srch{
-    width: 350px;/*width of the search bar*/
-    height: 30px;/*height of the search bar*/
-    font-size: 16px;/*size of the word inside search bar*/
-    padding: 10px;/*space form the left side for "Search for Anything"*/
-    margin-top: 10px;
+.search input {
+    width: 350px;
+    padding: 8px 15px;
     border-radius: 10px;
-}
-
-/*Everything for the search button*/
-.btn{
-    height: 30px;
+    border: none;
     font-size: 16px;
-    padding: 0 20px;/*space form the left side for "Search for Anything"*/
-    margin-top: 10px;
+}
+
+.btn {
+    padding: 8px 20px;
     border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.login-btn,
+.signup-btn {
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #708bb4;
+    color: white;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+    background-color: orange;
 }
 
 /* Form container for login + signup */
 .form {
-    margin-left:1250px;
+    margin-left: 1250px;
     margin-top: 10px;
     padding-right: 10px;
     display: flex;
@@ -78,12 +109,12 @@
     right: 0;
 }
 
-.form:hover{
+.form:hover {
     background: orange;
 }
 
 /*For the introduction, Web design & development course (basically for the whole paragraph)*/
-.content{
+.content {
     width: 1500px;
     height: auto;
     margin: auto;
@@ -93,24 +124,31 @@
 
 /*For the intro description*/
 .content .par {
-    padding-left: 30px;/*Space from the left corner*/
-    padding-bottom: 30px;/*for the Join us button*/
+    padding-left: 30px;
+    /*Space from the left corner*/
+    padding-bottom: 30px;
+    /*for the Join us button*/
     font-family: Arial, serif;
     letter-spacing: 1.5px;
-    line-height: 35px; /*line spacing*/
+    line-height: 35px;
+    /*line spacing*/
 }
 
 /*For the topic. "Web design & development course*/
-.content h1{
+.content h1 {
     font-family: "Times New Roman", serif;
-    font-size: 40px;/*Size of the words*/
-    padding-left: 30px;/*space from the left side*/
-    margin-top: 10%;/*space from the top of the page*/
-    letter-spacing:2px;/*space between two lettes*/
+    font-size: 40px;
+    /*Size of the words*/
+    padding-left: 30px;
+    /*space from the left side*/
+    margin-top: 10%;
+    /*space from the top of the page*/
+    letter-spacing: 2px;
+    /*space between two lettes*/
 }
 
 /*For the Join us button*/
-.content .cn{
+.content .cn {
     width: 160px;
     height: 40px;
     background: #708bb4;
@@ -122,48 +160,119 @@
     cursor: pointer;
 }
 
-.cn:hover{
+.cn:hover {
     background: orange;
 }
 
 /*Promo Banner*/
 .right-column {
     position: absolute;
-    top: 60%;          /* halfway down the .main container */
-    right: 10px;       /* 30px from the right edge (adjust as you like) */
-    transform: translateY(-50%); /* shift upward by 50% of its own height for perfect centering */
-    width: 350px;      /* adjust to your liking */
-    background-color: transparent; /* dark translucent background */
+    top: 60%;
+    /* halfway down the .main container */
+    right: 10px;
+    /* 30px from the right edge (adjust as you like) */
+    transform: translateY(-50%);
+    /* shift upward by 50% of its own height for perfect centering */
+    width: 350px;
+    /* adjust to your liking */
+    background-color: transparent;
+    /* dark translucent background */
     color: white;
     padding: 50px;
     border-radius: 8px;
-    text-align: center; /* center the text within the box */
+    text-align: center;
+    /* center the text within the box */
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+}
 
+.signup-form {
+    max-width: 300px;
+    margin-right: 50px;
+}
 
+input,
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
+button {
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+}
 
+.image-container img {
+    width: 250px;
+    border-radius: 10px;
+}
 
+/* Responsive Design*/
+@media (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
 
+    .signup-form {
+        max-width: 100%;
+        margin-right: 0;
+    }
 
+    .image-container img {
+        width: 100px;
+    }
+}
 
+/* Hero Section Styles */
+.hero {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.hero-content h1 {
+    font-family: "Times New Roman", serif;
+    font-size: 40px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
 
+.hero-content .par {
+    font-family: Arial, serif;
+    letter-spacing: 1.5px;
+    line-height: 35px;
+    margin-bottom: 2rem;
+}
 
+.cn {
+    width: 160px;
+    height: 40px;
+    background: #708bb4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
 
+.cn a {
+    color: white;
+    text-decoration: none;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.cn:hover {
+    background: orange;
+}
