@@ -7,7 +7,7 @@
 .main {
     position: relative;
     width: 100%;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/demoIMG.jpg");
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/Wallpaper 4k.jpeg");
     background-position: center;
     background-size: cover;
     height: 109vh;
@@ -76,6 +76,10 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.form:hover{
+    background: orange;
 }
 
 /*For the introduction, Web design & development course (basically for the whole paragraph)*/
