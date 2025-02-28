@@ -28,23 +28,28 @@ body {
 .navbar {
     display: flex;
     align-items: center;
+    position: relative;
+    padding: 1rem 3rem;
+    background-color:transparent;
     justify-content: space-between;
-    padding: 1rem 2rem;
-    background-color: rgba(0, 0, 0, 0.5);
+
 }
 
 /* Logo styling */
 .logo {
+    padding-left: 5px;
+    padding-bottom: 30px;/*margin between top of the page*/
     color: white;
-    font-size: 35px;
+    font-size: 25px;
     font-family: SansSerif, serif;
 }
 
 /* Navigation links container */
 .nav-links {
+    margin-top: 4.5rem;
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 12rem;
 }
 
 /* Individual navigation link styling */
@@ -61,26 +66,31 @@ body {
 
 /* Search area container styling */
 .search {
+    margin-bottom: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    gap: 5px;
+    gap: 10px;
 }
 
 /* Search input field styling */
 .search input {
-    width: 350px;
-    padding: 8px 15px;
+    width: 400px;
+    padding: 4px 15px;
     border-radius: 10px;
-    border: none;
     font-size: 16px;
+
 }
 
 /* Search button styling */
 .btn {
-    padding: 8px 20px;
+    padding: 6px 10px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
+    width: auto;
 }
 
 /* Authentication buttons container */
@@ -92,7 +102,9 @@ body {
 /* Login and Sign Up button styling */
 .login-btn,
 .signup-btn {
-    padding: 8px 20px;
+    margin-bottom: 52px;/*margin between top of the page*/
+    width: auto;
+    padding: 5px 15px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -137,7 +149,7 @@ body {
 
 /* Paragraph styling inside the content container */
 .content .par {
-    padding-left: 30px;  /* Space from left edge */
+    padding-left: 70px;  /* Space from left edge */
     padding-bottom: 30px;  /* Space below paragraph for button */
     font-family: Arial, serif;
     letter-spacing: 1.5px;
@@ -244,15 +256,15 @@ button {
 /* Hero section styling */
 .hero {
     padding: 4rem 2rem;
-    max-width: 1200px;
+    max-width: 2500px;
     margin: 0 auto;
 }
 
 /* Hero content heading styling */
 .hero-content h1 {
     font-family: "Times New Roman", serif;
-    font-size: 40px;
-    margin-bottom: 1.5rem;
+    font-size: 35px;
+    margin-bottom: 2rem;
     letter-spacing: 2px;
 }
 
