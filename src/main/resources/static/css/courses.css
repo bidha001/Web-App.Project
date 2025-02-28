@@ -44,12 +44,31 @@ body{
     font-family: sans-serif;
 }
 
-.btn{
-    background-color: #ff4500;
-    color: white;
-    padding: 5px 5px;
-    border-radius: 10px;
-    font-size: 10px;
-    text-decoration: none;
+
+.search{
+    margin-bottom: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
 }
+
+.search input{
+    width: 400px;
+    padding: 4px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.btn{
+   padding: 6px 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    width: auto;
+}
+
+
 
