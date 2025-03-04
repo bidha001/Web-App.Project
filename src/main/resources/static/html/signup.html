@@ -2,25 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign up to learniverse</title>
+    <title>Sign up to Learniverse</title>
     <link rel="stylesheet" href="../css/signup.css">
 </head>
 <body>
-<section class="container">
-    <div class="signup-form">
-    <h1>Sign up to Learniverse</h1>
-    <form>
-        <p><input type="text" placeholder="First Name" required></p>
-        <p><input type="text" placeholder="Last Name" required></p>
-        <p><input type="email" placeholder="Email..." required></p>
-        <p><input type="password" placeholder="Password..." required></p>
-        <p><button type="submit">Sign up</button></p>
-    </form>
+<!-- Navigation Bar (same as Login page) -->
+<nav class="navbar">
+    <!-- Logo Section -->
+    <h2 class="logo">LEARNIVERSE<br>CONNECT</h2>
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">Development</a></li>
+        <li><a href="#">Design</a></li>
+        <li><a href="#">Course</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <!-- Search Area -->
+    <div class="search">
+        <input type="search" name="search" placeholder="Search For Anything">
+        <button class="btn">Search</button>
     </div>
+</nav>
+
+<!-- Main Container for Sign Up Content -->
+<section class="container">
+    <!-- Sign-up Form -->
+    <div class="signup-form">
+        <h1>Sign up to Learniverse</h1>
+        <form>
+            <p><input type="text" placeholder="First Name" required></p>
+            <p><input type="text" placeholder="Last Name" required></p>
+            <p><input type="email" placeholder="Email..." required></p>
+            <p><input type="password" placeholder="Password..." required></p>
+            <p><button type="submit" class="signup-btn">Sign up</button></p>
+        </form>
+    </div>
+    <!-- Sign-up Image -->
     <div class="signup-image">
         <img src="../images/signup-image.png" alt="signup-image">
     </div>
 </section>
-
 </body>
 </html>
