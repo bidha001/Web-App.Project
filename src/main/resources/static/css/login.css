@@ -6,9 +6,10 @@ box-sizing: border-box;
 }
 
 
-/* General body styling */
+/* Body styling: background image, color, and full viewport height */
 body {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/Wallpaper 4k.jpeg");
+    /*background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/Wallpaper 4k.jpeg");*/
+    background-color: grey;
     background-position: center;
     background-size: cover;
     min-height: 100vh;
@@ -19,7 +20,9 @@ body {
 .main {
     position: relative;
     width: 100%;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/Wallpaper 4k.jpeg");
+
+    /*background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/Wallpaper 4k.jpeg");*/
+    background-color: grey;
     background-position: center;
     background-size: cover;
     height: 109vh;
