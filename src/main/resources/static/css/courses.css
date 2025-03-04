@@ -5,19 +5,31 @@
 }
 
 body{
-    font-family: sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #E3F2FD, #FFFFFF);
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 20px 50px;
+    position: relative;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+    max-width: 400px;
+}
+
 .logo{
+    position: absolute;
+    top: 10px;
+    left: 50px;
     font-size: 24px;
     font-weight: bold;
     color: #333;
@@ -39,12 +51,6 @@ body{
 
 .nav-links li a:hover {
     color: #f44336;
-}
-
-.search {
-    display: flex;
-    gap: 10px;
-    width: 400px;
 }
 
 .search input {
@@ -94,7 +100,8 @@ body{
 }
 
 .course-card:hover {
-    transform: translate(0, -50px);
+    transform: scale(1.05);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 }
 
 
