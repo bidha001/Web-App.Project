@@ -1,164 +1,65 @@
-/* Reset default margins, padding, and set box-sizing for all elements */
-{
-margin: 0;
-padding-bottom: 0;
-box-sizing: border-box;
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-/* Body styling: background image, color, and full viewport height */
+/* Body styling */
 body {
-    /*background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/Wallpaper 4k.jpeg");*/
-    background-color: grey;
-    background-position: center;
-    background-size: cover;
-    min-height: 100vh;
-    color: white;
+    background-image: url("https://i.pinimg.com/736x/00/81/92/008192266cce3734c0cb32452b5e3575.jpg");
+    background-color: #fff;
+    font-family: Arial, sans-serif;
 }
 
-/* Additional container with similar background styling */
-.main {
-    position: relative;
-    width: 100%;
-
-    /*background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/Wallpaper 4k.jpeg");*/
-    background-color: grey;
-    background-position: center;
-    background-size: cover;
-    height: 109vh;
-}
-
-/* Navbar container styling */
+/* Navigation Bar styling */
 .navbar {
     display: flex;
     align-items: center;
-    position: relative;
     padding: 1rem 3rem;
-    background-color:transparent;
-    justify-content: space-between;
-
+    background-color: transparent;
 }
 
 /* Logo styling */
 .logo {
-    margin-top: 2px;
-    padding-left: 1px;
-    padding-bottom: 40px;/*margin between top of the page*/
-    color: white;
+    color: #000;
     font-size: 25px;
-    font-family: SansSerif, serif;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
-/* Navigation links container */
-.nav-links {
-    padding-left: 200px;
-    position: absolute;
-    margin-top: 4.5rem;
-    display: flex;
-    list-style: none;
-    gap: 10rem;
-}
-
-/* Individual navigation link styling */
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-/* Navigation link hover effect */
-.nav-links a:hover {
-    color: orange;
-}
-
-/* Search area container styling */
-.search {
-    margin-bottom: 80px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-
-
-/* Search input field styling */
-.search input {
-    width: 400px;
-    padding: 4px 15px;
-    border-radius: 10px;
-    font-size: 16px;
-}
-
-.btn {
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-
-/* Advertisement Banner Styling */
-.ad-banner {
-    position: absolute;
-    top: 50%;  /* Position at 60% height */
-    left: 10px;  /* 10px from right edge */
-    transform: translateY(-50%);  /* Vertical centering */
-    width: 250px;  /* Fixed width */
-    background-color: transparent;
-    color: red;
-    padding: 200px;
-    border-radius: 10px;
-    text-align: center;  /* Centered text */
-}
-
-/* "Join Us" button under ad-banner */
-.join-btn {
-    display: inline-block;
-    margin-top: 1rem;
-    background-color: #708bb4;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.join-btn:hover {
-    background-color: orange;
-}
-
-/* Login container takes full viewport height */
+/* Center the login form vertically and horizontally */
 .login-container {
-    margin-bottom: 10px;
-    margin-right: 60px;
-    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
 }
 
-/* Login box positioned at the middle-right */
+/* Login box styling */
 .login-box {
-    position: absolute;
-    top: 50%;
-    right: 15%;
-    transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.7);
     padding: 2rem;
     border-radius: 10px;
     width: 300px;
-    height: 290px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+/* Login box title styling */
 .login-box h2 {
     text-align: center;
     margin-bottom: 1.5rem;
+    color: #fff;
 }
 
+/* Label styling */
 .login-box label {
     display: block;
     margin-bottom: 0.5rem;
+    color: #fff;
 }
 
+/* Input field styling */
 .login-box input {
     width: 100%;
     padding: 0.5rem;
@@ -167,17 +68,32 @@ body {
     border: none;
 }
 
+/* Login button styling */
 .login-submit {
     width: 100%;
     padding: 0.5rem;
     border: none;
     border-radius: 5px;
     background-color: #708bb4;
-    color: white;
+    color: #fff;
     font-size: 1rem;
     cursor: pointer;
 }
 
+/* Hover effect for the login button */
 .login-submit:hover {
     background-color: orange;
+}
+
+/* Signup link styling */
+.signup-link {
+    margin-top: 1rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.signup-link a {
+    color: orange;
+    text-decoration: none;
 }
