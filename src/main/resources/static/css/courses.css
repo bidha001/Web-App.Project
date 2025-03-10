@@ -5,7 +5,7 @@
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: sans-serif Serif;
     background: linear-gradient(to bottom, #E3F2FD, #FFFFFF);
 }
 
@@ -13,6 +13,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: black;
+    color: #f1f1f1;
     padding: 20px 50px;
     position: relative;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -26,13 +28,15 @@ body{
     max-width: 400px;
 }
 
+
+
 .logo{
     position: absolute;
     top: 10px;
     left: 50px;
-    font-size: 24px;
+    font-size: 25px;
     font-weight: bold;
-    color: #333;
+    color: #eeb54c;
     line-height: 1.2;
 }
 
@@ -43,7 +47,7 @@ body{
 }
 
 .nav-links li a {
-    color: #333;
+    color: white;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
@@ -55,10 +59,10 @@ body{
 
 .search input {
     flex: 1;
-    padding: 8px 15px;
+    padding: 8px 137px;
     border: 1px solid #ddd;
     border-radius: 20px;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .btn {
@@ -68,6 +72,11 @@ body{
     border: none;
     border-radius: 20px;
     cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
 }
 
 .course-container {
