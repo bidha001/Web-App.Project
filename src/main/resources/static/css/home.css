@@ -23,6 +23,8 @@ body {
     padding: 1rem 3rem;
     background-color: #1e1f22;
     justify-content: space-between;
+
+
 }
 
 /* Logo styling */
@@ -108,7 +110,6 @@ body {
 .cn:hover {
     background: orange;
 }
-
 /* Right-side engaging lines styling */
 .right-lines {
     position: absolute;
