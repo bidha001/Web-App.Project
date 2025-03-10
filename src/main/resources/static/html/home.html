@@ -14,7 +14,22 @@
   <!-- Navigation Links -->
   <ul class="nav-links">
     <li><a href="#">| Home |</a></li>
-    <li><a href="#">| Category |</a></li>
+
+    <!-- Clickable Category Dropdown -->
+    <li class="dropdown">
+      <!-- Hidden Checkbox -->
+      <input type="checkbox" id="cat-toggle">
+      <!-- Label that toggles the checkbox -->
+      <label for="cat-toggle" class="category-label">| Category |</label>
+
+      <!-- Dropdown menu items -->
+      <ul class="dropdown-content">
+        <li><a href="#">Design</a></li>
+        <li><a href="#">Marketing</a></li>
+        <li><a href="#">Ingenior</a></li>
+      </ul>
+    </li>
+
     <li><a href="#">| My Course |</a></li>
     <li><a href="#">| About |</a></li>
   </ul>
@@ -32,11 +47,13 @@
     <!-- Call-to-action button -->
     <button class="cn"><a href="./login.html">JOIN US</a></button>
   </div>
+
   <!-- Right-side engaging lines -->
   <div class="right-lines">
     <p>Unlock Your Potential in Tech!</p>
     <p>Join our interactive Web Design & Development Course and build the digital skills for tomorrow.</p>
   </div>
+
 </div>
 </body>
 </html>
