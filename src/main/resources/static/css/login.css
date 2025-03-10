@@ -7,9 +7,9 @@
 
 /* Body styling */
 body {
-    background-image: url("https://i.pinimg.com/736x/00/81/92/008192266cce3734c0cb32452b5e3575.jpg");
-    background-color: #fff;
-    font-family: Arial, sans-serif;
+    background-image: url("https://i.pinimg.com/736x/7f/cb/f4/7fcbf4460af8623ebf4180d31fc97ce4.jpg");
+    background-size: cover;
+    min-height: 100vh;
 }
 
 /* Navigation Bar styling */
@@ -17,12 +17,12 @@ body {
     display: flex;
     align-items: center;
     padding: 1rem 3rem;
-    background-color: transparent;
+    background-color: #1e1f22;
 }
 
 /* Logo styling */
 .logo {
-    color: #000;
+    color: #eeb54c;
     font-size: 25px;
     font-weight: bold;
     line-height: 1.2;
@@ -38,10 +38,10 @@ body {
 
 /* Login box styling */
 .login-box {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     padding: 2rem;
     border-radius: 10px;
-    width: 300px;
+    width: 280px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 

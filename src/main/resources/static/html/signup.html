@@ -2,46 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign up to Learniverse</title>
+    <title>Sign Up - Learniverse Connect</title>
     <link rel="stylesheet" href="../css/signup.css">
 </head>
 <body>
-<!-- Navigation Bar (same as Login page) -->
+<!-- Navigation Bar with only Logo -->
 <nav class="navbar">
-    <!-- Logo Section -->
     <h2 class="logo">LEARNIVERSE<br>CONNECT</h2>
-    <!-- Navigation Links -->
-    <ul class="nav-links">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">Development</a></li>
-        <li><a href="#">Design</a></li>
-        <li><a href="#">Course</a></li>
-        <li><a href="#">About</a></li>
-    </ul>
-    <!-- Search Area -->
-    <div class="search">
-        <input type="search" name="search" placeholder="Search For Anything">
-        <button class="btn">Search</button>
-    </div>
 </nav>
 
-<!-- Main Container for Sign Up Content -->
-<section class="container">
-    <!-- Sign-up Form -->
-    <div class="signup-form">
-        <h1>Sign up to Learniverse</h1>
+<!-- Sign Up Form Container -->
+<div class="signup-container">
+    <div class="signup-box">
+        <h2>Sign Up</h2>
         <form>
-            <p><input type="text" placeholder="First Name" required></p>
-            <p><input type="text" placeholder="Last Name" required></p>
-            <p><input type="email" placeholder="Email..." required></p>
-            <p><input type="password" placeholder="Password..." required></p>
-            <p><button type="submit" class="signup-btn">Sign up</button></p>
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit" class="signup-submit">Sign Up</button>
         </form>
+        <p class="login-link">Already have an account?<br>
+            <a href="./login.html">Login here!</a>
+        </p>
     </div>
-    <!-- Sign-up Image -->
-    <div class="signup-image">
-        <img src="../images/signup-image.png" alt="signup-image">
-    </div>
-</section>
+</div>
 </body>
 </html>

@@ -1,5 +1,4 @@
-
-/* Reset default margins, padding, and set box-sizing for all elements */
+/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,233 +7,125 @@
 
 /* Body styling: background image, color, and full viewport height */
 body {
-    background-image: url("/src/main/resources/static/images/FullLogo (1).jpg");
+    background-image: url("https://i.pinimg.com/736x/f7/52/0b/f7520b191a02451117c462faf7c87159.jpg");
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar container styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 1rem 3rem;
+    background-color: #1e1f22;
+    justify-content: space-between;
+}
+
+/* Logo styling */
+.logo {
+    padding-left: 5px;
+    padding-bottom: 20px;
+    color: #eeb54c;
+    font-size: 25px;
+    font-family: SansSerif, serif;
+}
+
+/* Navigation links container */
+.nav-links {
+    margin-top: 2rem;
+    display: flex;
+    list-style: none;
+    gap: 10rem;
+}
+
+/* Individual navigation link styling */
+.nav-links a {
+    color: #eeb54c;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* Navigation link hover effect */
+.nav-links a:hover {
     color: white;
+}
 
+/* Login and Sign Up button styling */
+.login-btn {
+    padding: 5px 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #eeb54c;
+    color: white;
+}
 
-    /* Navbar container styling */
-    .navbar {
-        display: flex;
-        align-items: center;
-        position: relative;
-        padding: 1rem 3rem;
-        background-color: transparent;
-        justify-content: space-between;
+/* Authentication buttons hover effect */
+.login-btn:hover {
+    background-color: #604107;
+}
 
-    }
+/* Hero section styling */
+.hero {
+    position: relative; /* Create positioning context for the right-lines */
+    padding: 7rem 8rem;
+    max-width: 2500px;
+    margin: 0 auto;
+}
 
-    /* Logo styling */
-    .logo {
-        padding-left: 5px;
-        padding-bottom: 40px; /*margin between top of the page*/
-        color: Blue; /*changed this to blue*/
-        font-size: 25px;
-        font-family: SansSerif, serif;
-    }
+/* Hero content styling */
+.hero-content h1 {
+    font-family: SansSerif, serif;
+    font-size: 35px;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    color: white;
+}
 
-    /* Navigation links container */
-    .nav-links {
-        margin-top: 2rem;
-        display: flex;
-        list-style: none;
-        gap: 10rem;
-    }
+/* Join Us button styling */
+.cn {
+    width: 160px;
+    height: 40px;
+    background: #9a409a;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
 
-    /* Individual navigation link styling */
-    .nav-links a {
-        color: #000000;
-        text-decoration: none;
-        font-size: 1.1rem;
-    }
+/* Link styling inside Join Us button */
+.cn a {
+    color: white;
+    text-decoration: none;
+}
 
-    /* Navigation link hover effect */
-    .nav-links a:hover {
-        color: orange;
-    }
+/* Hover effect for Join Us button */
+.cn:hover {
+    background: orange;
+}
 
-    /* Login and Sign Up button styling */
-    .login-btn {
-        margin-bottom: 52px; /*margin between top of the page*/
-        width: auto;
-        padding: 5px 15px;
-        border-radius: 10px;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        background-color: #708bb4;
-        color: white;
-    }
+/* Right-side engaging lines styling */
+.right-lines {
+    position: absolute;
+    top: 95%;
+    right: 9rem;/* Adjust spacing from the right edge as needed */
+    transform: translateY(-50%);
+    width: 450px;/* Adjust width as needed */
+    color: #dadfe1;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+}
 
-    /* Authentication buttons hover effect */
-    .login-btn:hover {
-        background-color: orange;
-    }
-
-    /* Form container for login */
-    .form {
-        margin-left: 1250px;
-        margin-top: 10px;
-        padding-right: 10px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        white-space: nowrap;
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-
-    /* Form container hover effect */
-    .form:hover {
-        background: orange;
-    }
-
-    /* Content container for course introduction */
-    .content {
-        width: 1500px;
-        height: auto;
-        margin: auto;
-        color: white;
-        position: relative;
-    }
-
-    /* Paragraph styling inside the content container */
-    .content .par {
-        padding-left: 70px; /* Space from left edge */
-        padding-bottom: 30px; /* Space below paragraph for button */
-        font-family: Arial, serif;
-        letter-spacing: 1.5px;
-        line-height: 35px;
-    }
-
-
-    /* Heading styling inside the content container */
-    .content h1 {
-        font-family: "Times New Roman", serif;
-        font-size: 40px; /* Font size for heading */
-        padding-left: 30px; /* Left margin for heading */
-        margin-top: 10%; /* Top margin for spacing */
-        letter-spacing: 2px; /* Spacing between letters */
-    }
-
-    /* Join Us button styling inside the content container */
-    .content .cn {
-        width: 160px;
-        height: 40px;
-        background: #708bb4;
-        border: none;
-        margin-bottom: 10px;
-        margin-left: 130px;
-        font-size: 18px;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
-    /* Hover effect for Join Us button */
-    .cn:hover {
-        background: orange;
-    }
-
-    /* Container styling for sections like sign up form */
-    .container {
-        display: flex;
-        align-items: center;
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        max-width: 700px;
-        width: 100%;
-    }
-
-    /* General styling for input fields and buttons */
-    input,
-    button {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-    /* Default button styling */
-    button {
-        background-color: #f1f1f1;
-        border: none;
-        cursor: pointer;
-    }
-
-    /* Image container styling for images */
-    .image-container img {
-        width: 250px;
-        border-radius: 10px;
-    }
-
-    /* Responsive design adjustments for screens smaller than 1000px */
-    @media (max-width: 3024px) {
-        .container {
-            flex-direction: column;
-            padding: 10px;
-        }
-
-        .signup-form {
-            max-width: 100%;
-            margin-right: 0;
-        }
-
-        .image-container img {
-            width: 100px;
-        }
-    }
-
-    /* Hero section styling */
-    .hero {
-
-        padding: 7rem 8rem;
-        max-width: 2500px;
-        margin: 0 auto;
-    }
-
-    /* Hero content heading styling */
-    .hero-content h1 {
-        font-family: "Times New Roman", serif;
-        font-size: 35px;
-        margin-bottom: 2rem;
-        letter-spacing: 2px;
-        color: #063cf1;
-    }
-
-    /* Hero content paragraph styling */
-    .hero-content .par {
-        font-family: Arial, serif;
-        letter-spacing: 1.5px;
-        line-height: 35px;
-        margin-bottom: 2rem;
-        color:#000000;
-    }
-
-    /* Styling for the Join Us button in the hero section */
-    .cn {
-        width: 160px;
-        height: 40px;
-        background: #708bb4;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 18px;
-    }
-
-    /* Link styling inside the Join Us button */
-    .cn a {
-        color: white;
-        text-decoration: none;
-    }
-
-    /* Hover effect for the Join Us button */
-    .cn:hover {
-        background: orange;
-    }
+/* Add a gap after the first paragraph */
+.right-lines p:first-of-type {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 30px;
+    color: #ee9d08;
 }

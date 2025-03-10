@@ -1,152 +1,99 @@
-/* Reset default margins, padding, and set box-sizing for all elements */
+/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* General body styling */
+/* Body styling */
 body {
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/Wallpaper 4k.jpeg");
-    background-position: center;
+    background-image: url("https://i.pinimg.com/736x/7f/cb/f4/7fcbf4460af8623ebf4180d31fc97ce4.jpg");
     background-size: cover;
     min-height: 100vh;
-    color: white;
 }
 
-/* Additional container with similar background styling */
-.main {
-    position: relative;
-    width: 100%;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url("/src/main/resources/static/images/Wallpaper 4k.jpeg");
-    background-position: center;
-    background-size: cover;
-    height: 109vh;
-}
-
-/* Navbar container styling */
+/* Navigation Bar styling */
 .navbar {
     display: flex;
     align-items: center;
-    position: relative;
     padding: 1rem 3rem;
-    background-color:transparent;
-    justify-content: space-between;
-
+    background-color: #1e1f22;
 }
 
 /* Logo styling */
 .logo {
-    margin-top: 2px;
-    padding-left: 1px;
-    padding-bottom: 40px;/*margin between top of the page*/
-    color: white;
+    color: #eeb54c;
     font-size: 25px;
-    font-family: SansSerif, serif;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
-/* Navigation links container */
-.nav-links {
-    padding-left: 200px;
-    position: absolute;
-    margin-top: 4.5rem;
+/* Center the sign up form vertically and horizontally */
+.signup-container {
     display: flex;
-    list-style: none;
-    gap: 10rem;
-}
-
-/* Individual navigation link styling */
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-.nav-links a:hover {
-    color: orange;
-}
-
-/* Search area container styling */
-.search {
-    margin-bottom: 80px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-
-/* Search input field styling */
-.search input {
-    width: 400px;
-    padding: 4px 15px;
-    border-radius: 10px;
-    font-size: 16px;
-}
-
-.btn {
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: orange;
-}
-
-/* Main container for sign-up form and image */
-.container {
-    display: flex;
-    margin-bottom: 50px;
     align-items: center;
-    justify-content: space-around;
-    min-height: calc(100vh - 80px); /* adjust if navbar height differs */
+    justify-content: center;
+    min-height: 80vh;
+}
+
+/* Sign up box styling */
+.signup-box {
+    background: rgba(0, 0, 0, 0.7);
     padding: 2rem;
-}
-
-/* Sign-up form styling */
-.signup-form {
-    background: transparent;
-    padding: 3.5rem;
     border-radius: 10px;
-    width: 400px;
+    width: 325px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.signup-form h1 {
+/* Sign up box title styling */
+.signup-box h2 {
     text-align: center;
-    padding-bottom: 20px;
-}
-
-.signup-form input {
-    width: 100%;
-    padding: 0.8rem;
     margin-bottom: 1.5rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #000; /* Input text color */
+    color: #fff;
 }
 
-/* Sign-up button styling */
-.signup-btn {
+/* Label styling */
+.signup-box label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+/* Input field styling */
+.signup-box input {
     width: 100%;
-    padding: 0.6rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Sign up button styling */
+.signup-submit {
+    width: 100%;
+    padding: 0.5rem;
     border: none;
     border-radius: 5px;
     background-color: #708bb4;
-    color: white;
+    color: #fff;
     font-size: 1rem;
     cursor: pointer;
 }
 
-.signup-btn:hover {
+/* Hover effect for the sign up button */
+.signup-submit:hover {
     background-color: orange;
 }
 
-/* Sign-up image styling */
-.signup-image img {
-    max-width: 4500px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+/* Login link styling below the form */
+.login-link {
+    margin-top: 1rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: orange;
+    text-decoration: none;
 }
