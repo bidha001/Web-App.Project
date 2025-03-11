@@ -128,35 +128,26 @@ body {
         font-size: 1.1em;
     }
 
-    .avatar-container {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-
-    .avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 80%;
-        object-fit: cover;
-    }
-
-    .avatar-container:hover {
-        transform: scale(1.05);
-    }
-
-
-.Shopping-cart {
+.avatar-shopping-container {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.Shopping {
+.avatar, .shopping {
     width: 50px;
     height: 50px;
-    border-radius: 80%;
+    border-radius: 35%;
     object-fit: cover;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.avatar:hover, .shopping:hover {
+    transform: scale(1.01);
 }
 
 
