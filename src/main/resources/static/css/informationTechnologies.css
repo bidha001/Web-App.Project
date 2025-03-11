@@ -128,7 +128,7 @@ body {
         font-size: 1.1em;
     }
 
-.avatar-shopping-container {
+.avatar-shopping-notice-container {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -137,16 +137,20 @@ body {
     gap: 15px;
 }
 
-.avatar, .shopping {
-    width: 50px;
-    height: 50px;
-    border-radius: 35%;
-    object-fit: cover;
+.avatar {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.shopping, .notice {
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     transition: 0.2s ease;
 }
 
-.avatar:hover, .shopping:hover {
+.avatar:hover, .shopping:hover, .notice:hover {
     transform: scale(1.01);
 }
 
