@@ -27,6 +27,10 @@ body {
     font-weight: bold;
     line-height: 1.2;
 }
+.logo a {
+    color: #eeb54c;
+    text-decoration: none;
+}
 
 /* Center the login form vertically and horizontally */
 .login-container {
@@ -97,3 +101,7 @@ body {
     color: orange;
     text-decoration: none;
 }
+
+
+
+

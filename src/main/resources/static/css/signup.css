@@ -22,10 +22,15 @@ body {
 
 /* Logo styling */
 .logo {
-    color: #eeb54c;
     font-size: 25px;
     font-weight: bold;
     line-height: 1.2;
+}
+
+/*logo decoration*/
+.logo a {
+    color: #eeb54c;
+    text-decoration: none;
 }
 
 /* Center the sign up form vertically and horizontally */

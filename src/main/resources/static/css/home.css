@@ -11,29 +11,33 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    min-height: 120vh;
     font-family: Arial, sans-serif;
 }
 
 /* Navbar container styling */
 .navbar {
     display: flex;
+    width: 100%;
     align-items: center;
     position: relative;
-    padding: 1rem 3rem;
-    background-color: #1e1f22;
+    padding: 0.5rem 1rem;
+    background-color: #033f2c;
     justify-content: space-between;
-
-
 }
 
 /* Logo styling */
 .logo {
     padding-left: 5px;
     padding-bottom: 20px;
-    color: #eeb54c;
     font-size: 25px;
     font-family: SansSerif, serif;
+}
+
+.logo a {
+    color: #eeb54c;
+    text-decoration: none;
+
 }
 
 /* Navigation links container */
@@ -58,7 +62,7 @@ body {
 
 /* Login and Sign Up button styling */
 .login-btn {
-    padding: 5px 15px;
+    padding: 5px 10px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -182,5 +186,43 @@ body {
 .dropdown input[type="checkbox"]:checked ~ .dropdown-content {
     display: block;
 }
+/* FOOTER */
+.footer {
+    background-color: #f8f9fa;
+    margin-top: 400px;
+    padding: 40px 0;
+    width: 100%;
+}
 
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+}
 
+.footer-col h5 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 5px;
+}
+.footer-col a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.2s;
+}
+.footer-col a:hover {
+  color: #007bff;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
