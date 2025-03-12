@@ -11,53 +11,49 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 120vh;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
 }
 
-/* Navbar container styling */
+/* NAVBAR WRAPPER */
 .navbar {
     display: flex;
-    width: 100%;
     align-items: center;
-    position: relative;
+    background-color: #2a2b2d;
+    color: #f1f1f1;
     padding: 0.5rem 1rem;
-    background-color: #033f2c;
-    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo styling */
+/* LOGO ON THE LEFT */
 .logo {
-    padding-left: 5px;
-    padding-bottom: 20px;
     font-size: 25px;
-    font-family: SansSerif, serif;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-right: 1rem; /* small spacing after logo */
 }
-
 .logo a {
     color: #eeb54c;
     text-decoration: none;
-
 }
 
-/* Navigation links container */
+/* NAV LINKS IN THE CENTER */
 .nav-links {
-    margin-top: 2rem;
+    flex: 1; /* takes up the leftover space */
     display: flex;
+    justify-content: center; /* center them horizontally */
+    gap: 5rem;
     list-style: none;
-    gap: 10rem;
+    margin-right: 120px;
+    margin-top: 20px;
 }
-
-/* Individual navigation link styling */
 .nav-links a {
     color: #eeb54c;
     text-decoration: none;
     font-size: 1.1rem;
 }
-
-/* Navigation link hover effect */
 .nav-links a:hover {
-    color: white;
+    color: #E3F2FD;
 }
 
 /* Login and Sign Up button styling */
@@ -69,6 +65,7 @@ body {
     font-size: 16px;
     background-color: #eeb54c;
     color: white;
+    margin-bottom: 10px;
 }
 
 /* Authentication buttons hover effect */
