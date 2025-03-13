@@ -78,6 +78,53 @@ body {
     transform: scale(1.05);
 }
 
+/* Dropdown container */
+.dropdown {
+    position: relative;
+}
+
+/* Hide the checkbox */
+.dropdown input[type="checkbox"] {
+    display: none;
+}
+
+/* Category label styles */
+.category-label {
+    color: #eeb54c;
+    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* Hidden dropdown menu */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 2.5rem; /* Adjust vertical offset */
+    left: 0;
+    background-color: #1e1f22;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+}
+
+/* Individual dropdown items */
+.dropdown-content li a {
+    display: block;
+    padding: 10px 15px;
+    color: #eeb54c;
+    text-decoration: none;
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+/* Show dropdown when checkbox is checked */
+.dropdown input[type="checkbox"]:checked ~ .dropdown-content {
+    display: block;
+}
+
+
 /* ICONS ON THE FAR RIGHT */
 .icon-container {
     display: flex;

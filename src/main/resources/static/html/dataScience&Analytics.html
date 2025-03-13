@@ -21,7 +21,22 @@
     <!-- Center: Nav links -->
     <ul class="nav-links">
         <li><a href="#">Home</a></li>
-        <li><a href="#">Category</a></li>
+
+        <!-- Dropdown for Category -->
+        <li class="dropdown">
+            <!-- Hidden Checkbox -->
+            <input type="checkbox" id="cat-toggle">
+            <!-- Label that toggles the dropdown -->
+            <label for="cat-toggle" class="category-label">Category</label>
+            <!-- Dropdown menu items -->
+            <ul class="dropdown-content">
+                <li><a href="informationTechnologies.html">informationTechnologies</a></li>
+                <li><a href="digitalMarketing.html">Digital Marketing</a></li>
+                <li><a href="business&Entrepreneurship.html">Business & Entrepreneurship</a></li>
+                <li><a href="dataScience&Analytics.html">Data Science and Analytics</a></li>
+            </ul>
+        </li>
+
         <li><a href="#">My Course</a></li>
         <li><a href="#">About</a></li>
     </ul>

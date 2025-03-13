@@ -78,6 +78,57 @@ body {
     transform: scale(1.05);
 }
 
+.dropdown {
+    position: relative;
+}
+
+/* Hide the checkbox */
+.dropdown input[type="checkbox"] {
+    display: none;
+}
+
+/* Category label styles */
+.category-label {
+    color: #eeb54c;
+    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer; /* Makes the label appear clickable */
+}
+
+/* The hidden dropdown menu */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 2.5rem; /* Adjust vertical offset so it sits below the label */
+    left: 0;     /* Aligns with the left edge of the .dropdown container */
+    background-color: #1e1f22; /* Similar to your navbar color scheme */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 999; /* Ensure the dropdown is above other elements */
+}
+
+/* Individual dropdown items */
+.dropdown-content li a {
+    display: block;
+    padding: 10px 15px;
+    color: #eeb54c;
+    text-decoration: none;
+    font-size: 1.1rem;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Hover effect for dropdown items */
+.dropdown-content li a:hover {
+    background-color: #604107;
+    color: #fff;
+}
+
+/* Toggle display when checkbox is checked */
+.dropdown input[type="checkbox"]:checked ~ .dropdown-content {
+    display: block;
+}
+
 /* ICONS ON THE FAR RIGHT */
 .icon-container {
     display: flex;
