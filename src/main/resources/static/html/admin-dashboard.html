@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - LEARNIVERSE CONNECT</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h2 class="logo"><a href="./home.html">LEARNIVERSE<br>CONNECT</a></h2>
+        <ul class="nav-links">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./admin-dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <button class="login-btn"><a href="./home.html">Logout</a></button>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard Content -->
+    <div class="admin-container">
+        <div class="dashboard-header">
+            <h1>Course Management</h1>
+            <button class="add-course-btn" onclick="openAddCourseModal()">
+                <i class="fa fa-plus"></i> Add New Course
+            </button>
+        </div>
+
+        <!-- Course Table -->
+        <div class="table-container">
+            <table class="courses-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Course Title</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Web Design & Development</td>
+                        <td>Information Technologies</td>
+                        <td><span class="status active">Active</span></td>
+                        <td class="actions">
+                            <button class="edit-btn"><i class="fa fa-edit"></i></button>
+                            <button class="delete-btn"><i class="fa fa-trash"></i></button>
+                            <button class="view-btn"><i class="fa fa-eye"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Digital Marketing Fundamentals</td>
+                        <td>Digital Marketing</td>
+                        <td><span class="status draft">Draft</span></td>
+                        <td class="actions">
+                            <button class="edit-btn"><i class="fa fa-edit"></i></button>
+                            <button class="delete-btn"><i class="fa fa-trash"></i></button>
+                            <button class="view-btn"><i class="fa fa-eye"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Business Analytics</td>
+                        <td>Business & Entrepreneurship</td>
+                        <td><span class="status active">Active</span></td>
+                        <td class="actions">
+                            <button class="edit-btn"><i class="fa fa-edit"></i></button>
+                            <button class="delete-btn"><i class="fa fa-trash"></i></button>
+                            <button class="view-btn"><i class="fa fa-eye"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add/Edit Course Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Course</h2>
+            <form class="course-form">
+                <div class="form-group">
+                    <label for="courseTitle">Course Title</label>
+                    <input type="text" id="courseTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseCategory">Category</label>
+                    <select id="courseCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="it">Information Technologies</option>
+                        <option value="marketing">Digital Marketing</option>
+                        <option value="business">Business & Entrepreneurship</option>
+                        <option value="data">Data Science and Analytics</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="courseDescription">Description</label>
+                    <textarea id="courseDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="courseImage">Course Image</label>
+                    <input type="file" id="courseImage" accept="image/*">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="save-btn">Save Course</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Course Management</a></li>
+                    <li><a href="#">User Management</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Learniverse Admin Panel. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
