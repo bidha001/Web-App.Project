@@ -11,7 +11,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    min-height: auto;
     font-family: Arial, sans-serif;
 }
 
@@ -30,9 +30,11 @@ body {
     font-size: 25px;
     font-weight: bold;
     line-height: 1.2;
-    margin-right: 1rem; /* small spacing after logo */
+    /* margin-right: 1rem; /* small spacing after logo */
+    font-family: SansSerif, serif;
 }
 .logo a {
+    font-family: sans-serif;
     color: #eeb54c;
     text-decoration: none;
 }
