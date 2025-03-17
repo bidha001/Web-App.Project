@@ -26,6 +26,7 @@ body {
     font-size: 25px;
     font-weight: bold;
     line-height: 1.2;
+    font-family: SansSerif, serif;
 }
 .logo a {
     color: #eeb54c;
@@ -100,6 +101,40 @@ body {
 .signup-link a {
     color: orange;
     text-decoration: none;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1080px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        color: #eeb54c;
+    }
+
+    .hero {
+        padding: 4rem 1rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 
