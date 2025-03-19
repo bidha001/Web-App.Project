@@ -10,6 +10,7 @@
 
 a{
     text-decoration: none;
+    color: #eeb54c;
 }
 
 ul{
@@ -46,10 +47,13 @@ body, html{
 .nav-links{
     display: flex;
     align-items: center;
+    color: #eeb54c;
 }
 
 .nav-links li{
     margin: 0 30px;
+    color: #eeb54c;
+
 }
 
 .dropdown {
@@ -144,9 +148,9 @@ header{
 
 .ctn{
     padding: 8px 15px;
-    background: #eeb54c;
+    background: rgb(27, 26, 26);
     border-radius: 30px;
-    color: black;
+    color: whitesmoke;
 }
 
 
