@@ -1,109 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LEARNIVERSE CONNECT</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/home.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>LEARNIVERSE CONNECT</title>
 </head>
-
 <body>
+<!-- Navbar -->
+<nav class="navbar">
+  <h1 class="logo">LEARNIVERSE<br>CONNECT</h1>
+  <ul class="nav-links">
+    <li><a href="#"></a>Home</li>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
+    <li class="dropdown">
+      <input type="checkbox" id="cat-toggle">
+      <label for="cat-toggle" class="category-label">Category</label>
+      <ul class="dropdown-content">
+        <li><a href="#">Information Technologies</a></li>
+        <li><a href="#">Digital Marketing</a></li>
+        <li><a href="#">Business & Entrepreneurship</a></li>
+        <li><a href="#">Data Science & Analytics</a></li>
+      </ul>
 
-    <!-- Logo Section -->
-    <h2 class="logo"><a href="./home.html">LEARNIVERSE<br>CONNECT</a></h2>
+    </li>
+    <li><a href="#"></a>Course</li>
+    <li><a href="#"></a>About</li>
 
-    <!-- Navigation Links -->
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
+    <li class="ctn"><a href="login.html">Login</a></li>
 
-      <!-- Clickable Category Dropdown -->
-      <li class="dropdown">
-        <!-- Hidden Checkbox -->
-        <input type="checkbox" id="cat-toggle">
-        <!-- Label that toggles the checkbox -->
-        <label for="cat-toggle" class="category-label">Category</label>
+  </ul>
+  <img src="../img/icon.png" alt="" class="menu-btn">
+</nav>
 
-        <!-- Dropdown menu items -->
-        <ul class="dropdown-content">
-          <li><a href="informationTechnologies.html">informationTechnologies</a></li>
-          <li><a href="digitalMarketing.html">Digital Marketing</a></li>
-          <li><a href="business&Entrepreneurship.html">Business & Entrepreneurship</a></li>
-          <li><a href="dataScience&Analytics.html">Data Science and Analytics</a></li>
-        </ul>
-      </li>
+<header>
+  <div class= "header-content">
+    <h2> Web Design & Development Course</h2>
+    <div class=line"></div>
+    <h1> Join our interactive Web Design & Development Course and build the digital skills for tomorrow.</h1>
+    <a href="login.html" class="ctn">Join Us</a>
+  </div>
+</header>
 
-      <li><a href="#">Course</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
+<section class="events">
+  <div class="title">
+    <h1>Upcoming Events</h1>
+    <div class="line"></div>
+  </div>
 
-    <!-- Authentication Buttons -->
-    <div class="auth-buttons">
-      <button class="login-btn"><a href="./login.html">Login</a></button>
+  <div class="row">
+    <div class="col">
+      <img src="../images/python.jpg" alt="">
+      <h4> JAVA</h4>
+      <p> This is the really exclusive event. I f you are interested on it. Just join this event.</p>
+      <a href="#" class="ctn">Learn more</a>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="hero-content">
-      <!-- Main heading with a span for emphasis -->
-      <h1>Web Design & <br><span>Development Course</span></h1>
-      <!-- Call-to-action button -->
-      <button class="cn"><a href="./login.html">JOIN US</a></button>
+    <div class="col">
+      <img src="../images/python.jpg" alt="">
+      <h4> Python</h4>
+      <p> This is the really exclusive event. I f you are interested on it. Just join this event.</p>
+      <a href="#" class="ctn">Learn more</a>
+    </div>
+  </div>
+</section>
+
+<section class="explore">
+  <div class="explore-content">
+    <h1>EXPLORE OUR ONLINE LEARNING PLATFORM </h1>
+    <div class="line"></div>
+    <p>Unlock your potential with world-class courses, expert mentorship, and a vibrant learning community. Take the next step in your journey today!</p>
+    <a href="#" class="ctn">Learn more</a>
+  </div>
+</section>
+
+<section class="tours">
+  <div class="row">
+    <div class="col content-col">
+      <h1>Our Courses</h1>
+      <p> Write here sinejw ewiufsu widfgsu weiufg fiugu </p>
+      <a href="#" class ="ctn"> Learn more</a>
     </div>
 
-    <!-- Right-side engaging lines -->
-    <div class="right-lines">
-      <p>Unlock Your Potential in Tech!</p>
-      <p>Join our interactive Web Design & Development Course and build the digital skills for tomorrow.</p>
+    <div class="col image-col">
+      <div class="images-gallery">
+        <img src="../images/dataScience.jpg" alt="">
+        <img src="../images/Search%20Engine%20Optimization.png" alt="">
+        <img src="../images/python.jpg" alt="">
+        <img src="../images/coding.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="footer-content">
+    <div class="footer-col">
+      <h1>About Us</h1>
+      <ul>
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h1>Courses</h1>
+      <ul>
+        <li><a href="#">All Courses</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Instructors</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h1>Support</h1>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h1>Legal</h1>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-col">
-        <h5>About Us</h5>
-        <ul>
-          <li><a href="#">Our Story</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Courses</h5>
-        <ul>
-          <li><a href="#">All Courses</a></li>
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">Instructors</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Support</h5>
-        <ul>
-          <li><a href="#">Help Center</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Accessibility</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2023 Learniverse. All rights reserved.</p>
-    </div>
-  </footer>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Learniverse. All rights reserved.</p>
+  </div>
+</section>
+
+
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const navlinks = document.querySelector('.nav-links');
+
+  menuBtn.addEventListener('click', () => {
+    navlinks.classList.toggle('mobile-menu');
+  });
+</script>
 
 </body>
-
 </html>

@@ -6,11 +6,8 @@
 
 /* Body styling: background image, color, and full viewport height */
 body {
-    /*background-image: url("https://i.pinimg.com/736x/f7/52/0b/f7520b191a02451117c462faf7c87159.jpg");*/
-    background-color: #918d8e;
-    background-position: center;
+    background: linear-gradient(145deg, #d1b181, #f1893e);
     background-size: cover;
-    background-repeat: no-repeat;
     min-height: auto;
     font-family: Arial, sans-serif;
 }
@@ -89,8 +86,8 @@ body {
 
 
 .info-section {
-    max-width: 1200px;
-    margin: 15rem auto;           /* Center the section and add vertical space */
+    max-width: 1300px;
+    margin: 7rem auto;           /* Center the section and add vertical space */
     display: flex;
     gap: 1rem;                   /* Space between boxes */
     justify-content: center;     /* Center the boxes horizontally */
@@ -98,11 +95,11 @@ body {
 }
 
 .info-box {
-    flex: 1;                     /* Each box expands equally */
-    background-color: #fff;      /* White background */
+    flex: 1rem;                     /* Each box expands equally */
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: linear-gradient(145deg, #bfbfd5, #0574f3);
     text-align: center;          /* Center text (optional) */
 }
 

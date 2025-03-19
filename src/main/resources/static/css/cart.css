@@ -10,7 +10,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Navbar - Fixed Like Home Page */
 .navbar {
     display: flex;
     align-items: center;
@@ -18,14 +17,15 @@ body {
     color: #f1f1f1;
     padding: 0.5rem 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
 }
 
-.navbar .logo {
+.logo {
     font-size: 25px;
     font-weight: bold;
     line-height: 1.2;
-
     font-family: SansSerif, serif;
+    margin-right: 1rem;
 }
 
 .logo a {
@@ -34,7 +34,7 @@ body {
     text-decoration: none;
 }
 
-.navbar .nav-links {
+.nav-links {
     flex: 1; /* takes up the leftover space */
     display: flex;
     justify-content: center; /* center them horizontally */
@@ -44,17 +44,17 @@ body {
     margin-top: 20px;
 }
 
-.navbar .nav-links a {
+.nav-links a {
     color: #eeb54c;
     text-decoration: none;
     font-size: 1.1rem;
 }
 
-.navbar .nav-links a:hover {
+.nav-links a:hover {
     color: #eeb54c;
 }
 
-.navbar .login-btn {
+.login-btn {
     background: #eeb54c;
     color: black;
     padding: 8px 16px;
@@ -65,17 +65,16 @@ body {
     transition: 0.3s;
 }
 
-.navbar .login-btn:hover {
+.login-btn:hover {
     background: #c9942c;
 }
 
 /* Shopping Cart Container */
 .container {
     max-width: 1100px;
-    margin-top: 3rem;
-    margin-left: 10rem;
+    margin: auto;
+    padding: 20px;
     background: white;
-    padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
@@ -129,22 +128,6 @@ h1, h2 {
     margin: 10px 0;
 }
 
-/* Add to Cart Button */
-button {
-    background: linear-gradient(45deg, #28a745, #218838);
-    color: white;
-    padding: 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: linear-gradient(45deg, #218838, #1c7430);
-}
-
 /* Cart Section */
 .cart {
     margin-top: 30px;
@@ -193,6 +176,7 @@ th {
     background: #cc0000;
 }
 
+/*For responsive page*/
 @media (max-width: 600px) {
     .products {
         flex-direction: column;
