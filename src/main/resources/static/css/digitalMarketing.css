@@ -118,18 +118,21 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    color: whitesmoke;
 }
+
 .notice, .shopping, .avatar {
     width: 40px;
     height: 40px;
     cursor: pointer;
     transition: 0.2s ease;
+    color: whitesmoke;
 }
 .notice:hover, .shopping:hover, .avatar:hover {
     transform: scale(1.05);
 }
 
-/* COURSE SECTION (unchanged from your example) */
+/* COURSE SECTION) */
 .course-container {
     padding: 150px 20px;
     text-align: center;

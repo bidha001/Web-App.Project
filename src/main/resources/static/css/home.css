@@ -1,7 +1,6 @@
 /*Google font*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins');
 
-/*Global*/
 * {
     margin: 0;
     padding: 0;
@@ -41,7 +40,7 @@ body, html{
     justify-content: space-between;
     padding: 20px;
     color: #eeb54c;
-    background-color: #2a2b2d;
+    background-color: #1b1c1c;
 }
 
 .nav-links{
@@ -148,7 +147,7 @@ header{
 
 .ctn{
     padding: 8px 15px;
-    background: rgb(27, 26, 26);
+    background: rgb(6, 41, 81);
     border-radius: 30px;
     color: whitesmoke;
 }
@@ -341,7 +340,7 @@ p {
     color: whitesmoke;
     margin-top: 20px;
     padding-top: 10px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Subtle separation */
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
 }
 
