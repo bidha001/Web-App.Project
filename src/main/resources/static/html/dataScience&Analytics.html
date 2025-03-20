@@ -1,47 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
     <meta charset="UTF-8">
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/digitalMarketing.css">
     <title>Learniverse Connect</title>
-    <link rel="stylesheet" href="../css/dataScience&Analytics.css">
-
 </head>
-
 <body>
+
+<!-- Navbar -->
 <nav class="navbar">
-    <!-- Left: Logo -->
     <div class="logo">
         <a href="./home.html">LEARNIVERSE<br>CONNECT</a>
     </div>
-
-    <!-- Center: Nav links -->
     <ul class="nav-links">
         <li><a href="home.html">Home</a></li>
 
-        <!-- Dropdown for Category -->
         <li class="dropdown">
-            <!-- Hidden Checkbox -->
             <input type="checkbox" id="cat-toggle">
-            <!-- Label that toggles the dropdown -->
             <label for="cat-toggle" class="category-label">Category</label>
-            <!-- Dropdown menu items -->
             <ul class="dropdown-content">
-                <li><a href="informationTechnologies.html">informationTechnologies</a></li>
+                <li><a href="informationTechnologies.html">Information Technologies</a></li>
                 <li><a href="digitalMarketing.html">Digital Marketing</a></li>
                 <li><a href="business&Entrepreneurship.html">Business & Entrepreneurship</a></li>
-                <li><a href="dataScience&Analytics.html">Data Science and Analytics</a></li>
+                <li><a href="dataScience&Analytics.html">Data Science & Analytics</a></li>
             </ul>
         </li>
 
-        <li><a href="#">My Course</a></li>
+        <li><a href="#">Course</a></li>
         <li><a href="about.html">About</a></li>
-    </ul>
 
-    <!-- Right: Search bar + icons -->
+    </ul>
+    <img src="../images/menu.png" alt="" class="menu-btn">
+
     <div class="search">
         <input type="search" placeholder="Search For Anything">
         <button class="btn">Search</button>
@@ -52,11 +44,12 @@
         <img src="../images/cart.png" alt="Shopping" class="shopping">
         <img src="../images/profile.png" alt="Avatar" class="avatar">
     </div>
-</nav>
-<!-- Course Section -->
 
-<div class="course-container">
-    <h1>Available Courses</h1>
+</nav>
+
+<section class="course-container">
+    <h1>Data Science & Analytics</h1>
+    <div class=line"></div>
     <div class="courses-grid">
 
         <!-- Course 1 -->
@@ -155,7 +148,60 @@
             </a>
         </div>
     </div>
-</div>
-</body>
+</section>
 
+<section class="footer">
+    <div class="footer-content">
+        <div class="footer-col">
+            <h1>About Us</h1>
+            <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h1>Courses</h1>
+            <ul>
+                <li><a href="#">All Courses</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Instructors</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h1>Support</h1>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h1>Legal</h1>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Learniverse. All rights reserved.</p>
+    </div>
+</section>
+
+
+<script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const navlinks = document.querySelector('.nav-links');
+
+    menuBtn.addEventListener('click', () => {
+        navlinks.classList.toggle('mobile-menu');
+    });
+</script>
+
+</body>
 </html>
