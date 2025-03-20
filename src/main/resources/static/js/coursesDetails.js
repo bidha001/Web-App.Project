@@ -326,6 +326,9 @@ const courses = [
             "Databricks in this accessible and empowering course."
     },
 ];
+
+
+
     // Method to get the course details based on the productID
     function getCourseById(productID) {
     return courses.find(course => course.productID === productID);

@@ -33,18 +33,17 @@
         <ul>
             ${course.courseProviders.map(provider => `<li>${provider.provider} - ${provider.price}</li>`).join('')}
         </ul>
+        <!--Add an order button -->
+        <button class="btn" onclick="handleOrder (${course.id})">Order Course</button>
+        <br><br>
         <p>${course.description}</p>
 
     `;
 
 
-
-
-
-
+    function handleOrder(id) {
+        window.location.href = '';
+    }
 </script>
-
-
-
 </body>
 </html>
