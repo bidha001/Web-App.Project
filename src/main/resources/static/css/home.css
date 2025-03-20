@@ -52,7 +52,10 @@ body, html{
 .nav-links li{
     margin: 0 30px;
     color: #eeb54c;
+}
 
+.nav-links li :hover {
+    color: #E3F2FD;
 }
 
 .dropdown {
