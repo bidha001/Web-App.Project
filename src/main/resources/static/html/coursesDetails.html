@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CourseDetails</title>
+    <link rel="stylesheet" href="../css/coursesDetails.css">
     <script src="../js/coursesDetails.js"></script>
 </head>
 <body>
@@ -33,10 +34,13 @@
         <ul>
             ${course.courseProviders.map(provider => `<li>${provider.provider} - ${provider.price}</li>`).join('')}
         </ul>
-        <!--Add an order button -->
+        <div class="button-container">
+         <!--Add an order button -->
         <button class="btn" onclick="handleOrder (${course.id})">Order Course</button>
-        <br><br>
-        <p>${course.description}</p>
+</div>
+
+
+        <p class="course-description">${course.description}</p>
 
     `;
 

@@ -1,0 +1,56 @@
+#courseDetails {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+#courseDetails h4 {
+    color: #000000;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #63f306;
+    padding-bottom: 15px;
+}
+
+#courseDetails p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+#courseDetails ul {
+    margin: 40px 0;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #63f306 0%, #4bc0c8 100%);
+    padding: 10px 10px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    color: #171819;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(99, 243, 6, 0.3);
+}
+
+
+
+
