@@ -7,22 +7,23 @@
     box-sizing: border-box;
 }
 
-a{
+a {
     text-decoration: none;
     color: #eeb54c;
 }
 
-ul{
+ul {
     list-style: none;
 }
 
-.active{
+.active {
     color: #171819;
     text-decoration: underline;
     font-weight: bold;
 }
 
-body, html{
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -31,7 +32,7 @@ body, html{
 }
 
 /*Navbar Style*/
-.navbar{
+.navbar {
     position: absolute;
     top: 0;
     left: 0;
@@ -43,13 +44,13 @@ body, html{
     background-color: #1b1c1c;
 }
 
-.nav-links{
+.nav-links {
     display: flex;
     align-items: center;
     color: #eeb54c;
 }
 
-.nav-links li{
+.nav-links li {
     margin: 0 30px;
     color: #eeb54c;
 }
@@ -109,11 +110,11 @@ body, html{
 }
 
 
-.dropdown input[type="checkbox"]:checked ~ .dropdown-content {
+.dropdown input[type="checkbox"]:checked~.dropdown-content {
     display: block;
 }
 
-header{
+header {
     width: 100vw;
     height: 100vh;
     background-image: url("https://i.pinimg.com/736x/f7/52/0b/f7520b191a02451117c462faf7c87159.jpg");
@@ -124,31 +125,24 @@ header{
     justify-content: center;
 }
 
-.header-content{
+.header-content {
     margin-bottom: 200px;
     color: whitesmoke;
     text-align: center;
 }
 
-.header-content h2{
+.header-content h2 {
     font-size: 6vmin;
 }
 
-.line{
-    width: 150px;
-    height: 4px;
-    background: #fc036b;
-    margin: 10px auto;
-    border-radius: 5px;
-}
 
-.header-content h1{
+.header-content h1 {
     font-size: 2vmin;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-.ctn{
+.ctn {
     padding: 8px 15px;
     background: rgb(6, 41, 81);
     border-radius: 30px;
@@ -157,36 +151,35 @@ header{
 
 
 
-.menu-btn{
+.menu-btn {
     position: absolute;
     top: 30px;
     right: 30px;
     width: 40px;
     cursor: pointer;
     display: none;
-
 }
 
 /*Events*/
-section{
+section {
     width: 80%;
     margin: 80px auto;
 }
 
-.title{
+.title {
     text-align: center;
     font-size: 4vmin;
     color: rgb(244, 104, 3);
 }
 
-.row{
+.row {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-between;
 }
 
-.row .col{
+.row .col {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -222,7 +215,7 @@ p {
     align-items: center;
 }
 
-.explore-content{
+.explore-content {
     width: 60%;
     padding: 50px;
     color: whitesmoke;
@@ -231,33 +224,33 @@ p {
     flex-direction: column;
 }
 
-.explore-content h1{
+.explore-content h1 {
     font-size: 3vmin;
 }
 
-.explore-content .line{
+.explore-content .line {
     margin-bottom: 40px;
     width: 55%;
 }
 
-.explore-content p{
-    color: rgb(221,221,221);
+.explore-content p {
+    color: rgb(221, 221, 221);
     width: 70%;
 }
 
-.explore-content .ctn{
+.explore-content .ctn {
     margin-top: 20px;
 }
 
-.content-col{
+.content-col {
     width: 30%;
 }
 
-.image-col{
+.image-col {
     width: 60%;
 }
 
-.tours .images-gallery{
+.tours .images-gallery {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -270,17 +263,17 @@ p {
     margin: 10px;
 }
 
-.content-col h1{
+.content-col h1 {
     font-size: 7vmin;
     color: #484871;
 }
 
-.content-col p{
+.content-col p {
     padding: 0;
     margin: 30px auto;
 }
 
-.content-col .ctn{
+.content-col .ctn {
     margin-left: -100px;
 }
 
@@ -289,7 +282,7 @@ p {
     padding: 60px 0;
     width: 100%;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     position: relative;
     margin-bottom: 0px;
@@ -347,7 +340,7 @@ p {
     width: 100%;
 }
 
-.footer-bottom p{
+.footer-bottom p {
     color: whitesmoke;
 }
 
@@ -375,7 +368,8 @@ p {
         width: 100%;
         height: 100vh;
         justify-content: center;
-        background: rgba(16, 16, 16, 0.9); /*mobile*/
+        background: rgba(16, 16, 16, 0.9);
+        /*mobile*/
         margin-top: -900px;
         transition: all 0.5s ease;
     }
@@ -390,51 +384,41 @@ p {
     }
 
     /*Events*/
-    .row{
+    .row {
         flex-direction: column;
     }
 
-    .row .col{
+    .row .col {
         margin: 20px 0;
     }
 
-    .col img{
+    .col img {
         width: 90%;
     }
 
     /*Explore*/
-    .explore-content{
+    .explore-content {
         width: 100%;
     }
 
-    .tours .col{
+    .tours .col {
         width: 100%;
     }
 
-    .images-gallery{
+    .images-gallery {
         justify-content: center;
         align-items: center;
     }
-    .images-gallery img{
+
+    .images-gallery img {
         width: 90%;
     }
 
-    .footer{
+    .footer {
         padding: 10px;
     }
-    .footer-content{
+
+    .footer-content {
         flex-direction: column;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
