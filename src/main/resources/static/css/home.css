@@ -59,6 +59,42 @@ html {
     color: #E3F2FD;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    height: 35px;
+    margin-left: 15vmin;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    border-radius: 30px;
+    width: 350px;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #2a2b2d;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;

@@ -31,15 +31,10 @@ body, html{
     background-color: #1b1c1c;
 }
 
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-    line-height: 1.2;
-}
-
-.logo a {
+.logo a{
     color: #eeb54c;
     text-decoration: none;
+    font-size: 22px;
 }
 
 .signup-container {
