@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us </title>
+    <link rel="stylesheet" href="../static/css/contactUs.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div id="navbar-placeholder"></div>
+
+<!-- Hero Section -->
+<section class="contact-hero">
+    <h1>CONTACT US</h1>
+    <p>Might that from set to hear it reflection design attention happened refute. Support have rattling from commas, can dense, of magicians rationale.</p>
+</section>
+
+<!-- Information -->
+<section class="contact-info">
+    <div class="info-box">
+        <h3>Office Location</h3>
+        <p>6009 NTNU, <br> Ålesund</p>
+        <a href="#">Direction →</a>
+    </div>
+    <div class="info-box">
+        <h3>Working Hours</h3>
+        <p>Sun to Fri: 10am – 6pm<br>Sat: 10am – 2pm</p>
+        <a href="#">Learn more →</a>
+    </div>
+    <div class="info-box">
+        <h3>Communication</h3>
+        <p>+47 123 45 678<br>learniverse@gmail.com</p>
+        <a href="#">Support →</a>
+    </div>
+</section>
+
+<!-- Contact Form -->
+<section class="contact-form">
+    <div class="form-box">
+        <form>
+            <label>
+                <input type="text" placeholder="What's your name?" required>
+            </label>
+
+            <label>
+                <input type="email" placeholder="Your email" required>
+            </label>
+            <label>
+
+                <textarea rows="5" placeholder="Message" required></textarea>
+            </label>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <div class="form-info">
+        <h4>Have any query?</h4>
+        <h2>CONTACT US</h2>
+        <p>There I necessary her monstrous came this evaluation no problem frequency, quite organization man to surprise longer various values.</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<script>
+    fetch('navbar.html')
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+        });
+
+    fetch('footer.html')
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
+</body>
+</html>

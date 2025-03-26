@@ -9,38 +9,31 @@ body, html {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background-image: url("https://i.pinimg.com/736x/7f/cb/f4/7fcbf4460af8623ebf4180d31fc97ce4.jpg");
+    background-image: url("https://i.pinimg.com/736x/4f/9d/74/4f9d749ee4b8f28e66e4c5c80517f1da.jpg");
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Navbar style */
+/* Navbar */
 .navbar {
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     width: 100%;
-    justify-content: space-between;
     padding: 20px;
-    color: #eeb54c;
     background-color: #1b1c1c;
 }
 
-.logo {
-    font-size: 25px;
+/*Logo design*/
+.logo a{
+    font-size: 23px;
     font-weight: bold;
-    line-height: 1.2;
-}
-.logo a {
     color: #eeb54c;
     text-decoration: none;
 }
 
+/*Login Container*/
 .login-container {
     display: flex;
     align-items: center;
@@ -52,7 +45,7 @@ body, html {
 
 .login-box {
     background: rgba(0, 0, 0, 0.85);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 10px;
     width: 300px;
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
@@ -63,8 +56,8 @@ body, html {
 
 /* Login title */
 .login-box h2 {
-    color: #fff;
-    margin-bottom: 1.5rem;
+    color: #eeb54c;
+    margin-bottom: 2rem;
 }
 
 /* Label styling */
@@ -118,6 +111,6 @@ body, html {
 /* Responsive Design */
 @media (max-width: 768px) {
     .login-box {
-        width: 90%;
+        width: 50%;
     }
 }

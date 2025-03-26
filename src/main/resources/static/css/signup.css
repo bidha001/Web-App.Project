@@ -9,13 +9,9 @@ body, html{
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background-image: url("https://i.pinimg.com/736x/7f/cb/f4/7fcbf4460af8623ebf4180d31fc97ce4.jpg");
+    background-image: url("https://i.pinimg.com/736x/4f/9d/74/4f9d749ee4b8f28e66e4c5c80517f1da.jpg");
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 /* Navbar style */
@@ -25,16 +21,15 @@ body, html{
     left: 0;
     display: flex;
     width: 100%;
-    justify-content: space-between;
     padding: 20px;
-    color: #eeb54c;
     background-color: #1b1c1c;
 }
 
 .logo a{
+    font-size: 23px;
+    font-weight: bold;
     color: #eeb54c;
     text-decoration: none;
-    font-size: 22px;
 }
 
 .signup-container {
@@ -57,7 +52,7 @@ body, html{
 .signup-box h2 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #fff;
+    color: #eeb54c;
 }
 
 .signup-box label {
@@ -104,6 +99,6 @@ body, html{
 /* Responsive Design */
 @media (max-width: 768px) {
     .login-box {
-        width: 90%;
+        width: 50%;
     }
 }
