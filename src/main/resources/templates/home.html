@@ -10,37 +10,8 @@
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <h1 class="logo">LEARNIVERSE<br>CONNECT</h1>
-
-    <div class="search-container">
-      <input type="text" placeholder="Search courses..." class="search-input">
-      <button class="search-btn">🔍</button>
-    </div>
-
-    <ul class="nav-links">
-      <li><a href="#"></a>Home</li>
-
-      <li class="dropdown">
-        <input type="checkbox" id="cat-toggle">
-        <label for="cat-toggle" class="category-label">Category</label>
-        <ul class="dropdown-content">
-          <li><a href="informationTechnologies.html">Information Technologies</a></li>
-          <li><a href="digitalMarketing.html">Digital Marketing</a></li>
-          <li><a href="business&Entrepreneurship.html">Business & Entrepreneurship</a></li>
-          <li><a href="dataScience&Analytics.html">Data Science & Analytics</a></li>
-        </ul>
-      </li>
-
-      <li><a href="#">Course</a></li>
-      <li><a href="about.html">About</a></li>
-
-      <li class="ctn"><a href="login.html">Login</a></li>
-
-    </ul>
-    <img src="../static/images/menu.png" alt="" class="menu-btn">
-  </nav>
+<!-- Navbar -->
+<div id="navbar-placeholder"> </div>
 
   <header>
     <div class="header-content">
@@ -103,59 +74,32 @@
     </div>
   </section>
 
-  <section class="footer">
-    <div class="footer-content">
-      <div class="footer-col">
-        <h1>About Us</h1>
-        <ul>
-          <li><a href="#">Our Story</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
+<!-- Footer-->
+<div id="footer-placeholder"></div>
 
-      <div class="footer-col">
-        <h1>Courses</h1>
-        <ul>
-          <li><a href="#">All Courses</a></li>
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">Instructors</a></li>
-        </ul>
-      </div>
+<script>
+  // Navbar
+  fetch('navbar.html')
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
 
-      <div class="footer-col">
-        <h1>Support</h1>
-        <ul>
-          <li><a href="#">Help Center</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
+            const menuBtn = document.querySelector('.menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            if (menuBtn && navLinks) {
+              menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-menu');
+              });
+            }
+          });
 
-      <div class="footer-col">
-        <h1>Legal</h1>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 Learniverse. All rights reserved.</p>
-    </div>
-  </section>
-
-
-  <script>
-    const menuBtn = document.querySelector('.menu-btn');
-    const navlinks = document.querySelector('.nav-links');
-
-    menuBtn.addEventListener('click', () => {
-      navlinks.classList.toggle('mobile-menu');
-    });
-  </script>
+  // Footer
+  fetch('footer.html')
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+          });
+</script>
 
 </body>
-
 </html>

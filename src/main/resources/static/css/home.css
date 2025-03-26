@@ -46,6 +46,7 @@ html {
 
 .nav-links {
     display: flex;
+    /*position: absolute;*/
     align-items: center;
     color: #eeb54c;
 }
@@ -391,6 +392,10 @@ p {
 
     .navbar {
         padding: 0;
+    }
+
+    .search-container {
+        display: none;
     }
 
     .logo {
