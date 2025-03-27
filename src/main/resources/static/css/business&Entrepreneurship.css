@@ -40,7 +40,7 @@ body, html{
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #1b1c1c;
+    background-color: #000000;
     color: #eeb54c;
 }
 
@@ -145,7 +145,7 @@ body, html{
     position: absolute;
     top: 2.5rem;
     left: 0;
-    background-color: #1e1f22;
+    background-color: #000000;
     list-style: none;
     margin: 0;
     padding: 0;
