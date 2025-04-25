@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{/css/digitalMarketing.css}" />
-    <title>Information Technologies</title>
+    <link rel="stylesheet" th:href="@{/css/businessEntrepreneurship.css}" />
+    <title>Business & Entrepreneurship</title>
 </head>
 
 <body>
@@ -14,18 +14,17 @@
 <div th:replace="components/navbar :: navbar"></div>
 
 <section class="course-container">
-    <h1>Information Technologies</h1>
+    <h1>Business & Entrepreneurship</h1>
+    <div class="line"></div>
 
     <div class="courses-grid">
-
-        <!-- ✅ Dynamic Course Cards -->
+        <!-- Dynamiske kurskort -->
         <div class="course-card" th:each="course : ${courses}">
             <a th:href="@{'/coursesDetails?courseId=' + ${course.id}}">
                 <img th:src="@{'/images/' + ${course.image}}" th:alt="${course.title}" />
                 <h2 th:text="${course.title}">Course Title</h2>
             </a>
         </div>
-
     </div>
 </section>
 
@@ -33,4 +32,5 @@
 <div th:replace="components/footer :: footer"></div>
 
 </body>
+
 </html>

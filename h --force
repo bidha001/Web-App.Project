@@ -1,0 +1,132 @@
+[33mc717090[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mbakri[m[33m)[m Implement Thymeleaf integration for login and signup pages; update navigation links and form actions for improved routing
+[33m273ab5a[m Remove inline scripts for navbar and footer; implement dynamic loading via HTML fragments for improved maintainability
+[33m3295ff9[m Rename CourseController to PageController for improved clarity; update package structure accordingly
+[33m141c1f0[m Refactor CourseController and HTML files for Thymeleaf integration; implement navbar and footer as fragments, update links for improved routing and resource management
+[33m92bac71[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m added 3 pages, fixing navbar & footer using component
+[33m821814e[m Update styles and links for consistency; change "About" to "Contact Us" and unify background colors across multiple pages
+[33m0abca58[m Rename About page to Contact Us; update links and styles for improved navigation and consistency across multiple pages
+[33m92a6961[m Refactor navbar and footer implementation; move to separate HTML files for better modularity and maintainability, enhance search functionality
+[33mf62b24c[m Update image paths to static directory for consistency and improved resource management across multiple HTML files, added search bar in home page
+[33mdd157d5[m Moved all html files to template directory for thymeleaf server side rendering
+[33m78862d4[m Add Thymeleaf configurations to application properties for template handling and resource management
+[33m4f95a1c[m Refactor home page layout and styles; consolidate CSS by removing home1.css and bootstrap.html, and enhance responsiveness in home.html and home.css.
+[33md8c5d97[m Created coursesDetails.css and added styles for courses details.
+[33m64886db[m Order button now navigates to cart.html
+[33mc92e52e[m Integrated an order button in the course details page (courseDetails.js)
+[33me6750eb[m Add footer section and enhance navbar responsiveness; refactor styles for improved layout and mobile support for informationTechnologies.html, informationTechnologies.css, dataScience&Analytics.html, dataScience&Analytics.css, business&Entrepreneurship.html and business&Entrepreneurship.css
+[33m1a4ea3e[m Enhance admin dashboard styles with CSS variables for better maintainability, improve layout responsiveness, and add new search input and error message styles. Update HTML to include a script for dashboard functionality.
+[33mb38f2ce[m Refactor digital marketing page layout and styles, add footer section, and enhance navbar responsiveness
+[33m6146360[m Enhance About page with responsive design and improved layout, added some pictures, slightly changed in other class
+[33mc22e4e8[m Update navigation links for improved accessibility and consistency
+[33ma1b31b8[m Refactor styles and structure for improved layout and responsiveness across pages
+[33m38da646[m Refactor styles and structure for improved layout and responsiveness across pages
+[33mbc5d2c6[m Add shopping cart page both html & css with responsive design
+[33m7a7b625[m Add responsive design and enhance Course model with additional attributes
+[33mc619289[m Added functionality for courses: Created classes for course data management, dynamic course ID handling, and integrated course providers display
+[33m1294910[m Initialized coursesDetails.html and coursesDetails.js files
+[33mc0787e1[m Increased the image size for better visibility
+[33mf24ac6b[m Created initial admin dashboard for courses management.
+[33m454d696[m Enhance about page layout and styling; add photo and info sections for improved content presentation
+[33mbc54c5d[m Add about page with navigation bar and footer; update links and styles for consistency, but it is not responsive and not well managed as well. but still fixed something and need refactor it
+[33m08644f5[m Add .qodo to .gitignore to exclude Qodo configuration files from version control
+[33m0f2fad5[m Add dropdown menu for category selection in informationTechnologies.css, business&Entrepreneurship.css, dataScience&Analytics.css and digitalMarketing.css pages along withb their html
+[33me56455d[m Update CSS links and reset styles for consistency across business, data science, and digital marketing pages
+[33mdf445f6[m Refactor navbar layout and styles across multiple pages; update CSS for improved responsiveness and consistency
+[33m261e7c8[m added footer in home page and remove unncecessary design
+[33mf923966[m added 3 same class to check, home1. bootstrap and home1css
+[33mbce1ae9[m fixed some issues
+[33ma2a4d2b[m Removed and reuploaded images to fix issues, and added new HTML and CSS styles to improve layout in informationtecnologies.html
+[33m02e06a4[m Merge remote-tracking branch 'origin/main'
+[33m21fd739[m Add new CSS and HTML files for Business & Entrepreneurship, Data Science & Analytics, and Digital Marketing; implement responsive navbar and course grid layout
+[33m92e12e4[m Refactored avatar and shopping container components: Merged them into a single flex container, improved styling consistency, and fixed border radius issue
+[33m5c068af[m Updated styling for shopping icon
+[33m505b794[m Uploaded Shopping image to informationTecnologies.html
+[33m2fed8fd[m Rename courses.css and Information Technologies.html to improve consistency; update links in home.html, added necesssary clasess
+[33mfecc653[m Updated styling for avatar
+[33ma6d50d8[m Merge remote-tracking branch 'origin/main'
+[33mc239b80[m removed avatar image as it not working correctly and reuploaded
+[33m9d1f6d3[m Update .gitignore to ignore .DS_Store files
+[33m4b9a117[m Add logo link to home page in Information Technologies page
+[33m4db6f94[m Add logo link to home page in navigation bars
+[33mb326604[m Uploaded avatar image
+[33m3f70d26[m Made various style adjusments and improvments to the layout, including navbar, search button, and overall page design.
+[33mcf037c5[m Update navigation with new dropdown items and rename courses.html to Information Technologies.html
+[33m22fa68b[m reuploaded the image, and it is displaying correctly now
+[33m8737b11[m have deleted image .Net as it was not showing correctly.
+[33m2e3b6e9[m Add dropdown menu for category selection in navigation
+[33mb718705[m Clean up home.css by removing unnecessary whitespace and improving code readability
+[33m1c14fa3[m Refactor CSS and HTML for home, login, and signup pages; update styles and improve layout consistency
+[33ma013716[m Add files via upload
+[33m3c54051[m Add files via upload
+[33mf2042d0[m deleted images
+[33me125bf7[m Add files via upload
+[33ma1216d2[m Refactor navigation and styling in home and login pages for improved layout and consistency
+[33m9a7dfe2[m Add files via upload
+[33m8e8c704[m Added link to font icons library
+[33m8d8919c[m Add Development link to navigation and update body styling in login.css
+[33mfe28f89[m Fix styling issues in home.css and signup.css for better visual consistency
+[33md92b348[m Fix styling issues in home.css and signup.css for better visual consistency
+[33mbae68b5[m Refactor courses page layout and styling for improved responsiveness
+[33mdb2ec06[m Update application.properties with DevTools configuration
+[33mac26c13[m Configure MySQL database and add Derby for testing
+[33m6a01b27[m Add core Spring Boot dependencies for web, security, and development
+[33me6f964b[m Add files via upload
+[33mbca5390[m Add files via upload
+[33m52a4527[m Enhance sign-up page layout and styling for improved user experience
+[33mbbf1b99[m Update navbar layout to improve UX
+[33mcdf51c4[m Add promotional text to advertisement banner in login.html, fixed how webpage looks
+[33m4be6268[m Update home.css and login.html for improved layout and functionality
+[33m97824d2[m Update CSS style in course.css for better responsiveness
+[33m080a39c[m Refactor navigation structure and update styles for improved layout and responsiveness
+[33m795335c[m Adedd css Style for courses.html
+[33mf2a0e26[m Added new course listings with images
+[33m7d5dc64[m Added HTML structure for course section with updated titles and images
+[33m08827ce[m Added css style for courses.html
+[33me4931c2[m Created courses.css file and added css style for courses.html page
+[33m76c167e[m Added basic HTML structure for course.html page
+[33m3de2185[m Merge remote-tracking branch 'origin/main'
+[33m99ed349[m Fix typos and enhance layout in home page HTML and CSS for better readability and responsiveness
+[33mef52cf8[m Deleted Social Media Marketing image(was in WEBP format) and re-uploaded as jpg to fix the issue
+[33mcbbb949[m Have uploaded the necessary images for the project for the courses.html
+[33m656857d[m Add courses.html for course informaiton
+[33m326fdf0[m added comment on html & css
+[33me56c0db[m Merge remote-tracking branch 'origin/main'
+[33m3e40d32[m Add new signup.css file for styling the signup page
+[33m84b1ad2[m Refactor home page layout and styling for improved responsiveness
+[33m38cab1b[m Merge branch 'main' of https://github.com/bidha001/Web-App.Project
+[33m01c329b[m Fix HTML structure and stylesheet links in home and login pages
+[33mc12d4d4[m Fix button styling in signup.css and updated button appearance to be visible in the signup form
+[33m41a75c7[m Created signup.css file and added image for signup.html, and wrote CSS code for styling signup page.
+[33m7d611d8[m Added image to sign up page.
+[33mcf33637[m Update home and login HTML files; adjust stylesheet links and modify layout
+[33ma9e14c8[m Delete src/main/resources/static/images/demoIMG.jpg
+[33m500d10d[m Delete src/main/resources/static/images/CodingImage.jpeg
+[33m08775e8[m Add files via upload
+[33madc92cb[m Updated background image in home.css
+[33m8a1e26d[m Updated background image in home.css
+[33m065e7e0[m fixed the background image
+[33m2849bf8[m Add files via upload
+[33m9703281[m Refactored the both code in home.css and home.html
+[33m528d991[m Add home, login, and signup HTML pages; remove old home template
+[33m49d1cb5[m Implemented signup page layout (HTML only, no CSS yet)
+[33mc30a545[m Created new HTML class: sign up.
+[33mfeaf857[m Update login page due to wireframe changing.
+[33mcf73d3c[m Refactor Login form structure
+[33m5301aaf[m Created log in form
+[33m18d5240[m Refactored the both code in home.css and home.html
+[33mc17cb3f[m added css style sheet for main page
+[33m473d155[m Made a landing page with title, search bar, log in system, meny bar and a short introduction
+[33m562ece5[m Created a folder structure and demo files.
+[33m921f5be[m Merge branch 'main' of https://github.com/bidha001/Web-App.Project
+[33m50db8ab[m Add home.html template for landing page
+[33m1ad6407[m Create README.md
+[33m6f32852[m Created a starting point for project structure using spring boot initializer
+[33mf45361f[m Add files via upload
+[33m40b8e4b[m Delete Web-App.Project directory
+[33m7c37866[m Delete Web-App.Project/src/main/java directory
+[33m128336c[m read me file
+[33m974a825[m assed readme file
+[33mb3e5363[m Update README.md
+[33m50ef1aa[m Update README.md
+[33mb9cb509[m Add files via upload
+[33m92f60cf[m Initial commit
