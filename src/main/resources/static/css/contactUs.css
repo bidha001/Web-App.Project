@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body, html{
+    background-color: black;
+}
 
 .contact-hero {
     background-color: #1b1c1c;
