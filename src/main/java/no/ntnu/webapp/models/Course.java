@@ -2,7 +2,6 @@ package no.ntnu.webapp.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -21,9 +20,7 @@ public class Course {
     
     @Enumerated(EnumType.STRING)
     private CourseLevel level;
-    
-    private LocalDate startDate;
-    private LocalDate endDate;
+
     private Double ectsCredits;
     private Integer hoursPerWeek;
     private String courseImageUrl;
