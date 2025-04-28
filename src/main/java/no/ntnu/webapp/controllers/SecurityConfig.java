@@ -20,7 +20,7 @@ public class SecurityConfig {
                                 "/css/**",
                                 "/images/**",
                                 "/components/**",
-                                "/informationTechnologies" // ✅ add this line
+                                "/informationTechnologies"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

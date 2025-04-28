@@ -188,8 +188,6 @@ header {
     color: whitesmoke;
 }
 
-
-
 .menu-btn {
     position: absolute;
     top: 30px;
@@ -314,6 +312,50 @@ p {
 
 .content-col .ctn {
     margin-left: -100px;
+}
+
+.course-container {
+    padding: 150px 20px;
+    text-align: center;
+}
+.course-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #63f306;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1350px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+.course-card {
+    background: rgba(174, 164, 164, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+.course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+.course-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.course-card h2 {
+    color: whitesmoke;
+    margin-bottom: 10px;
+    font-size: 1.1em;
 }
 
 .footer {
