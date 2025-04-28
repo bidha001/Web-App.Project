@@ -26,4 +26,10 @@ public class PageController {
         return "contactUs";
     }
 
+
+    @GetMapping("/cart")
+    public String cart() {
+        return "cart";
+    }
+
 }

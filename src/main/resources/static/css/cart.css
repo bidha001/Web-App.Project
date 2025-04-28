@@ -1,237 +1,144 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body {
-    background: linear-gradient(135deg, #2f3f5f, #1e2a47);
-    background-size: cover;
-    min-height: auto;
-    font-family: Arial, sans-serif;
-}
-
-.navbar {
+.cart-container {
     display: flex;
+    justify-content: space-between;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.cart-items {
+    flex: 2;
+    padding-right: 40px;
+}
+
+.cart-item {
+    display: flex;
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
     align-items: center;
-    background-color: #2a2b2d;
-    color: #f1f1f1;
-    padding: 0.5rem 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
 }
 
-.logo {
-    font-size: 25px;
+.cart-item img {
+    width: 150px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.item-details {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.item-price {
+    text-align: right;
     font-weight: bold;
-    line-height: 1.2;
-    font-family: SansSerif, serif;
-    margin-right: 1rem;
 }
 
-.logo a {
-    font-family: sans-serif;
-    color: #eeb54c;
+.current-price {
+    font-size: 24px;
+    color: #6c63ff; /* purple accent */
+}
+
+.original-price {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #999;
+}
+
+.badges {
+    margin: 5px 0;
+}
+
+.badge {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+.rating {
+    font-size: 14px;
+    color: #f1c40f;
+}
+
+.actions a {
+    color: #6c63ff;
+    font-size: 14px;
+    margin-right: 10px;
     text-decoration: none;
 }
 
-.nav-links {
-    flex: 1; /* takes up the leftover space */
-    display: flex;
-    justify-content: center; /* center them horizontally */
-    gap: 5rem;
-    list-style: none;
-    margin-right: 120px;
+.cart-summary {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+}
+
+.cart-summary h2 {
+    font-size: 20px;
+}
+
+.total-price {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.original-price-strikethrough {
+    text-decoration: line-through;
+    color: gray;
+    margin-top: 5px;
+}
+
+.discount {
+    color: green;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.checkout-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: #574fd6;
+}
+
+.promo-code {
     margin-top: 20px;
 }
 
-.nav-links a {
-    color: #eeb54c;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-.nav-links a:hover {
-    color: #eeb54c;
-}
-
-.login-btn {
-    background: #eeb54c;
-    color: black;
-    padding: 8px 16px;
-    border: none;
+.promo-code input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.3s;
 }
 
-.login-btn:hover {
-    background: #c9942c;
-}
-
-/* Shopping Cart Container */
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-}
-
-h1, h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Product Box Layout */
-.products {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.product {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-    border: 1px solid #ddd;
-    width: 300px;
-}
-
-.product:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.product img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.product h2 {
-    font-size: 20px;
-    color: #333;
-}
-
-.product p {
-    font-size: 16px;
-    color: #555;
-    margin: 10px 0;
-}
-
-/* Cart Section */
-.cart {
-    margin-top: 30px;
-    padding: 20px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-}
-
-th {
-    background: #007bff;
-    color: white;
-}
-
-.cart input {
-    width: 50px;
-    text-align: center;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.remove-btn {
-    background: #ff4d4d;
+.apply-btn {
+    padding: 10px;
+    background-color: #6c63ff;
     color: white;
     border: none;
-    padding: 6px 12px;
-    cursor: pointer;
     border-radius: 6px;
-    transition: 0.3s;
-}
-
-.remove-btn:hover {
-    background: #cc0000;
-}
-
-/*For responsive page*/
-@media (max-width: 600px) {
-    .products {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-/* Dropdown container */
-.dropdown {
-    position: relative;
-}
-
-/* Hide the checkbox */
-.dropdown input[type="checkbox"] {
-    display: none;
-}
-
-/* Style the category label like a nav link */
-.category-label {
-    color: #eeb54c;
-    text-decoration: none;
-    font-size: 1.1rem;
-    cursor: pointer; /* Makes the label appear clickable */
-}
-
-/* The hidden dropdown menu */
-.dropdown-content {
-    display: none; /* Hidden by default */
-    position: absolute;
-    top: 2.5rem; /* Adjust vertical offset to position below the label */
-    left: 0;     /* Aligns with the left edge of the .dropdown container */
-    background-color: #1e1f22; /* Same as navbar color scheme */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    z-index: 999; /* Ensures the dropdown is on top */
-}
-
-/* Individual dropdown items */
-.dropdown-content li a {
-    display: block;
-    padding: 10px 15px;
-    color: #eeb54c;
-    text-decoration: none;
-    font-size: 1.1rem;
-    white-space: nowrap; /* Prevent text wrapping */
-}
-
-/* Hover effect for dropdown items */
-.dropdown-content li a:hover {
-    background-color: #604107;
-    color: #fff;
-}
-
-/* Toggle display when checkbox is checked */
-.dropdown input[type="checkbox"]:checked ~ .dropdown-content {
-    display: block;
+    margin-left: 10px;
 }
