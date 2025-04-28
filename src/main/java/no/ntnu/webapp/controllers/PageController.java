@@ -25,4 +25,9 @@ public class PageController {
     public String contactUs() {
         return "contactUs";
     }
+
+    @GetMapping("/cart")
+    public String cart() {
+        return "cart";
+    }
 }
