@@ -24,7 +24,8 @@ public class SecurityConfig {
                                 "/informationTechnologies",
                                 "/digitalMarketing",
                                 "/dataScienceAnalytics",
-                                "/businessEntrepreneurship"
+                                "/businessEntrepreneurship",
+                                "/course"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

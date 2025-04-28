@@ -32,6 +32,12 @@ public class CourseController {
         return "businessEntrepreneurship";
     }
 
+    @GetMapping("/course")
+    public String course (Model model) {
+        model.addAttribute("courses", getCourses());
+        return "course";
+    }
+
     private List<Course> getCourses() {
         return List.of(
                 new Course(1, "Java.svg", "Real-Time Programming in Java"),
