@@ -20,7 +20,11 @@ public class SecurityConfig {
                                 "/css/**",
                                 "/images/**",
                                 "/components/**",
-                                "/informationTechnologies"
+                                "/informationTechnologies/**",
+                                "digitalMarketing/**",
+                                "dataScienceAnalytics/**",
+                                "businessEntrepreneurship"
+
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

@@ -16,9 +16,24 @@ public class PageController {
         return "login";
     }
 
-    @GetMapping("/signup")
-    public String signupPage() {
-        return "signup";
+    @GetMapping("/informationTechnologies")
+    public String informationTechnologies() {
+        return "informationTechnologies";
+    }
+
+    @GetMapping("/digitalMarketing")
+    public String digitalMarketing() {
+        return "digitalMarketing";
+    }
+
+    @GetMapping("/dataScienceAnalytics")
+    public String dataScienceAnalytics() {
+        return "dataScienceAnalytics";
+    }
+
+    @GetMapping("/businessEntrepreneurship")
+    public String businessEntrepreneurship() {
+        return "businessEntrepreneurship";
     }
 
 }

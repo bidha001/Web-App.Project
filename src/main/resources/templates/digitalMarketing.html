@@ -1,210 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/digitalMarketing.css">
-    <link rel="stylesheet" href="../static/css/digitalMarketing.css">
-    <title>Learniverse Connect</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <title>Digital Marketing</title>
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">
-            <a href="./home.html">LEARNIVERSE<br>CONNECT</a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="home.html">Home</a></li>
+<!-- reusable navbar -->
+<div th:replace="components/navbar :: navbar"></div>
 
-            <li class="dropdown">
-                <input type="checkbox" id="cat-toggle">
-                <label for="cat-toggle" class="category-label">Category</label>
-                <ul class="dropdown-content">
-                    <li><a href="informationTechnologies.html">Information Technologies</a></li>
-                    <li><a href="digitalMarketing.html">Digital Marketing</a></li>
-                    <li><a href="businessEntrepreneurship.html">Business & Entrepreneurship</a></li>
-                    <li><a href="dataScienceAnalytics.html">Data Science & Analytics</a></li>
-                </ul>
-            </li>
+<section class="course-container">
+    <h1>Digital Marketing</h1>
+    <div class="courses-grid">
 
-            <li><a href="#">Course</a></li>
-            <li><a href="contactUs.html">Contact Us</a></li>
-
-        </ul>
-        <img src="../images/menu.png" alt="" class="menu-btn">
-
-        <div class="search">
-            <input type="search" placeholder="Search For Anything">
-            <button class="btn">Search</button>
+        <!-- Course Cards -->
+        <div class="course-card" th:each="course : ${courses}">
+            <a th:href="@{'/coursesDetails?courseId=' + ${course.id}}">
+                <img th:src="@{'/images/' + ${course.image}}" th:alt="${course.title}" />
+                <h2 th:text="${course.title}">Course Title</h2>
+            </a>
         </div>
 
-        <div class="icon-container">
-            <img src="../static/images/notification.png" alt="Notice" class="notice">
-            <img src="../static/images/cart.png" alt="Shopping" class="shopping">
-            <img src="../static/images/profile.png" alt="Avatar" class="avatar">
-        </div>
+    </div>
+</section>
 
-    </nav>
-
-    <section class="course-container">
-        <h1>Digital Marketing</h1>
-        <div class=line"></div>
-        <div class="courses-grid">
-
-            <!-- Course 1 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/Java.svg" alt="Java">
-                    <h2>Real-Time Programming in Java</h2>
-                </a>
-            </div>
-
-            <!-- Course 2 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/SQL.jpg" alt="SQL">
-                    <h2>SQL</h2>
-                </a>
-            </div>
-
-            <!-- Course 3 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/Net%20web.jpg" alt="Web Design">
-                    <h2>WEB DESIGN</h2>
-                </a>
-            </div>
-
-            <!-- Course 4 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/Azure%20Fundamentals.png" alt="Azure Fundamentals">
-                    <h2>Azure Fundamentals</h2>
-                </a>
-            </div>
-
-            <!-- Course 5 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/Amazon%20Web%20Services.png" alt="Course 5">
-                    <h2>Amazon Web Services</h2>
-                </a>
-            </div>
-
-            <!-- Course 6 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/AWS%20Cloud%20Practitioner.png" alt="Course 6">
-                    <h2>AWS Cloud Practitioner</h2>
-                </a>
-            </div>
-
-            <!-- Course 7 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/Search%20Engine%20Optimization.png" alt="Course 7">
-                    <h2>Search Engine Optimization</h2>
-                </a>
-            </div>
-
-            <!-- Course 8 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/social-media-marketing.jpg" alt="Course 8">
-                    <h2>Social Media Marketing</h2>
-                </a>
-            </div>
-
-            <!-- Course 9 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/Business%20Strategy.png" alt="Course 9">
-                    <h2>Business Strategy</h2>
-                </a>
-            </div>
-
-            <!-- Course 10 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/Machine%20Learning.jpg" alt="Course 10">
-                    <h2>Machine Learning Basics with Python</h2>
-                </a>
-            </div>
-
-            <!-- Course 11 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/Image%20Recognition.jpg" alt="Course 11">
-                    <h2>Image Recognition</h2>
-                </a>
-            </div>
-
-            <!-- Course 12 -->
-            <div class="course-card">
-                <a href="#">
-                    <img src="../static/images/Databricks.png" alt="Course 12">
-                    <h2>Databricks fundamentals</h2>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="footer">
-        <div class="footer-content">
-            <div class="footer-col">
-                <h1>About Us</h1>
-                <ul>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h1>Courses</h1>
-                <ul>
-                    <li><a href="#">All Courses</a></li>
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="#">Instructors</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h1>Support</h1>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h1>Legal</h1>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 Learniverse. All rights reserved.</p>
-        </div>
-    </section>
-
-
-    <script>
-        const menuBtn = document.querySelector('.menu-btn');
-        const navlinks = document.querySelector('.nav-links');
-
-        menuBtn.addEventListener('click', () => {
-            navlinks.classList.toggle('mobile-menu');
-        });
-    </script>
+<!-- reusable footer -->
+<div th:replace="components/footer :: footer"></div>
 
 </body>
-
 </html>
