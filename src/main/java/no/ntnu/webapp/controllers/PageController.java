@@ -1,12 +1,12 @@
 package no.ntnu.webapp.controllers;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class PageController {
 
-  @GetMapping("/home")
+    @GetMapping("/home")
     public String home() {
         return "home";
     }
@@ -16,24 +16,13 @@ public class PageController {
         return "login";
     }
 
-    @GetMapping("/informationTechnologies")
-    public String informationTechnologies() {
-        return "informationTechnologies";
+    @GetMapping("/signup")
+    public String signupPage() {
+        return "signup";
     }
 
-    @GetMapping("/digitalMarketing")
-    public String digitalMarketing() {
-        return "digitalMarketing";
+    @GetMapping("/contactUs")
+    public String contactUs() {
+        return "contactUs";
     }
-
-    @GetMapping("/dataScienceAnalytics")
-    public String dataScienceAnalytics() {
-        return "dataScienceAnalytics";
-    }
-
-    @GetMapping("/businessEntrepreneurship")
-    public String businessEntrepreneurship() {
-        return "businessEntrepreneurship";
-    }
-
 }

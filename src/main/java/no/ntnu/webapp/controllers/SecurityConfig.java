@@ -15,16 +15,16 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/",
                                 "/home",
+                                "/login",
                                 "/signup",
-                                "/signup/**",
+                                "/contactUs",
                                 "/css/**",
                                 "/images/**",
                                 "/components/**",
-                                "/informationTechnologies/**",
-                                "digitalMarketing/**",
-                                "dataScienceAnalytics/**",
-                                "businessEntrepreneurship"
-
+                                "/informationTechnologies",
+                                "/digitalMarketing",
+                                "/dataScienceAnalytics",
+                                "/businessEntrepreneurship"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
