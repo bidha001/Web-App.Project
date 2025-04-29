@@ -15,20 +15,24 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/",
                                 "/home",
+                                "/login",
                                 "/signup",
-                                "/signup/**",
+                                "/contactUs",
                                 "/css/**",
                                 "/images/**",
                                 "/components/**",
-                                "/informationTechnologies", // ✅ add this line
-                                "/digitalMarketing", // ✅ add this line
-                                "/businessEntrepreneurship", // ✅ add this line
-                                "/dataScienceAnalytics" // ✅ add this line
+                                "/informationTechnologies",
+                                "/digitalMarketing",
+                                "/dataScienceAnalytics",
+                                "/businessEntrepreneurship",
+                                "/course"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login").permitAll()
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/home", true) // add success URL to home after login
+                        .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutSuccessUrl("/home")

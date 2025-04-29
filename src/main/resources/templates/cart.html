@@ -1,71 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/home.css}" />
+  <link rel="stylesheet" th:href="@{/css/cart.css}" />
   <title>Shopping Cart</title>
-  <link rel="stylesheet" href="../static/css/cart.css">
-</head>
 
+</head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <h2 class="logo"><a href="./home.html">LEARNIVERSE<br>CONNECT</a></h2>
+<div class="cart-container">
 
-    <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
-      <li class="dropdown">
-        <input type="checkbox" id="cat-toggle">
-        <label for="cat-toggle" class="category-label">Category</label>
-        <ul class="dropdown-content">
-          <li><a href="informationTechnologies.html">Information Technologies</a></li>
-          <li><a href="digitalMarketing.html">Digital Marketing</a></li>
-          <li><a href="businessEntrepreneurship.html">Business & Entrepreneurship</a></li>
-          <li><a href="dataScienceAnalytics.html">Data Science and Analytics</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Course</a></li>
-      <li><a href="contactUs.html">About</a></li>
-    </ul>
+  <!-- Left Section: Cart Items -->
+  <div class="cart-items">
+    <h2>2 Courses in Cart</h2>
 
-    <div class="auth-buttons">
-      <button class="login-btn"><a href="./login.html">Login</a></button>
-    </div>
-  </nav>
+    <div class="cart-item">
+      <img src="../static/images/java.jpg" alt="Course Image">
+      <div class="item-details">
+        <h3>The Web Developer Bootcamp 2025</h3>
+        <p>By Colt Steele</p>
+        <div class="badges">
+          <span class="badge updated">Updated Recently</span>
+        </div>
+        <div class="rating">
+          ⭐ 4.7 (280,322 ratings)
+        </div>
 
-  <div class="container">
-    <h1>Shopping Cart</h1>
-    <div class="products">
-      <div class="product">
-        <img src="../static/images/java.jpg" alt="Product">
-        <h2>Product 1</h2>
-        <p>Price: $10</p>
+        <div class="info">
+          74 total hours • 731 lectures • All Levels
+        </div>
+
+        <div class="actions">
+          <a href="#">Remove</a> | <a href="#">Save for Later</a> | <a href="#">Move to Wishlist</a>
+        </div>
+
       </div>
-
-      <div class="product">
-        <img src="../static/images/java.jpg" alt="Product">
-        <h2>Product 2</h2>
-        <p>Price: $15</p>
+      <div class="item-price">
+        <span class="current-price">kr369</span>
+        <span class="original-price">kr1,069</span>
       </div>
     </div>
 
-    <h2>Cart</h2>
-    <div class="cart">
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody id="cart-items"></tbody>
-      </table>
-      <h3>Total: $<span id="cart-total">0</span></h3>
+  </div>
+
+  <!-- Right Section: Cart Summary -->
+  <div class="cart-summary">
+    <h2>Total:</h2>
+    <div class="total-price">kr558</div>
+    <div class="original-price-strikethrough">kr3,028</div>
+    <div class="discount">82% off</div>
+
+    <button class="checkout-btn">Proceed to Checkout</button>
+
+    <div class="promo-code">
+      <input type="text" placeholder="Enter Coupon">
+      <button class="apply-btn">Apply</button>
     </div>
   </div>
 
-</body>
+</div>
 
+<!-- Footer-->
+  <div th:replace="components/footer :: footer"></div>
+
+</body>
 </html>

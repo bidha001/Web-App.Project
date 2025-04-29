@@ -188,8 +188,6 @@ header {
     color: whitesmoke;
 }
 
-
-
 .menu-btn {
     position: absolute;
     top: 30px;
@@ -315,6 +313,8 @@ p {
 .content-col .ctn {
     margin-left: -100px;
 }
+
+
 
 .footer {
     background-color: #2a2b2d;

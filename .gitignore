@@ -33,3 +33,6 @@ build/
 .vscode
 .DS_Store
 .qodo
+
+### Environment Variables ###
+.env
