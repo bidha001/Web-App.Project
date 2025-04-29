@@ -19,28 +19,28 @@ public class CourseController {
 
     @GetMapping("/informationTechnologies")
     public String getInformationTechnologiesPage(Model model) {
-        List<Course> courses = courseRepository.findByCategory_CategoryName("Information Technologies");
+        List<Course> courses = courseRepository.findByCategory_Name("Information Technologies");
         model.addAttribute("courses", courses);
         return "informationTechnologies";
     }
 
     @GetMapping("/digitalMarketing")
     public String getDigitalMarketingPage(Model model) {
-        List<Course> courses = courseRepository.findByCategory_CategoryName("Digital Marketing");
+        List<Course> courses = courseRepository.findByCategory_Name("Digital Marketing");
         model.addAttribute("courses", courses);
         return "digitalMarketing";
     }
 
     @GetMapping("/dataScienceAnalytics")
     public String getDataScienceAnalyticsPage(Model model) {
-        List<Course> courses = courseRepository.findByCategory_CategoryName("Data Science and Analytics");
+        List<Course> courses = courseRepository.findByCategory_Name("Data Science and Analytics");
         model.addAttribute("courses", courses);
         return "dataScienceAnalytics";
     }
 
     @GetMapping("/businessEntrepreneurship")
     public String getBusinessEntrepreneurshipPage(Model model) {
-        List<Course> courses = courseRepository.findByCategory_CategoryName("Business and Entrepreneurship");
+        List<Course> courses = courseRepository.findByCategory_Name("Business and Entrepreneurship");
         model.addAttribute("courses", courses);
         return "businessEntrepreneurship";
     }
