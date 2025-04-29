@@ -16,10 +16,10 @@ public class PageController {
         return "login";
     }
 
-    @GetMapping("/signup")
-    public String signupPage() {
-        return "signup";
-    }
+   // @GetMapping("/signup")
+   // public String signupPage() {
+    //    return "signup";
+   // }
 
     @GetMapping("/contactUs")
     public String contactUs() {

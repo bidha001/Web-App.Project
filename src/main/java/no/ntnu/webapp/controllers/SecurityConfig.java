@@ -30,7 +30,9 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login").permitAll()
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/home", true) // add success URL to home after login
+                        .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutSuccessUrl("/home")

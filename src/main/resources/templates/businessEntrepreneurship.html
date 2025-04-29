@@ -21,7 +21,7 @@
         <!-- Course Cards -->
         <div class="course-card" th:each="course : ${courses}">
             <a th:href="@{'/coursesDetails?courseId=' + ${course.id}}">
-                <img th:src="@{'/images/' + ${course.image}}" th:alt="${course.title}" />
+                <img th:src="@{${course.courseImageUrl}}" th:alt="${course.title}" />
                 <h2 th:text="${course.title}">Course Title</h2>
             </a>
         </div>
