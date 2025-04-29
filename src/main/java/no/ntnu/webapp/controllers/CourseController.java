@@ -8,51 +8,53 @@ import java.util.List;
 @Controller
 public class CourseController {
 
+    private static final List<Course> COURSES = List.of(
+            new Course(1, "Java.svg", "Real-Time Programming in Java"),
+            new Course(2, "SQL.jpg", "SQL"),
+            new Course(3, "Net web.jpg", "Web Design"),
+            new Course(4, "Azure Fundamentals.png", "Azure Fundamentals"),
+            new Course(5, "Amazon Web Services.png", "Amazon Web Services"),
+            new Course(6, "AWS Cloud Practitioner.png", "AWS Cloud Practitioner"),
+            new Course(7, "Search Engine Optimization.png", "SEO"),
+            new Course(8, "social-media-marketing.jpg", "Social Media Marketing"),
+            new Course(9, "Business Strategy.png", "Business Strategy"),
+            new Course(10, "Machine Learning.jpg", "Machine Learning Basics"),
+            new Course(11, "Image Recognition.jpg", "Image Recognition"),
+            new Course(12, "Databricks.png", "Databricks Fundamentals")
+    );
+
     @GetMapping("/informationTechnologies")
-    public String informationTechnologies(Model model) {
-        model.addAttribute("courses", getCourses());
-        return "informationTechnologies";
+    public String getInformationTechnologiesPage(Model model) {
+        return setupModel(model, "informationTechnologies");
     }
 
     @GetMapping("/digitalMarketing")
-    public String digitalMarketing(Model model) {
-        model.addAttribute("courses", getCourses());
-        return "digitalMarketing";
+    public String getDigitalMarketingPage(Model model) {
+        return setupModel(model, "digitalMarketing");
     }
 
     @GetMapping("/dataScienceAnalytics")
-    public String dataScienceAnalytics(Model model) {
-        model.addAttribute("courses", getCourses());
-        return "dataScienceAnalytics";
+    public String getDataScienceAnalyticsPage(Model model) {
+        return setupModel(model, "dataScienceAnalytics");
     }
 
     @GetMapping("/businessEntrepreneurship")
-    public String businessEntrepreneurship(Model model) {
-        model.addAttribute("courses", getCourses());
-        return "businessEntrepreneurship";
+    public String getBusinessEntrepreneurshipPage(Model model) {
+        return setupModel(model, "businessEntrepreneurship");
     }
 
     @GetMapping("/course")
-    public String course (Model model) {
+    public String getCoursePage(Model model) {
+        return setupModel(model, "course");
+    }
+
+    private String setupModel(Model model, String viewName) {
         model.addAttribute("courses", getCourses());
-        return "course";
+        return viewName;
     }
 
     private List<Course> getCourses() {
-        return List.of(
-                new Course(1, "Java.svg", "Real-Time Programming in Java"),
-                new Course(2, "SQL.jpg", "SQL"),
-                new Course(3, "Net web.jpg", "Web Design"),
-                new Course(4, "Azure Fundamentals.png", "Azure Fundamentals"),
-                new Course(5, "Amazon Web Services.png", "Amazon Web Services"),
-                new Course(6, "AWS Cloud Practitioner.png", "AWS Cloud Practitioner"),
-                new Course(7, "Search Engine Optimization.png", "SEO"),
-                new Course(8, "social-media-marketing.jpg", "Social Media Marketing"),
-                new Course(9, "Business Strategy.png", "Business Strategy"),
-                new Course(10, "Machine Learning.jpg", "Machine Learning Basics"),
-                new Course(11, "Image Recognition.jpg", "Image Recognition"),
-                new Course(12, "Databricks.png", "Databricks Fundamentals")
-        );
+        return COURSES;
     }
 
     public record Course(int id, String image, String title) {}
