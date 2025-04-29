@@ -1,4 +1,5 @@
 package no.ntnu.webapp.controllers;
+import jakarta.transaction.Transactional;
 import no.ntnu.webapp.models.Course;
 import no.ntnu.webapp.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,7 @@ public class CourseController {
     }
 
     @GetMapping("/course")
+    @Transactional
     public String getCoursePage(Model model) {
         List<Course> courses = courseRepository.findAll();
         model.addAttribute("courses", courses);
