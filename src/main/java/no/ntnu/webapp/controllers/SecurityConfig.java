@@ -25,9 +25,10 @@ public class SecurityConfig {
                                 "/digitalMarketing",
                                 "/dataScienceAnalytics",
                                 "/businessEntrepreneurship",
-                                "/course"
+                                "/course",
+                                "/coursesDetails"
                         ).permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")

@@ -2,9 +2,12 @@ package no.ntnu.webapp.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.math.BigDecimal;
 
 @Entity
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "course_providers")
 @Data
 public class CourseProvider {

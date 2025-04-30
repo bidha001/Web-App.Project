@@ -1,10 +1,15 @@
 package no.ntnu.webapp.controllers;
 import no.ntnu.webapp.models.Course;
+import no.ntnu.webapp.models.CourseProvider;
+import no.ntnu.webapp.models.CourseSession;
 import no.ntnu.webapp.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -51,4 +56,35 @@ public class CourseController {
         model.addAttribute("courses", courses);
         return "course";
     }
+
+    @GetMapping("/coursesDetails")
+    public String getCourseDetailsPage(@RequestParam("courseId") Long courseId, Model model) {
+        Course course = courseRepository.findById(courseId).orElse(null);
+        if (course == null) {
+            return "redirect:/course"; // or error page
+        }
+
+        //  Force Hibernate to initialize the set into safe lists
+        List<CourseProvider> providers = course.getProviders() == null
+                ? new ArrayList<>()
+                : new ArrayList<>(course.getProviders());
+
+        List<CourseSession> sessions = course.getSessions() == null
+                ? new ArrayList<>()
+                : new ArrayList<>(course.getSessions());
+
+        CourseSession nextSession = sessions.stream()
+                .filter(s -> s.getStartDate().isAfter(java.time.LocalDate.now()))
+                .min(Comparator.comparing(CourseSession::getStartDate))
+                .orElse(null);
+
+        model.addAttribute("course", course);
+        model.addAttribute("providers", providers);
+        model.addAttribute("nextSession", nextSession);
+
+        return "coursesDetails";
+    }
+
+
+
 }

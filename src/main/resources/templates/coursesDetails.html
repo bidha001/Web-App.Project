@@ -1,56 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>CourseDetails</title>
-    <link rel="stylesheet" href="../static/css/coursesDetails.css">
-    <script src="../js/coursesDetails.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+    <title th:text="${course.title}">Course Details</title>
 </head>
 
 <body>
+<!-- Navbar -->
+<div th:replace="components/navbar :: navbar"></div>
 
-    <h3>Course Details</h3>
+<section class="course-details">
+    <div class="container">
+        <h1 th:text="${course.title}">Course Title</h1>
 
-    <div id="courseDetails"></div>
+        <img th:src="@{'/images/' + ${course.courseImageUrl}}" th:alt="${course.title}" class="course-image"/>
 
-    <script>
-        // Get the course id from the URL-Parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const courseId = parseInt(urlParams.get('courseId'));
+        <p><strong>Description:</strong> <span th:text="${course.description}">Course Description</span></p>
+        <p><strong>Level:</strong> <span th:text="${course.level}">Level</span></p>
+        <p><strong>ECTS Credits:</strong> <span th:text="${course.ectsCredits}">ECTS</span></p>
+        <p><strong>Hours per Week:</strong> <span th:text="${course.hoursPerWeek}">Hours</span></p>
+        <p><strong>Certification:</strong> <span th:text="${course.certification}">Certificate</span></p>
 
-        // Get the course details from the course-ID
-        const course = getCourseById(courseId);
+        <p><strong>Next Session:</strong>
+            <span th:if="${nextSession != null}" th:text="${nextSession.formattedPeriod}">Session Dates</span>
+            <span th:if="${nextSession == null}">No upcoming session</span>
+        </p>
 
-        // Create the course details
-        const courseDetails = document.getElementById('courseDetails');
-        courseDetails.innerHTML = `
-        <h4>${course.title}</h4>
-        <p>Topics: ${course.coveredTopics}</p>
-        <p>Level: ${course.level}</p>
-        <p>Next Course Session: ${course.closestCourseSession}</p>
-        <p>Course Size: ${course.courseSize}</p>
-        <p>Hours per Week: ${course.hoursPerWeek}</p>
-        <p>Related Certifications: ${course.relatedCertifications}</p>
-        <p>Price</p>
-        <ul>
-            ${course.courseProviders.map(provider => `<li>${provider.provider} - ${provider.price}</li>`).join('')}
-        </ul>
+        <p><strong>Available From Providers:</strong></p>
+
+        <table class="provider-table">
+            <thead>
+            <tr>
+                <th>Provider</th>
+                <th>Price</th>
+                <th>Currency</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- loop -->
+            <tr th:each="provider : ${providers}">
+                <td th:text="${provider.providerName}">Provider</td>
+                <td th:text="${provider.price}">Price</td>
+                <td th:text="${provider.currency}">Currency</td>
+                <td><a th:href="@{/cart}" class="ctn">Order</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+        <!-- Optional: Add a button for ordering -->
         <div class="button-container">
-         <!--Add an order button -->
-        <button class="btn" onclick="handleOrder (${course.id})">Order Course</button>
-</div>
+            <a th:href="@{/cart}" class="ctn">Order Course</a>
+        </div>
+    </div>
+</section>
 
-
-        <p class="course-description">${course.description}</p>
-
-    `;
-
-
-        function handleOrder(id) {
-            window.location.href = 'cart.html';
-        }
-    </script>
+<!-- Footer -->
+<div th:replace="components/footer :: footer"></div>
 </body>
-
 </html>
