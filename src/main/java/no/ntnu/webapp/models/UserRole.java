@@ -1,7 +1,10 @@
 package no.ntnu.webapp.models;
 
+
 public enum UserRole {
-    VISITOR,
-    REGISTERED,
-    USER, ADMIN
+    ROLE_VISITOR,
+    ROLE_REGISTERED,
+    ROLE_USER,
+    ROLE_ADMIN
 }
+

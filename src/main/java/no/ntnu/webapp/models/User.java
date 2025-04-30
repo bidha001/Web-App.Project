@@ -2,6 +2,8 @@ package no.ntnu.webapp.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -23,7 +25,8 @@ public class User {
     private String passwordHash;
     
     @Enumerated(EnumType.STRING)
-    private UserRole role;
+    @Column(nullable = false)
+    private UserRole role = UserRole.ROLE_USER;
     
     private String profileImageUrl;
     
@@ -41,15 +44,20 @@ public class User {
     
     @OneToMany(mappedBy = "user")
     private Set<Bookmark> bookmarks;
+
+    @Transient
+    private String password;
     
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
     }
-    
     @PreUpdate
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
     }
+
+
+
 }
