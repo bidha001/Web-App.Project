@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "categories")
@@ -21,5 +23,6 @@ public class Category {
     private String description;
     
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private Set<Course> courses;
 }

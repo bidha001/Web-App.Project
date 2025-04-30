@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "orders")
 @Data
@@ -17,6 +19,7 @@ public class Order {
     private User user;
     
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
     

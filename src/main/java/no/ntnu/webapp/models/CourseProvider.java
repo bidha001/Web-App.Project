@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "course_providers")
@@ -17,6 +19,7 @@ public class CourseProvider {
     
     @ManyToOne
     @JoinColumn(name = "course_id")
+    @JsonIgnore
     private Course course;
     
     @Column(nullable = false)
