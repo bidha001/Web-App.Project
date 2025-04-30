@@ -1,90 +1,69 @@
 package no.ntnu.webapp.controllers;
 import no.ntnu.webapp.models.Course;
-import no.ntnu.webapp.models.CourseProvider;
-import no.ntnu.webapp.models.CourseSession;
-import no.ntnu.webapp.repositories.CourseRepository;
+import no.ntnu.webapp.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 @Controller
 public class CourseController {
 
-    private final CourseRepository courseRepository;
+    private final CourseService courseService;
 
     @Autowired
-    public CourseController(CourseRepository courseRepository) {
-        this.courseRepository = courseRepository;
+    public CourseController(CourseService courseService) {
+        this.courseService = courseService;
     }
 
     @GetMapping("/informationTechnologies")
     public String getInformationTechnologiesPage(Model model) {
-        List<Course> courses = courseRepository.findByCategory_Name("Information Technologies");
+        List<Course> courses = courseService.getCoursesByCategory("Information Technologies");
         model.addAttribute("courses", courses);
         return "informationTechnologies";
     }
 
     @GetMapping("/digitalMarketing")
     public String getDigitalMarketingPage(Model model) {
-        List<Course> courses = courseRepository.findByCategory_Name("Digital Marketing");
+        List<Course> courses = courseService.getCoursesByCategory("Digital Marketing");
         model.addAttribute("courses", courses);
         return "digitalMarketing";
     }
 
     @GetMapping("/dataScienceAnalytics")
     public String getDataScienceAnalyticsPage(Model model) {
-        List<Course> courses = courseRepository.findByCategory_Name("Data Science and Analytics");
+        List<Course> courses = courseService.getCoursesByCategory("Data Science and Analytics");
         model.addAttribute("courses", courses);
         return "dataScienceAnalytics";
     }
 
     @GetMapping("/businessEntrepreneurship")
     public String getBusinessEntrepreneurshipPage(Model model) {
-        List<Course> courses = courseRepository.findByCategory_Name("Business and Entrepreneurship");
+        List<Course> courses = courseService.getCoursesByCategory("Business and Entrepreneurship");
         model.addAttribute("courses", courses);
         return "businessEntrepreneurship";
     }
 
     @GetMapping("/course")
     public String getCoursePage(Model model) {
-        List<Course> courses = courseRepository.findAll();
+        List<Course> courses = courseService.getAllCourses();
         model.addAttribute("courses", courses);
         return "course";
     }
 
     @GetMapping("/coursesDetails")
     public String getCourseDetailsPage(@RequestParam("courseId") Long courseId, Model model) {
-        Course course = courseRepository.findById(courseId).orElse(null);
-        if (course == null) {
+        CourseService.CourseDetails courseDetails = courseService.getCourseDetails(courseId);
+        if (courseDetails == null) {
             return "redirect:/course"; // or error page
         }
 
-        //  Force Hibernate to initialize the set into safe lists
-        List<CourseProvider> providers = course.getProviders() == null
-                ? new ArrayList<>()
-                : new ArrayList<>(course.getProviders());
-
-        List<CourseSession> sessions = course.getSessions() == null
-                ? new ArrayList<>()
-                : new ArrayList<>(course.getSessions());
-
-        CourseSession nextSession = sessions.stream()
-                .filter(s -> s.getStartDate().isAfter(java.time.LocalDate.now()))
-                .min(Comparator.comparing(CourseSession::getStartDate))
-                .orElse(null);
-
-        model.addAttribute("course", course);
-        model.addAttribute("providers", providers);
-        model.addAttribute("nextSession", nextSession);
+        model.addAttribute("course", courseDetails.getCourse());
+        model.addAttribute("providers", courseDetails.getProviders());
+        model.addAttribute("nextSession", courseDetails.getNextSession());
 
         return "coursesDetails";
     }
-
-
-
 }
