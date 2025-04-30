@@ -37,7 +37,7 @@ body, html {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 20px;
+    padding: 12px;
     color: #eeb54c;
     background-color: #000000;
 }

@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body, html{
-    background-color: black;
+    background-color: #0e0d0d;
 }
 
 .contact-hero {
@@ -44,7 +44,7 @@ body, html{
     padding: 30px;
     flex: 1;
     min-width: 250px;
-    color: #ddd;
+    color: whitesmoke;
     border-radius: 8px;
 }
 
@@ -60,7 +60,10 @@ body, html{
     margin-top: 15px;
 }
 
-/* Contact Form */
+.info-box p{
+    color: whitesmoke;
+}
+
 .contact-form {
     display: flex;
     justify-content: space-between;
@@ -104,7 +107,7 @@ body, html{
 }
 
 .form-info h4 {
-    color: #999;
+    color: whitesmoke;
     margin-bottom: 10px;
 }
 
@@ -115,5 +118,5 @@ body, html{
 }
 
 .form-info p {
-    color: #aaa;
+    color: whitesmoke;
 }
