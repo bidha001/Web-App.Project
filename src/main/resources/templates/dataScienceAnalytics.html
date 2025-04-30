@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,20 +7,19 @@
     <link rel="stylesheet" th:href="@{/css/common.css}" />
     <title>Data Science & Analytics</title>
 </head>
-
 <body>
 
-<!-- ✅ Navbar via Thymeleaf -->
+<!-- reusable navbar -->
 <div th:replace="components/navbar :: navbar"></div>
 
 <section class="course-container">
-    <h1>Data Science & Analytics</h1>
+    <h1>Digital Marketing</h1>
     <div class="courses-grid">
 
         <!-- Course Cards -->
         <div class="course-card" th:each="course : ${courses}">
-            <a th:href="@{'/coursesDetails?courseId=' + ${course.id}}">
-                <img th:src="@{${course.courseImageUrl}}" th:alt="${course.title}" />
+            <a th:href="@{'/coursesDetails?courseId=' + ${course.courseId}}">
+                <img th:src="@{'/images/' + ${course.courseImageUrl}}" th:alt="${course.title}" />
                 <h2 th:text="${course.title}">Course Title</h2>
             </a>
         </div>
@@ -29,7 +27,7 @@
     </div>
 </section>
 
-<!-- ✅ Footer via Thymeleaf -->
+<!-- reusable footer -->
 <div th:replace="components/footer :: footer"></div>
 
 </body>
