@@ -18,10 +18,11 @@ public class User {
     
     @Column(nullable = false, unique = true)
     private String email;
-    
+
     @Column(nullable = false)
     private String passwordHash;
-    
+
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserRole role;
     
@@ -41,6 +42,9 @@ public class User {
     
     @OneToMany(mappedBy = "user")
     private Set<Bookmark> bookmarks;
+
+    @Transient
+    private String password;
     
     @PrePersist
     protected void onCreate() {

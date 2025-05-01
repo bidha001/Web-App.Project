@@ -11,15 +11,15 @@ public class PageController {
         return "home";
     }
 
-    @GetMapping("/login")
-    public String loginPage() {
-        return "login";
-    }
-
-   // @GetMapping("/signup")
-   // public String signupPage() {
-    //    return "signup";
-   // }
+//    @GetMapping("/login")
+//    public String loginPage() {
+//        return "login";
+//    }
+//
+//    @GetMapping("/signup")
+//    public String signupPage() {
+//        return "signup";
+//    }
 
     @GetMapping("/contactUs")
     public String contactUs() {

@@ -25,6 +25,16 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter your password" required />
 
+            <!-- Message is displayed when user is logged in  -->
+            <div class="alert alert-success" th:if="${param.loginSuccess}">
+                <p>Login successful! Welcome back!</p>
+            </div>
+
+            <!-- Message is displayed when user is not logged out  -->
+            <div class="alert alert-info" th:if="${param.logout}">
+                <p>You have been logged out successfully.</p>
+            </div>
+
             <button type="submit" class="login-submit">Login</button>
         </form>
 
