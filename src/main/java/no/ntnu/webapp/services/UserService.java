@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -35,15 +36,28 @@ public class UserService {
         if (password == null || password.isEmpty()) {
             throw new IllegalArgumentException("Password cannot be empty");
         }
-        // Check if the username or email already exists
-        if (userRepository.findByUsername(username).isPresent()) {
+
+        // Validate the username and email format
+
+
+
+
+        // Check if the username or email already exists in the database
+        Optional<User> existingByUsername = userRepository.findByUsername(username);
+        if (existingByUsername.isPresent()) {
             throw new IllegalArgumentException("Username already exists");
         }
-        if (userRepository.findByEmail(email).isPresent()) {
+        Optional<User> existingByEmail = userRepository.findByEmail(email);
+        if (existingByEmail.isPresent()) {
             throw new IllegalArgumentException("Email already exists");
         }
 
-        // Create a new user
+
+
+            validatePassword(password);
+
+
+            // Create a new user and ensure the password is hashed
             User user = new User();
             user.setUsername(username);
             user.setEmail(email);
@@ -52,6 +66,45 @@ public class UserService {
 
             // Save the user information in the database
             userRepository.save(user);
+        }
 
+        // Validate that the username contains only letters
+    private void validateUsername (String username) {
+        if (!username.matches("^[a-zA-Z]+$")) {
+            throw new IllegalArgumentException("Username can only contain letters");
+        }
     }
+
+    // Validate that the email is in a valid format
+
+    private void validateEmail(String email) {
+        if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
+            throw new IllegalArgumentException("Email must be in a valid format (d.t., example@gmail.com)");
+        }
+    }
+
+    // Check if the password is strong enough
+    private void validatePassword (String password) {
+
+        if (password.length() < 6) {
+            throw new IllegalArgumentException("Password must be at least 6 characters long");
+        }
+        // Check if the password contains at least one letter and one number
+        if (!password.matches(".*[a-zA-Z].*") || !password.matches(".*\\d.*")) {
+            throw new IllegalArgumentException("Password must contain both letters and numbers");
+        }
+    }
+
+
+
+
+
+
+
+
+
 }
+
+
+
+
