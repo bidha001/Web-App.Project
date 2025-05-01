@@ -10,19 +10,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     public void registerUser(String username, String password) {
         User user = new User();
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
-        user.setRole(UserRole.ROLE_USER); // Set default role to USER
-        user.setRole(UserRole.ROLE_ADMIN); // Set default role to REGISTERED
+        user.setRole(UserRole.REGISTERED); // Set default role
         userRepository.save(user);
-
     }
 }

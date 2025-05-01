@@ -28,19 +28,19 @@ public class SecurityConfig {
                                 "/dataScienceAnalytics",
                                 "/businessEntrepreneurship",
                                 "/course"
-                        ).permitAll() // Tillat offentlig tilgang til de nevnte sidene
-                        .requestMatchers("/admin").hasRole("ADMIN") // Kun ADMIN kan se admin-siden
-                        .requestMatchers("/user").hasRole("USER")   // Kun USER kan se bruker-siden
-                        .anyRequest().authenticated() // Alle andre sider krever autentisering
+                        ).permitAll()
+                        .requestMatchers("/admin").hasAuthority("ADMIN")
+                        .requestMatchers("/user").hasAuthority("REGISTERED")
+                        .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/home", true) // Etter vellykket login, send til home
-                        .failureUrl("/login?error=true") // Feil login sendes tilbake til login med feilmelding
+                        .defaultSuccessUrl("/home", true)
+                        .failureUrl("/login?error=true")
                         .permitAll()
                 )
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/home") // Etter logout, send til home
+                        .logoutSuccessUrl("/home")
                         .permitAll()
                 );
 
@@ -49,6 +49,6 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); // Bruker BCrypt for passordkoding
+        return new BCryptPasswordEncoder();
     }
 }

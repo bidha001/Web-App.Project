@@ -1,43 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" th:href="@{/css/signup.css}" />
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
 </head>
-
 <body>
 
-<!-- Navbar -->
 <nav class="navbar">
-    <h2 class="logo"><a th:href="@{/home}">LEARNIVERSE<br>CONNECT</a></h2>
+    <h2 class="logo"><a th:href="@{/home}">LEARNIVERSE CONNECT</a></h2>
 </nav>
 
-<!-- Sign Up Form -->
 <section class="signup-container">
     <div class="signup-box">
         <h2>Sign Up</h2>
 
+        <!-- Error messages -->
+        <div th:if="${error}" class="error" th:text="${error}"></div>
+
         <form th:action="@{/signup}" method="post">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required />
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required />
-
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required />
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required />
-
-            <button type="submit" class="signup-submit">Sign Up</button>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Create Account</button>
         </form>
 
-        <p class="login-link">
-            Already have an account?<br>
-            <a th:href="@{/login}">Login here!</a>
-        </p>
+        <p>Already have an account? <a th:href="@{/login}">Login</a></p>
     </div>
 </section>
 
