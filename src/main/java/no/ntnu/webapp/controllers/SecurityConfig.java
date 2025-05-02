@@ -30,12 +30,12 @@ public class SecurityConfig {
                                 "/course"
                         ).permitAll()
                         .requestMatchers("/admin").hasAuthority("ADMIN")
-                        .requestMatchers("/user").hasAuthority("REGISTERED")
+                        .requestMatchers("/user-dashboard").hasRole("REGISTERED")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/home", true)
+                        .defaultSuccessUrl("/user-dashboard", true)
                         .failureUrl("/login?error=true")
                         .permitAll()
                 )

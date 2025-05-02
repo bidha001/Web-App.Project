@@ -25,23 +25,18 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-       User user = userRepository.findByUsername(username)
-               .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        // Søk etter brukernavn
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Bruker ikke funnet: " + username));
 
-       // Check that both user and role are not null
-        String password = user.getPasswordHash();
-        if (password == null) {
-            throw new UsernameNotFoundException("Password not found");
-        }
-        String role = user.getRole() != null ? user.getRole().name() : "REGISTERED";
-
-        GrantedAuthority authority = new SimpleGrantedAuthority(role);
+        // Konverter rollen til Spring Security-format (ROLE_...)
+        String authority = "ROLE_" + user.getRole().name();
+        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority);
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
-                password,
-                Collections.singletonList(authority)
-
+                user.getPasswordHash(),
+                Collections.singletonList(grantedAuthority)
         );
     }
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    <link th:href="@{/css/user-dashboard.css}" rel="stylesheet">
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="top-bar">
+    <div class="icons">
+        <a href="/cart">
+            <img th:src="@{/images/cart.png}" alt="Cart" class="icon">
+        </a>
+        <a href="/notifications">
+            <img th:src="@{/images/notification.png}" alt="Notifications" class="icon">
+        </a>
+    </div>
+</div>
+
+<!-- Main content -->
+<div class="main-content">
+    <img th:src="@{/images/profile.png}" alt="Avatar" class="avatar">
+    <input type="text" class="search-bar" placeholder="Search for anything">
+</div>
+
+</body>
+</html>
