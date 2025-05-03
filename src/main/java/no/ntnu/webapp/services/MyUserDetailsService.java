@@ -25,11 +25,11 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Søk etter brukernavn
+        // Search for the user
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Bruker ikke funnet: " + username));
 
-        // Konverter rollen til Spring Security-format (ROLE_...)
+        // convert role to spring security authority
         String authority = "ROLE_" + user.getRole().name();
         GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(authority);
 
