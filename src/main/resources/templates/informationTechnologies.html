@@ -13,17 +13,10 @@
 <!-- Navbar -->
 <div th:replace="components/navbar :: navbar"></div>
 
+<!-- Course Container -->
 <section class="course-container">
-    <h1>Information Technologies</h1>
-
-    <div class="courses-grid">
-        <div class="course-card" th:each="course : ${courses}">
-            <a th:href="@{'/coursesDetails?courseId=' + ${course.courseId}}">
-                <img th:src="@{'/images/' + ${course.courseImageUrl}}" th:alt="${course.title}" />
-                <h2 th:text="${course.title}">Course Title</h2>
-            </a>
-        </div>
-    </div>
+    <h1 th:text="${categoryTitle}">Category Title</h1>
+    <div th:replace="components/courseCard :: courseCards(${courses})"></div>
 </section>
 
 <!-- Footer -->

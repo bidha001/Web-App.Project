@@ -116,6 +116,7 @@
 			<scope>test</scope>
 		</dependency>
 
+
 		<!-- Spring Dotenv - For loading environment variables from .env file -->
 		<dependency>
 			<groupId>me.paulschwarz</groupId>

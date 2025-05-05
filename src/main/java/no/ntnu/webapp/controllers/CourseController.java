@@ -22,6 +22,7 @@ public class CourseController {
     public String getInformationTechnologiesPage(Model model) {
         List<Course> courses = courseService.getCoursesByCategory("Information Technologies");
         model.addAttribute("courses", courses);
+        model.addAttribute("categoryTitle", "Information Technologies");
         return "informationTechnologies";
     }
 
@@ -29,29 +30,26 @@ public class CourseController {
     public String getDigitalMarketingPage(Model model) {
         List<Course> courses = courseService.getCoursesByCategory("Digital Marketing");
         model.addAttribute("courses", courses);
+        model.addAttribute("categoryTitle", "Digital Marketing");
         return "digitalMarketing";
-    }
-
-    @GetMapping("/dataScienceAnalytics")
-    public String getDataScienceAnalyticsPage(Model model) {
-        List<Course> courses = courseService.getCoursesByCategory("Data Science and Analytics");
-        model.addAttribute("courses", courses);
-        return "dataScienceAnalytics";
     }
 
     @GetMapping("/businessEntrepreneurship")
     public String getBusinessEntrepreneurshipPage(Model model) {
         List<Course> courses = courseService.getCoursesByCategory("Business and Entrepreneurship");
         model.addAttribute("courses", courses);
+        model.addAttribute("categoryTitle", "Business & Entrepreneurship");
         return "businessEntrepreneurship";
     }
 
-    @GetMapping("/course")
-    public String getCoursePage(Model model) {
-        List<Course> courses = courseService.getAllCourses();
+    @GetMapping("/dataScienceAnalytics")
+    public String getDataScienceAnalyticsPage(Model model) {
+        List<Course> courses = courseService.getCoursesByCategory("Data Science and Analytics");
         model.addAttribute("courses", courses);
-        return "course";
+        model.addAttribute("categoryTitle", "Data Science and Analytics");
+        return "dataScienceAnalytics";
     }
+
 
     @GetMapping("/coursesDetails")
     public String getCourseDetailsPage(@RequestParam("courseId") Long courseId, Model model) {

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <body>
 <nav class="navbar" th:fragment="navbar">
     <h1>
@@ -30,7 +30,28 @@
 
         <li><a th:href="@{/course}">Course</a></li>
         <li><a th:href="@{/contactUs}">Contact Us</a></li>
-        <li class="ctn"><a th:href="@{/login}">Login</a></li>
+
+        <!-- Show Login when NOT logged in -->
+        <li class="ctn" sec:authorize="isAnonymous()">
+            <a th:href="@{/login}">Login</a>
+        </li>
+
+        <!-- Show icons when user IS logged in -->
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/user-dashboard}">
+                <img th:src="@{/images/profile.png}" alt="Avatar" class="icon" style="width:30px; border-radius:50%;" />
+            </a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/cart}">
+                <img th:src="@{/images/cart.png}" alt="Cart" class="icon" style="width:25px;" />
+            </a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/notifications}">
+                <img th:src="@{/images/notification.png}" alt="Notifications" class="icon" style="width:25px;" />
+            </a>
+        </li>
     </ul>
 
     <img th:src="@{/images/menu.png}" alt="Menu" class="menu-btn" />

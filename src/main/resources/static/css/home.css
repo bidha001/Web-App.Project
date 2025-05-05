@@ -314,7 +314,16 @@ p {
     margin-left: -100px;
 }
 
+.icon {
+    width: 10px;
+    height: 25px;
+    margin-left: 1px;
+}
 
+.avatar-icon {
+    border-radius: 40%;
+    border: 2px solid #eeb54c;
+}
 
 .footer {
     background-color: #2a2b2d;

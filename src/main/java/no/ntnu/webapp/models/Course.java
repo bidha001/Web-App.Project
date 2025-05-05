@@ -3,7 +3,6 @@ package no.ntnu.webapp.models;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
 import java.util.Set;
 
 @Entity
@@ -44,4 +43,5 @@ public class Course {
     
     @OneToMany(mappedBy = "course")
     private Set<Bookmark> bookmarks;
+
 }

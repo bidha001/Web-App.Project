@@ -1,11 +1,9 @@
 package no.ntnu.webapp.controllers;
-
 import no.ntnu.webapp.models.Course;
 import no.ntnu.webapp.services.CourseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -75,7 +73,7 @@ public class CourseApiController {
         if (!courseService.getCourseById(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        
+
         course.setCourseId(id); // Ensure ID is set correctly
         Course updatedCourse = courseService.saveCourse(course);
         return ResponseEntity.ok(updatedCourse);
@@ -91,7 +89,7 @@ public class CourseApiController {
         if (!courseService.getCourseById(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        
+
         courseService.deleteCourse(id);
         return ResponseEntity.noContent().build();
     }
