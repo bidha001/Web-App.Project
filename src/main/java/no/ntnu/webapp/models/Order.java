@@ -6,9 +6,13 @@ import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * Represents an order made by a user for a course.
+ */
 @Entity
 @Table(name = "orders")
 @Data
+
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

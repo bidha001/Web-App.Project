@@ -8,6 +8,9 @@ import java.time.format.DateTimeFormatter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * Represents a course session.
+ */
 @Entity
 @Table(name = "course_sessions")
 @Data

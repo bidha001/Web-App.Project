@@ -10,6 +10,8 @@ import java.util.Set;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "courses")
 @Data
+
+
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
