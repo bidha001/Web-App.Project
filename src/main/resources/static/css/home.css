@@ -22,7 +22,8 @@ ul {
     font-weight: bold;
 }
 
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -57,7 +58,7 @@ body, html {
     color: #E3F2FD;
 }
 
-.logo{
+.logo {
     font-size: 23px;
     font-weight: bold
 }
@@ -72,7 +73,7 @@ body, html {
     background-color: #fff;
     border-radius: 20px;
     padding: 5px 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -323,6 +324,60 @@ p {
 .avatar-icon {
     border-radius: 40%;
     border: 2px solid #eeb54c;
+}
+
+/* User Dropdown Styles */
+.user-dropdown {
+    position: relative;
+}
+
+.user-dropdown label {
+    cursor: pointer;
+}
+
+.user-dropdown label img {
+    transition: all 0.3s ease;
+}
+
+.user-dropdown input[type="checkbox"]:checked~label img {
+    border: 2px solid #eeb54c;
+}
+
+.user-dropdown-content {
+    right: 0;
+    left: auto;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+}
+
+.user-dropdown-content li {
+    margin: 0;
+    border-bottom: 1px solid #333;
+}
+
+.user-dropdown-content li:last-child {
+    border-bottom: none;
+}
+
+.user-dropdown-content li a {
+    padding: 12px 15px;
+    transition: all 0.2s ease;
+}
+
+.user-dropdown-content li a:hover {
+    background-color: #604107;
+    color: white;
+}
+
+/* Logout link special styling */
+.user-dropdown-content li:last-child a {
+    color: #ff5252;
+}
+
+.user-dropdown-content li:last-child a:hover {
+    background-color: #ff5252;
+    color: white;
 }
 
 .footer {

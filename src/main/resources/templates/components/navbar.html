@@ -1,60 +1,64 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <body>
-<nav class="navbar" th:fragment="navbar">
-    <h1>
-        <a th:href="@{/home}" class="logo">LEARNIVERSE<br>CONNECT</a>
-    </h1>
+    <nav class="navbar" th:fragment="navbar">
+        <h1>
+            <a th:href="@{/home}" class="logo">LEARNIVERSE<br>CONNECT</a>
+        </h1>
 
-    <div class="search-container">
-        <label>
-            <input type="text" placeholder="Search courses..." class="search-input" />
-        </label>
-        <button class="search-btn">🔍</button>
-    </div>
+        <div class="search-container">
+            <label>
+                <input type="text" placeholder="Search courses..." class="search-input" />
+            </label>
+            <button class="search-btn">🔍</button>
+        </div>
 
-    <ul class="nav-links">
-        <li><a th:href="@{/home}">Home</a></li>
+        <ul class="nav-links">
+            <li><a th:href="@{/home}">Home</a></li>
 
-        <li class="dropdown">
-            <input type="checkbox" id="cat-toggle" />
-            <label for="cat-toggle" class="category-label">Category</label>
-            <ul class="dropdown-content">
-                <li><a th:href="@{/informationTechnologies}">Information Technologies</a></li>
-                <li><a th:href="@{/digitalMarketing}">Digital Marketing</a></li>
-                <li><a th:href="@{/businessEntrepreneurship}">Business & Entrepreneurship</a></li>
-                <li><a th:href="@{/dataScienceAnalytics}">Data Science & Analytics</a></li>
-            </ul>
-        </li>
+            <li class="dropdown">
+                <input type="checkbox" id="cat-toggle" />
+                <label for="cat-toggle" class="category-label">Category</label>
+                <ul class="dropdown-content">
+                    <li><a th:href="@{/informationTechnologies}">Information Technologies</a></li>
+                    <li><a th:href="@{/digitalMarketing}">Digital Marketing</a></li>
+                    <li><a th:href="@{/businessEntrepreneurship}">Business & Entrepreneurship</a></li>
+                    <li><a th:href="@{/dataScienceAnalytics}">Data Science & Analytics</a></li>
+                </ul>
+            </li>
 
-        <li><a th:href="@{/course}">Course</a></li>
-        <li><a th:href="@{/contactUs}">Contact Us</a></li>
+            <li><a th:href="@{/course}">Course</a></li>
+            <li><a th:href="@{/contactUs}">Contact Us</a></li>
 
-        <!-- Show Login when NOT logged in -->
-        <li class="ctn" sec:authorize="isAnonymous()">
-            <a th:href="@{/login}">Login</a>
-        </li>
+            <!-- Show Login when NOT logged in -->
+            <li class="ctn" sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}">Login</a>
+            </li>
 
-        <!-- Show icons when user IS logged in -->
-        <li sec:authorize="isAuthenticated()">
-            <a th:href="@{/user-dashboard}">
-                <img th:src="@{/images/profile.png}" alt="Avatar" class="icon" style="width:30px; border-radius:50%;" />
-            </a>
-        </li>
-        <li sec:authorize="isAuthenticated()">
-            <a th:href="@{/cart}">
-                <img th:src="@{/images/cart.png}" alt="Cart" class="icon" style="width:25px;" />
-            </a>
-        </li>
-        <li sec:authorize="isAuthenticated()">
-            <a th:href="@{/notifications}">
-                <img th:src="@{/images/notification.png}" alt="Notifications" class="icon" style="width:25px;" />
-            </a>
-        </li>
-    </ul>
+            <!-- Show icons when user IS logged in -->
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/cart}">
+                    <img th:src="@{/images/cart.png}" alt="Cart" class="icon" style="width:25px;" />
+                </a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="dropdown user-dropdown">
+                <input type="checkbox" id="user-toggle" />
+                <label for="user-toggle">
+                    <img th:src="@{/images/profile.png}" alt="Avatar" class="icon"
+                        style="width:30px; border-radius:50%;" />
+                </label>
+                <ul class="dropdown-content user-dropdown-content">
+                    <li><a th:href="@{/user-dashboard}">My Courses</a></li>
+                    <li><a th:href="@{/user-profile}">My Favorite Courses</a></li>
+                    <li><a th:href="@{/home}">Logout</a></li>
+                </ul>
+            </li>
 
-    <img th:src="@{/images/menu.png}" alt="Menu" class="menu-btn" />
-</nav>
+        </ul>
+
+        <img th:src="@{/images/menu.png}" alt="Menu" class="menu-btn" />
+    </nav>
 </body>
+
 </html>
