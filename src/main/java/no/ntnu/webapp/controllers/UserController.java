@@ -1,72 +1,62 @@
 package no.ntnu.webapp.controllers;
-
-
 import no.ntnu.webapp.models.User;
-import no.ntnu.webapp.models.UserRole;
 import no.ntnu.webapp.repositories.UserRepository;
+import no.ntnu.webapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.security.Principal;
+
 @Controller
 public class UserController {
 
+
+    private final UserService userService;
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserController(UserService userService, UserRepository userRepository) {
+        this.userService = userService;
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/login")
-    public String showLoginPage() {
+    public String LoginPage() {
         return "login";
     }
 
     @GetMapping("/signup")
-    public String showSignupPage() {
+    public String SignUpPage() {
         return "signup";
     }
 
+    @GetMapping("/user-dashboard")
+    public String userDashboard(Model model, Principal principal) {
+        String username = principal.getName();
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        model.addAttribute("user", user);
+        return "user-dashboard";
+
+    }
+
     @PostMapping("/signup")
-    public String signup(
+    public String SignUp(
             @RequestParam String email,
             @RequestParam String username,
             @RequestParam String password,
             RedirectAttributes redirectAttributes) {
 
-
-        if (email.isEmpty() || username.isEmpty() || password.isEmpty()) {
-            redirectAttributes.addFlashAttribute("error", "All fields must be filled in");
-            return "redirect:/signup";
-        }
+        userService.registerUser(username, email, password);
 
 
-        if (userRepository.findByEmail(email).isPresent()) {
-            redirectAttributes.addFlashAttribute("error", "E-post are already in use");
-            return "redirect:/signup";
-        }
-        if (userRepository.findByUsername(username).isPresent()) {
-            redirectAttributes.addFlashAttribute("error", "Username is already in use");
-            return "redirect:/signup";
-        }
-
-        // Create a new user
-        User user = new User();
-        user.setEmail(email);
-        user.setUsername(username);
-        user.setPasswordHash(passwordEncoder.encode(password));
-        user.setRole(UserRole.REGISTERED); // Set the role to REGISTERED for new users
-
-        userRepository.save(user);
-
-        redirectAttributes.addFlashAttribute("success", "User created successfully");
+        redirectAttributes.addFlashAttribute("success", "User registered successfully");
         return "redirect:/login";
     }
 }
