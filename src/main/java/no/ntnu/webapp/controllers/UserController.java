@@ -1,7 +1,4 @@
 package no.ntnu.webapp.controllers;
-
-
-
 import no.ntnu.webapp.models.User;
 import no.ntnu.webapp.repositories.UserRepository;
 import no.ntnu.webapp.services.UserService;
@@ -37,6 +34,7 @@ public class UserController {
     public String SignUpPage() {
         return "signup";
     }
+
     @GetMapping("/user-dashboard")
     public String userDashboard(Model model, Principal principal) {
         String username = principal.getName();
@@ -47,9 +45,6 @@ public class UserController {
         return "user-dashboard";
 
     }
-
-
-
 
     @PostMapping("/signup")
     public String SignUp(
