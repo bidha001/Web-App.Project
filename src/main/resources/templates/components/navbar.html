@@ -51,7 +51,12 @@
                 <ul class="dropdown-content user-dropdown-content">
                     <li><a th:href="@{/user-dashboard}">My Courses</a></li>
                     <li><a th:href="@{/user-profile}">My Favorite Courses</a></li>
-                    <li><a th:href="@{/home}">Logout</a></li>
+                    <li>
+                        <form th:action="@{/logout}" method="post" style="margin:0; padding:0;">
+                            <button type="submit" class="logout-btn"
+                                style="background-color: #ef9104; border: none; color: white; font: inherit; cursor: pointer; padding: 12px 15px; width: 100%; text-align: left; transition: all 0.3s ease; border-radius: 3px; margin: 5px 0;">Logout</button>
+                        </form>
+                    </li>
                 </ul>
             </li>
             <!-- Show authentication status. Will be deleted after testing -->

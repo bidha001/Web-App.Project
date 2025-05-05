@@ -370,6 +370,13 @@ p {
     color: white;
 }
 
+/* Logout button styling */
+.logout-btn:hover {
+    background-color: #d32f2f !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+}
+
 /* Logout link special styling */
 .user-dropdown-content li:last-child a {
     color: #ff5252;
