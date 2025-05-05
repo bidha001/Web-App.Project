@@ -1,5 +1,6 @@
 package no.ntnu.webapp.services;
 
+import lombok.Getter;
 import no.ntnu.webapp.models.Course;
 import no.ntnu.webapp.models.CourseProvider;
 import no.ntnu.webapp.models.CourseSession;
@@ -100,6 +101,7 @@ public class CourseService {
     /**
      * DTO class for course details
      */
+    @Getter
     public static class CourseDetails {
         private final Course course;
         private final List<CourseProvider> providers;
@@ -110,17 +112,6 @@ public class CourseService {
             this.providers = providers;
             this.nextSession = nextSession;
         }
-        
-        public Course getCourse() {
-            return course;
-        }
-        
-        public List<CourseProvider> getProviders() {
-            return providers;
-        }
-        
-        public CourseSession getNextSession() {
-            return nextSession;
-        }
+
     }
 }

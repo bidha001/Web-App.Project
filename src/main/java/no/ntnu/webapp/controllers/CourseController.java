@@ -50,6 +50,15 @@ public class CourseController {
         return "dataScienceAnalytics";
     }
 
+    @GetMapping("/course")
+    public String getCoursePage(Model model) {
+        List<Course> courses = courseService.getAllCourses(); // or filter if needed
+        model.addAttribute("courses", courses);
+        model.addAttribute("categoryTitle", "All Courses");
+        return "course";
+    }
+
+
 
     @GetMapping("/coursesDetails")
     public String getCourseDetailsPage(@RequestParam("courseId") Long courseId, Model model) {
