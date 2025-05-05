@@ -13,9 +13,12 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/courses")
 public class CourseApiController {
-
     private final CourseService courseService;
 
+    /**
+     * Constructor for CourseApiController
+     * @param courseService Service for managing courses
+     */
     public CourseApiController(CourseService courseService) {
         this.courseService = courseService;
     }
