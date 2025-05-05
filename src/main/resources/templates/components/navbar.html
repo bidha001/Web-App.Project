@@ -54,6 +54,13 @@
                     <li><a th:href="@{/home}">Logout</a></li>
                 </ul>
             </li>
+            <!-- Show authentication status. Will be deleted after testing -->
+            <li>
+                <div>
+                    Authenticated: <span sec:authorize="isAuthenticated()">✅ Yes</span>
+                    <span sec:authorize="!isAuthenticated()">❌ No</span>
+                </div>
+            </li>
 
         </ul>
 
