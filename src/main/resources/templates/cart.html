@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
   <link rel="stylesheet" th:href="@{/css/home.css}" />
   <link rel="stylesheet" th:href="@{/css/cart.css}" />
-  <title>Shopping Cart</title>
-
 </head>
 <body>
 
@@ -15,56 +12,41 @@
 
   <!-- Left Section: Cart Items -->
   <div class="cart-items">
-    <h2>2 Courses in Cart</h2>
+    <h2 th:text="${#lists.size(orders)} + ' Courses in Cart'">0 Courses in Cart</h2>
 
-    <div class="cart-item">
-      <img src="../static/images/java.jpg" alt="Course Image">
+    <div class="cart-item" th:each="order : ${orders}">
+      <img th:src="@{'/images/' + ${order.course.courseImageUrl}}" alt="Course Image">
       <div class="item-details">
-        <h3>The Web Developer Bootcamp 2025</h3>
-        <p>By Colt Steele</p>
-        <div class="badges">
-          <span class="badge updated">Updated Recently</span>
-        </div>
-        <div class="rating">
-          ⭐ 4.7 (280,322 ratings)
-        </div>
+        <h3 th:text="${order.course.title}">Course Title</h3>
+        <p th:text="${order.course.category.name}">Category</p>
+
+        <span
+                th:text="'⭐ ' + ${ratings[order.course.courseId]}">4.5¨
+        </span>
 
         <div class="info">
-          74 total hours • 731 lectures • All Levels
+          <span th:text="${order.course.hoursPerWeek}">X</span> hours/week
         </div>
-
         <div class="actions">
-          <a href="#">Remove</a> | <a href="#">Save for Later</a> | <a href="#">Move to Wishlist</a>
+          <a th:href="@{'/removeFromCart?orderId=' + ${order.orderId}}">Remove</a>
         </div>
-
       </div>
       <div class="item-price">
-        <span class="current-price">kr369</span>
-        <span class="original-price">kr1,069</span>
+        <span class="current-price" th:text="'kr' + ${order.course.providers.iterator().next().price}">kr369</span>
       </div>
     </div>
-
   </div>
 
   <!-- Right Section: Cart Summary -->
   <div class="cart-summary">
     <h2>Total:</h2>
-    <div class="total-price">kr558</div>
-    <div class="original-price-strikethrough">kr3,028</div>
-    <div class="discount">82% off</div>
-
+    <div class="total-price" th:text="'kr' + ${orders.stream().mapToDouble(o -> o.course.providers.iterator().next().price.doubleValue()).sum()}">kr0</div>
     <button class="checkout-btn">Proceed to Checkout</button>
-
-    <div class="promo-code">
-      <input type="text" placeholder="Enter Coupon">
-      <button class="apply-btn">Apply</button>
-    </div>
   </div>
-
 </div>
 
-<!-- Footer-->
-  <div th:replace="components/footer :: footer"></div>
+<!-- Footer -->
+<div th:replace="components/footer :: footer"></div>
 
 </body>
 </html>

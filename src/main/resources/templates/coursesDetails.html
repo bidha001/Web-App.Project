@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" th:href="@{/css/home.css}" />
     <link rel="stylesheet" th:href="@{/css/common.css}" />
-    <link rel="stylesheet" th:href="@{/css/coursesDetails.css}" />
     <title th:text="${course.title}">Course Details</title>
 </head>
 
 <body>
+
 <!-- Navbar -->
 <div th:replace="components/navbar :: navbar"></div>
 
@@ -17,7 +18,7 @@
     <div class="container">
         <h1 th:text="${course.title}">Course Title</h1>
 
-        <img th:src="@{'/images/' + ${course.courseImageUrl}}" th:alt="${course.title}" class="course-image"/>
+        <img th:src="@{'/images/' + ${course.courseImageUrl}}" th:alt="${course.title}" class="course-image" />
 
         <p><strong>Description:</strong> <span th:text="${course.description}">Course Description</span></p>
         <p><strong>Level:</strong> <span th:text="${course.level}">Level</span></p>
@@ -42,21 +43,24 @@
             </tr>
             </thead>
             <tbody>
-            <!-- loop -->
-            <tr th:each="provider : ${providers}">
+            <tr th:each="provider : ${providers}" th:if="${provider != null}">
                 <td th:text="${provider.providerName}">Provider</td>
                 <td th:text="${provider.price}">Price</td>
                 <td th:text="${provider.currency}">Currency</td>
-                <td><a th:href="@{/cart}" class="ctn">Order</a></td>
+                <td>
+                    <form th:action="@{/addToCart}" method="post">
+                        <input type="hidden" name="courseId" th:value="${course.courseId}" />
+                        <input type="hidden" name="providerId" th:value="${provider.providerId}" />
+                        <button type="submit" class="ctn">Add to Cart</button>
+                    </form>
+                </td>
+
             </tr>
             </tbody>
         </table>
 
-
-
-        <!-- Optional: Add a button for ordering -->
         <div class="button-container">
-            <a th:href="@{/cart}" class="ctn">Order Course</a>
+            <a th:href="@{/cart}" class="ctn">View Cart</a>
         </div>
     </div>
 </section>

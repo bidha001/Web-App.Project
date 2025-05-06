@@ -42,13 +42,10 @@ public class PageController {
     }
 
 
-    /**
-     * Handles requests to the cart page.
-     * @return The name of the view to be rendered
-     */
-    @GetMapping("/cart")
-    public String cart() {
-        return "cart";
-    }
+
+    //@GetMapping("/cart")
+    //**public String cart() {
+       // return "cart";
+    //}
 
 }
