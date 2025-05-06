@@ -10,5 +10,11 @@ import java.util.List;
 public interface CourseRepository extends JpaRepository<Course, Long> {
     List<Course> findByCategory_Name(String name);
     List<Course> findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(String title, String description);
-
+    
+    /**
+     * Find courses by title (case-insensitive)
+     * @param title the title to search for
+     * @return list of courses with matching titles
+     */
+    List<Course> findByTitleContainingIgnoreCase(String title);
 }
