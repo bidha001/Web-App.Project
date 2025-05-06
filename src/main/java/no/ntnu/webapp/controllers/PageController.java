@@ -12,13 +12,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PageController {
 
     /**
+     * Handles requests to the root URL ("/").
+     * @return The name of the view to be rendered
+     */
+    @GetMapping("/")
+    public String index() {
+        return "home";
+    }
+
+    /**
      * Handles requests to the home page.
      * @return The name of the view to be rendered
      */
-    @GetMapping("/home")
-    public String home() {
-        return "home";
-    }
+    //@GetMapping("/home")
+    //public String home() {
+     //   return "home";
+    //}
 
 //    @GetMapping("/login")
 //    public String loginPage() {
