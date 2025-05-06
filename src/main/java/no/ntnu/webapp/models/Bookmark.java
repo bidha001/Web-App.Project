@@ -8,9 +8,6 @@ import java.time.LocalDateTime;
 @Table(name = "bookmarks")
 @Data
 
-/**
- * Represents a bookmark for a course made by a user.
- */
 public class Bookmark {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

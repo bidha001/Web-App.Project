@@ -40,7 +40,8 @@ public class SecurityConfig {
                                 "/digitalMarketing",
                                 "/dataScienceAnalytics",
                                 "/businessEntrepreneurship",
-                                "/course"
+                                "/course",
+                                "/search"
                         ).permitAll()
                         .requestMatchers("/admin").hasAuthority("ADMIN")
                         .requestMatchers("/user-dashboard").hasRole("REGISTERED")

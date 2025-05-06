@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface CourseRepository extends JpaRepository<Course, Long> {
     List<Course> findByCategory_Name(String name);
+    List<Course> findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(String title, String description);
+
 }

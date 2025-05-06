@@ -114,4 +114,14 @@ public class CourseService {
         }
 
     }
+
+    /**
+     * Search courses by title or description (case-insensitive)
+     * @param keyword the search keyword
+     * @return list of matching courses
+     */
+    public List<Course> searchCourses(String keyword) {
+        return courseRepository.findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(keyword, keyword);
+    }
+
 }

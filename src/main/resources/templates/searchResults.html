@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Search Results</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<section class="main-content">
+  <h2 th:text="${categoryTitle}">Search Results</h2>
+
+  <div class="courses-grid">
+    <div th:each="course : ${courses}" class="course-card">
+      <img th:src="${course.courseImageUrl}" alt="Course Image" />
+      <h2 th:text="${course.title}">Course Title</h2>
+      <p th:text="${course.description}">Course Description</p>
+      <a th:href="@{/coursesDetails(courseId=${course.courseId})}" class="btn">View Details</a>
+    </div>
+  </div>
+</section>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

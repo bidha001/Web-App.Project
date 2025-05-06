@@ -105,4 +105,19 @@ public class CourseController {
 
         return "coursesDetails";
     }
+
+    /**
+     * Handles requests to the search page.
+     * @param query Search query
+     * @param model Model object to pass data to the view
+     * @return The name of the view to be rendered
+     */
+    @GetMapping("/search")
+    public String searchCourses(@RequestParam("query") String query, Model model) {
+        List<Course> matchedCourses = courseService.searchCourses(query);
+        model.addAttribute("courses", matchedCourses);
+        model.addAttribute("categoryTitle", "Search Results");
+        return "searchResults";
+    }
+
 }
