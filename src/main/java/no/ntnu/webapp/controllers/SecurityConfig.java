@@ -45,7 +45,8 @@ public class SecurityConfig {
                                 "/payment",
                                 "/checkout",
                                 "/processPayment",
-                                "/MyCourses"
+                                "/MyCourses",
+                                "/favoriteCourses"
                         ).permitAll()
                         .requestMatchers("/admin").hasAuthority("ADMIN")
                         .anyRequest().authenticated()

@@ -39,7 +39,7 @@ public class User {
     
     @OneToMany(mappedBy = "user")
     private Set<CourseSession> courseSessions;
-    
+
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<Bookmark> bookmarks;
 

@@ -52,7 +52,8 @@
                 </label>
                 <ul class="dropdown-content user-dropdown-content">
                     <li><a th:href="@{/my-courses}">My Courses</a></li>
-                    <li><a href="#">My Favorite Courses</a></li>
+                    <li><a th:href="@{/favorites}">My Favorite Courses</a></li>
+
                     <li>
                         <form th:action="@{/logout}" method="post" style="margin:0; padding:0;">
                             <button type="submit" class="logout-btn"

@@ -6,10 +6,9 @@ import no.ntnu.webapp.models.Course;
 import no.ntnu.webapp.models.User;
 import no.ntnu.webapp.repositories.BookmarkRepository;
 import no.ntnu.webapp.repositories.CourseRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,15 +25,13 @@ public class BookmarkService {
 
     public void removeBookmark(User user, Long courseId) {
         Optional<Bookmark> bookmark = bookmarkRepository.findByUserAndCourse_CourseId(user, courseId);
-        bookmark.ifPresent(bookmarkRepository::delete); // Delete if empty
+        bookmark.ifPresent(bookmarkRepository::delete);
     }
 
     public void addBookmark(User user, Long courseId) {
-
         Course course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new IllegalArgumentException("Course not found"));
 
-        // Sjekk om favoritten allerede eksisterer
         if (!bookmarkRepository.existsByUserAndCourse(user, course)) {
             Bookmark bookmark = new Bookmark();
             bookmark.setUser(user);
@@ -42,5 +39,8 @@ public class BookmarkService {
             bookmarkRepository.save(bookmark);
         }
     }
-}
 
+    public List<Bookmark> getBookmarksForUser(User user) {
+        return bookmarkRepository.findAllByUser(user);
+    }
+}

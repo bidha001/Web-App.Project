@@ -1,8 +1,7 @@
 package no.ntnu.webapp.controllers;
 
-
-
 import no.ntnu.webapp.models.Bookmark;
+import no.ntnu.webapp.models.Course;
 import no.ntnu.webapp.models.User;
 import no.ntnu.webapp.services.BookmarkService;
 import no.ntnu.webapp.services.UserService;
@@ -11,12 +10,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-        import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/favorites")
 public class FavoriteController {
-
 
     private final BookmarkService bookmarkService;
     private final UserService userService;
@@ -26,34 +27,32 @@ public class FavoriteController {
         this.userService = userService;
     }
 
-    // Method to show all favorites that user has bookmarked
+
     @GetMapping
     public String showFavorites(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         User user = userService.findUserByUsername(userDetails.getUsername());
 
-        model.addAttribute("courses", user.getBookmarks().stream()
-                .map(Bookmark::getCourse) // Get the course from each bookmark
-                .toList());
+
+        List<Course> courses = bookmarkService.getBookmarksForUser(user).stream()
+                .map(Bookmark::getCourse)
+                .toList();
+
+        model.addAttribute("courses", courses);
         return "favoriteCourses";
     }
 
-    // Delete a favoriteCourse By its ID
+
     @PostMapping("/remove/{courseId}")
-    public String removeFavorite(
-            @AuthenticationPrincipal UserDetails userDetails,
-            @PathVariable Long courseId
-    ) {
+    public String removeFavorite(@AuthenticationPrincipal UserDetails userDetails, @PathVariable Long courseId) {
         User user = userService.findUserByUsername(userDetails.getUsername());
         bookmarkService.removeBookmark(user, courseId);
         return "redirect:/favorites";
     }
 
     @PostMapping("/add")
-    public String addFavorite(
-            @AuthenticationPrincipal UserDetails userDetails,
-            @RequestParam Long courseId,
-            RedirectAttributes redirectAttributes
-    ) {
+    public String addFavorite(@AuthenticationPrincipal UserDetails userDetails,
+                              @RequestParam Long courseId,
+                              RedirectAttributes redirectAttributes) {
         try {
             User user = userService.findUserByUsername(userDetails.getUsername());
             bookmarkService.addBookmark(user, courseId);
@@ -63,6 +62,4 @@ public class FavoriteController {
         }
         return "redirect:/coursesDetails?courseId=" + courseId;
     }
-
-
 }
