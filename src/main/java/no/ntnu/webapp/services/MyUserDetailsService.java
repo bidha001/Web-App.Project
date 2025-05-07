@@ -2,7 +2,6 @@ package no.ntnu.webapp.services;
 
 import no.ntnu.webapp.models.User;
 import no.ntnu.webapp.repositories.UserRepository;
-import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -27,7 +26,7 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Search for the user
         User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Bruker ikke funnet: " + username));
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
 
         // convert role to spring security authority
         String authority = "ROLE_" + user.getRole().name();

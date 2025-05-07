@@ -97,7 +97,11 @@ public class CourseService {
     public void deleteCourse(Long courseId) {
         courseRepository.deleteById(courseId);
     }
-    
+
+    public List<Course> searchCourses(String query) {
+        return courseRepository.findByTitleContainingIgnoreCase(query);
+    }
+
     /**
      * DTO class for course details
      */
@@ -106,22 +110,11 @@ public class CourseService {
         private final Course course;
         private final List<CourseProvider> providers;
         private final CourseSession nextSession;
-        
+
         public CourseDetails(Course course, List<CourseProvider> providers, CourseSession nextSession) {
             this.course = course;
             this.providers = providers;
             this.nextSession = nextSession;
         }
-
     }
-
-    /**
-     * Search courses by title only (case-insensitive)
-     * @param keyword the search keyword
-     * @return list of matching courses
-     */
-    public List<Course> searchCourses(String keyword) {
-        return courseRepository.findByTitleContainingIgnoreCase(keyword);
-    }
-
 }

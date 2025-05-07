@@ -40,7 +40,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<CourseSession> courseSessions;
     
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<Bookmark> bookmarks;
 
     @Transient
@@ -56,4 +56,9 @@ public class User {
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
     }
+
+    public Set<Bookmark> getBookmarks() {
+        return this.bookmarks;
+    }
+
 }

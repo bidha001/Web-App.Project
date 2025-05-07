@@ -18,6 +18,15 @@
     <div class="container">
         <h1 th:text="${course.title}">Course Title</h1>
 
+        <!-- Add to Favorites-button -->
+        <div class="button-container" style="margin-bottom: 20px;">
+            <form th:action="@{/favorites/add}" method="post">
+                <input type="hidden" name="courseId" th:value="${course.courseId}" />
+                <button type="submit" class="ctn">Add to Favorites</button>
+            </form>
+
+        </div>
+
         <img th:src="@{'/images/' + ${course.courseImageUrl}}" th:alt="${course.title}" class="course-image" />
 
         <p><strong>Description:</strong> <span th:text="${course.description}">Course Description</span></p>

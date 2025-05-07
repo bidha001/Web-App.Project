@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Favorite Courses</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+
+
+
+<div class="container">
+    <h1>My Favorite Courses</h1>
+
+    <!-- Show message if no favorites -->
+    <div th:if="${courses.isEmpty()}">
+        <p>You have no favorite courses yet.</p>
+    </div>
+
+    <!-- View Courses -->
+    <div class="courses-grid">
+        <div class="course-card" th:each="course : ${courses}">
+            <a th:href="@{'/coursesDetails?courseId=' + ${course.courseId}}">
+                <img th:src="@{'/images/' + ${course.courseImageUrl}}" th:alt="${course.title}" />
+                <h2 th:text="${course.title}"></h2>
+            </a>
+            <!-- Delete-Button -->
+            <form th:action="@{/favorites/remove/{courseId}(courseId=${course.courseId})}" method="post">
+                <button type="submit" class="delete-btn">Remove</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
