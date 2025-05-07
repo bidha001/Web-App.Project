@@ -14,6 +14,9 @@
   <!-- Navbar -->
   <div th:replace="components/navbar :: navbar"></div>
 
+  <!-- Flash message -->
+  <div th:if="${success}" class="flash-success" th:text="${success}"></div>
+
   <header>
     <div class="header-content">
       <h2> Web Design & Development Course</h2>

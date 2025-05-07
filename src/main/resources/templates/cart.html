@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<!-- Navbar -->
+<div th:replace="components/navbar :: navbar"></div>
+
 <div class="cart-container">
 
   <!-- Left Section: Cart Items -->
@@ -40,8 +43,8 @@
   <!-- Right Section: Cart Summary -->
   <div class="cart-summary">
     <h2>Total:</h2>
-    <div class="total-price" th:text="'kr' + ${orders.stream().mapToDouble(o -> o.course.providers.iterator().next().price.doubleValue()).sum()}">kr0</div>
-    <button class="checkout-btn">Proceed to Checkout</button>
+    <div class="total-price" th:text="'kr' + ${total}">kr0</div>
+    <a th:href="@{/checkout}" class="checkout-btn">Proceed to Checkout</a>
   </div>
 </div>
 

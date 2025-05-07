@@ -41,10 +41,13 @@ public class SecurityConfig {
                                 "/dataScienceAnalytics",
                                 "/businessEntrepreneurship",
                                 "/course",
-                                "/search"
+                                "/search",
+                                "/payment",
+                                "/checkout",
+                                "/processPayment",
+                                "/MyCourses"
                         ).permitAll()
                         .requestMatchers("/admin").hasAuthority("ADMIN")
-                        .requestMatchers("/user-dashboard").hasRole("REGISTERED")
                         .anyRequest().authenticated()
                 )
                 // Enable CSRF protection
