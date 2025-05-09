@@ -19,20 +19,25 @@
         <ul class="nav-links">
             <li><a th:href="@{/home}">Home</a></li>
 
+
             <li class="dropdown">
                 <input type="checkbox" id="cat-toggle" />
                 <label for="cat-toggle" class="category-label">Category</label>
                 <ul class="dropdown-content">
                     <li><a th:href="@{/informationTechnologies}">Information Technologies</a></li>
                     <li><a th:href="@{/digitalMarketing}">Digital Marketing</a></li>
-                    <li><a th:href="@{/businessEntrepreneurship}">Business & Entrepreneurship</a></li>
-                    <li><a th:href="@{/dataScienceAnalytics}">Data Science & Analytics</a></li>
+                    <li><a th:href="@{/businessEntrepreneurship}">Business &amp; Entrepreneurship</a></li>
+                    <li><a th:href="@{/dataScienceAnalytics}">Data Science &amp; Analytics</a></li>
                 </ul>
             </li>
 
             <li><a th:href="@{/course}">Course</a></li>
             <li><a th:href="@{/contactUs}">Contact Us</a></li>
 
+            <!-- Admin Dashboard - Only visible to admin users -->
+            <li sec:authorize="hasRole('ROLE_ADMIN')">
+                <a th:href="@{/admin-dashboard}">Admin Dashboard</a>
+            </li>
             <!-- Show Login when NOT logged in -->
             <li class="ctn" sec:authorize="!isAuthenticated()">
                 <a th:href="@{/login}">Login</a>
