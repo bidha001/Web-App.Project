@@ -90,28 +90,8 @@ public class UserController {
         // Add a success message to the redirect attributes
         redirectAttributes.addFlashAttribute("success", "User registered successfully");
         return "redirect:/login";
-    }    /**
-     * Handles requests to the admin dashboard.
-     * This endpoint is only accessible to users with ADMIN role.
-     * @param model Model object to pass data to the view
-     * @param principal Principal object representing the authenticated admin user
-     * @return The name of the view to be rendered
-     */
-    @GetMapping("/admin-dashboard")
-    public String adminDashboard(Model model, Principal principal) {
-        // Get the admin user information
-        String username = principal.getName();
-        User adminUser = userRepository.findByUsername(username)
-                .orElseThrow(() -> new IllegalArgumentException("Admin user not found"));
-        
-        // Add admin data to the model
-        model.addAttribute("adminUser", adminUser);
-        
-        // Fetch all users for admin management
-        model.addAttribute("allUsers", userRepository.findAll());
-        
-        return "admin-dashboard";
-    }
+    }    
+    
     
     
     
