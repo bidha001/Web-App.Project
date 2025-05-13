@@ -1,12 +1,17 @@
 package no.ntnu.webapp.controllers;
+import no.ntnu.webapp.models.Category;
 import no.ntnu.webapp.models.Course;
+import no.ntnu.webapp.services.CategoryService;
 import no.ntnu.webapp.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * CourseController.java
@@ -15,10 +20,12 @@ import java.util.List;
 @Controller
 public class CourseController {
     private final CourseService courseService;
+    private final CategoryService categoryService;
 
     @Autowired
-    public CourseController(CourseService courseService) {
+    public CourseController(CourseService courseService, CategoryService categoryService) {
         this.courseService = courseService;
+        this.categoryService = categoryService;
     }
 
     /**
@@ -111,14 +118,69 @@ public class CourseController {
      * @param query Search query for course title
      * @param model Model object to pass data to the view
      * @return The name of the view to be rendered
-     */
-    @GetMapping("/search")
+     */    @GetMapping("/search")
     public String searchCourses(@RequestParam("query") String query, Model model) {
         List<Course> matchedCourses = courseService.searchCourses(query);
         model.addAttribute("courses", matchedCourses);
         model.addAttribute("categoryTitle", "Search Results for \"" + query + "\"");
         model.addAttribute("searchQuery", query);
         return "searchResults";
+    }
+
+    /**
+     * Handles requests to the admin dashboard page.
+     * @param model Model object to pass data to the view
+     * @return The name of the view to be rendered
+     */
+    @GetMapping("/admin-dashboard")
+    public String getAdminDashboard(Model model) {
+        List<Course> courses = courseService.getAllCourses();
+        List<Category> categories = categoryService.getAllCategories();
+        model.addAttribute("courses", courses);
+        model.addAttribute("categories", categories);
+        model.addAttribute("newCourse", new Course());
+        return "admin-dashboard";
+    }    /**
+     * Handles adding a new course
+     * @param course The course object from form submission
+     * @param categoryId The ID of the selected category
+     * @return Redirects to admin dashboard
+     */
+    @PostMapping("/admin/add-course")
+    public String addCourse(@ModelAttribute Course course, @RequestParam("categoryId") Long categoryId) {
+        Optional<Category> categoryOptional = categoryService.getCategoryById(categoryId);
+        if (categoryOptional.isPresent()) {
+            course.setCategory(categoryOptional.get());
+            courseService.saveCourse(course);
+        }
+        return "redirect:/admin-dashboard";
+    }
+    
+    /**
+     * Shows the edit course form
+     * @param courseId ID of the course to edit
+     * @param model Model object to pass data to the view
+     * @return The name of the view to be rendered
+     */
+    @GetMapping("/admin/edit-course")
+    public String showEditCourseForm(@RequestParam("courseId") Long courseId, Model model) {
+        Optional<Course> courseOptional = courseService.getCourseById(courseId);
+        if (courseOptional.isPresent()) {
+            model.addAttribute("course", courseOptional.get());
+            return "admin/edit-course";
+        }
+        return "redirect:/admin-dashboard";
+    }
+
+    /**
+     * Handles course deletion
+     * @param courseId ID of the course to delete
+     * @return Redirects to admin dashboard
+     */
+    @GetMapping("/admin/delete-course")
+    public String deleteCourse(@RequestParam("courseId") Long courseId) {
+        courseService.deleteCourse(courseId);
+        return "redirect:/admin-dashboard";
     }
 
 }
