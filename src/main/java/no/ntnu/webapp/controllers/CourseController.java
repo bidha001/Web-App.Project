@@ -1,7 +1,9 @@
 package no.ntnu.webapp.controllers;
 import no.ntnu.webapp.models.Category;
 import no.ntnu.webapp.models.Course;
+import no.ntnu.webapp.models.CourseProvider;
 import no.ntnu.webapp.services.CategoryService;
+import no.ntnu.webapp.services.CourseProviderService;
 import no.ntnu.webapp.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,11 +24,14 @@ import java.util.Optional;
 public class CourseController {
     private final CourseService courseService;
     private final CategoryService categoryService;
+    private final CourseProviderService courseProviderService;
 
     @Autowired
-    public CourseController(CourseService courseService, CategoryService categoryService) {
+    public CourseController(CourseService courseService, CategoryService categoryService, 
+                           CourseProviderService courseProviderService) {
         this.courseService = courseService;
         this.categoryService = categoryService;
+        this.courseProviderService = courseProviderService;
     }
 
     /**
@@ -125,9 +131,7 @@ public class CourseController {
         model.addAttribute("categoryTitle", "Search Results for \"" + query + "\"");
         model.addAttribute("searchQuery", query);
         return "searchResults";
-    }
-
-    /**
+    }    /**
      * Handles requests to the admin dashboard page.
      * @param model Model object to pass data to the view
      * @return The name of the view to be rendered
@@ -136,22 +140,43 @@ public class CourseController {
     public String getAdminDashboard(Model model) {
         List<Course> courses = courseService.getAllCourses();
         List<Category> categories = categoryService.getAllCategories();
+        List<CourseProvider> providers = courseProviderService.getAllProviders();
         model.addAttribute("courses", courses);
         model.addAttribute("categories", categories);
+        model.addAttribute("providers", providers);
         model.addAttribute("newCourse", new Course());
+        model.addAttribute("newProvider", new CourseProvider());
         return "admin-dashboard";
     }    /**
      * Handles adding a new course
      * @param course The course object from form submission
      * @param categoryId The ID of the selected category
+     * @param providerName The name of the provider
+     * @param price The price of the course
+     * @param currency The currency used for the price
      * @return Redirects to admin dashboard
      */
     @PostMapping("/admin/add-course")
-    public String addCourse(@ModelAttribute Course course, @RequestParam("categoryId") Long categoryId) {
+    public String addCourse(@ModelAttribute Course course, 
+                           @RequestParam("categoryId") Long categoryId,
+                           @RequestParam("providerName") String providerName,
+                           @RequestParam("price") BigDecimal price,
+                           @RequestParam("currency") String currency) {
+        
         Optional<Category> categoryOptional = categoryService.getCategoryById(categoryId);
         if (categoryOptional.isPresent()) {
             course.setCategory(categoryOptional.get());
-            courseService.saveCourse(course);
+            Course savedCourse = courseService.saveCourse(course);
+            
+            // Create and save course provider
+            if (providerName != null && !providerName.isEmpty() && price != null) {
+                CourseProvider provider = new CourseProvider();
+                provider.setCourse(savedCourse);
+                provider.setProviderName(providerName);
+                provider.setPrice(price);
+                provider.setCurrency(currency != null && !currency.isEmpty() ? currency : "USD");
+                courseProviderService.saveProvider(provider);
+            }
         }
         return "redirect:/admin-dashboard";
     }
