@@ -7,7 +7,12 @@ function openAddCourseModal() {
   // Prevent body scrolling when modal is open
   document.body.style.overflow = "hidden";
 
-  // Reset form scroll position to top
+  // Reset form fields and scroll position to top
+  const courseForm = document.querySelector('.course-form');
+  if (courseForm) {
+    courseForm.reset();
+  }
+
   setTimeout(() => {
     const modalContent = document.querySelector('.modal-content');
     if (modalContent) {
@@ -42,3 +47,10 @@ window.onclick = function (event) {
 document.querySelector(".cancel-btn").onclick = function () {
   closeModal();
 }
+
+// Handle form submission with loading state
+document.querySelector('.course-form').addEventListener('submit', function () {
+  const saveButton = document.getElementById('saveCourseBtn');
+  saveButton.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Saving...';
+  saveButton.disabled = true;
+});

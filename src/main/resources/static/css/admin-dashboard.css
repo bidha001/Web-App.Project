@@ -248,6 +248,29 @@
     /* Add padding at the bottom for better scrolling experience */
 }
 
+.form-section-header {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.form-section-header h3 {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -314,6 +337,26 @@
 
 .save-btn:hover {
     background-color: var(--primary-hover);
+}
+
+.save-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.save-btn .fa-spinner {
+    margin-right: 5px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .cancel-btn:hover {
@@ -414,6 +457,12 @@
     /* Improve form fields on mobile */
     .form-group {
         margin-bottom: 1rem;
+    }
+
+    /* Adjust form row for mobile view */
+    .form-row {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
     .modal-header {
