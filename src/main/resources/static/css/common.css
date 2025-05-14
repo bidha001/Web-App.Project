@@ -1,6 +1,7 @@
-/* GOOGLE FONT */
+/* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +13,7 @@ body {
     color: #fff;
 }
 
-/* COMMON BUTTONS */
+/* Buttons */
 .btn,
 .ctn {
     padding: 8px 15px;
@@ -30,7 +31,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Course container styling */
+/* Course Container */
 .course-container {
     max-width: 1400px;
     margin: 120px auto 60px;
@@ -56,6 +57,7 @@ body {
     display: inline-block;
 }
 
+/* Courses Grid */
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -119,7 +121,7 @@ body {
     height: 100%;
 }
 
-/*for course details*/
+/* Course Details - Provider Table */
 .provider-table {
     width: 100%;
     border-collapse: collapse;
@@ -145,7 +147,7 @@ body {
     border-radius: 4px;
 }
 
-/* Media queries for responsiveness */
+/* Media Queries */
 @media only screen and (max-width: 1200px) {
     .courses-grid {
         grid-template-columns: repeat(2, 1fr);
