@@ -187,7 +187,7 @@ header {
 }
 
 .ctn {
-    padding: 8px 15px;
+    padding: 10px 20px;
     background: rgb(6, 41, 81);
     border-radius: 30px;
     color: whitesmoke;
@@ -202,7 +202,8 @@ section {
 .title {
     text-align: center;
     font-size: 4vmin;
-    color: rgb(244, 104, 3);
+    font-family: 'Great Vibes', cursive;
+    color: rgb(47, 63, 95);
 }
 
 .row {

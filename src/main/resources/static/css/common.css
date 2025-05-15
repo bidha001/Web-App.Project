@@ -14,8 +14,7 @@ body {
 }
 
 /* Buttons */
-.btn,
-.ctn {
+.btn, .ctn {
     padding: 8px 15px;
     background: rgb(6, 41, 81);
     border-radius: 30px;
@@ -25,8 +24,7 @@ body {
     transition: background 0.3s ease;
 }
 
-.btn:hover,
-.ctn:hover {
+.btn:hover, .ctn:hover {
     background-color: whitesmoke;
     transform: scale(1.05);
 }
