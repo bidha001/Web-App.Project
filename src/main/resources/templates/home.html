@@ -1,31 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" th:href="@{/css/home.css}" />
+  <link rel="stylesheet" th:href="@{/css/footer.css}" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <title>LEARNIVERSE CONNECT</title>
 </head>
 
 <body>
 
+<div class="main-content">
   <!-- Navbar -->
   <div th:replace="components/navbar :: navbar"></div>
 
   <!-- Flash message -->
   <div th:if="${success}" class="flash-success" th:text="${success}"></div>
 
+  <!-- Header -->
   <header>
     <div class="header-content">
-      <h2> Web Design & Development Course</h2>
+      <h2>Web Design & Development Course</h2>
       <br>
-      <h1> Join our interactive Web Design & Development Course and build the digital skills for tomorrow.</h1>
+      <h1>Join our interactive Web Design & Development Course and build the digital skills for tomorrow.</h1>
       <a href="login.html" class="ctn">Explore Courses</a>
     </div>
   </header>
 
+  <!-- Events -->
   <section class="events">
     <div class="title">
       <h1>Live Learning Drops</h1>
@@ -35,59 +39,60 @@
     <div class="row">
       <div class="col">
         <img th:src="@{/images/Machine Learning.jpg}" alt="Machine Learning">
-        <h4> Machine Learning</h4>
+        <h4>Machine Learning</h4>
         <p>Step into the world of intelligent algorithms and unlock the future. <br>
           Whether you're just curious or ready to dive deep, this beginner-friendly <br>
           workshop will guide you through machine learning fundamentals using Python.<br>
           Perfect for those starting their AI journey.</p>
-        <a href="#" class="ctn">Learn more</a>
+        <a href="course.html" class="ctn">Learn more</a>
       </div>
 
       <div class="col">
-        <img th:src="@{/images/python.jpg}" alt="Python">
-        <h4> Python </h4>
-        <p> The world runs on Python. So should you. <br>
-          Learn to speak the language behind automation, AI, web development, and more. <br>
-          Join this hands-on session and start building real Python projects from day one. <br>
-        </p>
-        <a href="#" class="ctn">Learn more</a>
+        <img th:src="@{/images/Search Engine Optimization.png}" alt="Python">
+        <h4>Python</h4>
+        <p>The world runs on Python. So should you. <br>
+          Learn to speak the language behind automation, AI, web development, <br> and more.
+          Join this hands-on session and start building real Python projects <br> from day one.</p>
+        <a href="course.html" class="ctn">Learn more</a>
       </div>
     </div>
   </section>
 
+  <!-- Explore -->
   <section class="explore">
     <div class="explore-content">
-      <h1>EXPLORE OUR ONLINE LEARNING PLATFORM </h1>
+      <h1>EXPLORE OUR ONLINE LEARNING PLATFORM</h1>
       <div class="line"></div>
-      <p>Unlock your potential with world-class courses, expert mentorship, and a vibrant learning community. Take the
-        next step in your journey today!</p>
-      <a href="#" class="ctn">Learn more</a>
+      <p>Unlock your potential with world-class courses, expert mentorship, and a vibrant learning community.
+        Take the next step in your journey today!</p>
+      <a href="course.html" class="ctn">Learn more</a>
     </div>
   </section>
 
+  <!-- Courses -->
   <section class="tours">
     <div class="row">
       <div class="col content-col">
-        <h1>Our Courses</h1>
-        <p> Click and Learn more about the Courses. </p>
-        <a href="#" class="ctn"> Learn more</a>
+        <h1>Skill Up With Us</h1>
+        <p>Click and learn more about the Courses.</p>
+        <a href="course.html" class="ctn">Learn more</a>
       </div>
 
       <div class="col image-col">
         <div class="images-gallery">
           <img th:src="@{/images/Search Engine Optimization.png}" alt="Search Engine Optimization">
-          <img th:src="@{/images/coding.jpg}" alt="coding">
-          <img th:src="@{/images/java.jpg}" alt="java">
+          <img th:src="@{/images/coding.jpg}" alt="Coding">
+          <img th:src="@{/images/java.jpg}" alt="Java">
           <img th:src="@{/images/python.jpg}" alt="Python">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer-->
-  <div th:replace="components/footer :: footer"></div>
+</div>
 
+<!-- Footer -->
+<div th:replace="components/footer :: footer"></div>
 
 </body>
-
 </html>

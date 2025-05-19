@@ -54,6 +54,7 @@ html {
 .nav-links {
     display: flex;
     align-items: center;
+    transition: margin-top 0.5s ease;
     color: #eeb54c;
 }
 
@@ -171,11 +172,11 @@ header {
 .header-content {
     margin-bottom: 200px;
     text-align: center;
-    font-family: GreatVibes, cursive;
+    font-family: SansSerif, serif;
 }
 
 .header-content h2 {
-    font-size: 6.7vmin;
+    font-size: 5vmin;
     color: whitesmoke;
 }
 
@@ -202,7 +203,7 @@ section {
 .title {
     text-align: center;
     font-size: 4vmin;
-    font-family: 'Great Vibes', cursive;
+    font-family: SansSerif, serif;
     color: rgb(47, 63, 95);
 }
 
@@ -226,7 +227,7 @@ section {
 h4 {
     font-size: 3vmin;
     color: #555555;
-    margin: 20px auto;
+    margin: 30px auto;
 }
 
 p {
@@ -269,7 +270,7 @@ p {
 }
 
 .explore-content p {
-    color: rgb(221, 221, 221);
+    color: whitesmoke;
     width: 70%;
 }
 
@@ -299,13 +300,15 @@ p {
 }
 
 .content-col h1 {
-    font-size: 7vmin;
-    color: #484871;
+    font-size: 6vmin;
+    color: #2f3f5f;
 }
 
 .content-col p {
+    text-align: center;
+    font-size: 2.7vmin;
     padding: 0;
-    margin: 30px auto;
+    margin: 20px auto;
 }
 
 .content-col .ctn {
@@ -383,74 +386,6 @@ p {
     color: white;
 }
 
-/* Footer */
-.footer {
-    background-color: #2a2b2d;
-    padding: 60px 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    margin-bottom: 0px;
-}
-
-.footer-content {
-    max-width: 1200px;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    color: #eeb54c;
-}
-
-.footer-col {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-}
-
-.footer-col h1 {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-col li {
-    margin-bottom: 8px;
-}
-
-.footer-col a {
-    text-decoration: none;
-    color: whitesmoke;
-    transition: color 0.3s ease-in-out;
-}
-
-.footer-col a:hover {
-    color: #5fddf3;
-}
-
-.footer-bottom {
-    text-align: center;
-    font-size: 0.9rem;
-    color: whitesmoke;
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
-.footer-bottom p {
-    color: whitesmoke;
-}
-
 /* Mobile Responsive */
 @media only screen and (max-width: 850px) {
     .menu-btn {
@@ -477,7 +412,7 @@ p {
 
     .mobile-menu {
         margin-top: 0px;
-        border-bottom-right-radius: 30%;
+        border-bottom-right-radius: 25%;
     }
 
     .nav-links li {
