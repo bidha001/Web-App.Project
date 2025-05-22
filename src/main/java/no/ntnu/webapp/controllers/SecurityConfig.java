@@ -27,29 +27,29 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())  // Disable CSRF protection
                 .authorizeHttpRequests(auth -> auth.requestMatchers(
-                                "/",
-                                "/home",
-                                "/login",
-                                "/signup",
-                                "/contactUs",
-                                "/css/**",
-                                "/images/**",
-                                "/js/**",
-                                "/components/**",
-                                "/informationTechnologies",
-                                "/digitalMarketing",
-                                "/dataScienceAnalytics",
-                                "/businessEntrepreneurship",
-                                "/course",
-                                "/search",
-                                "/payment",
-                                "/checkout",
-                                "/processPayment",
-                                "/MyCourses",
-                                "/favoriteCourses"
-                        ).permitAll()
-                        .requestMatchers("/admin-dashboard").hasAuthority("ROLE_ADMIN")
-                        .anyRequest().authenticated()
+                                        "/",
+                                        "/home",
+                                        "/login",
+                                        "/signup",
+                                        "/contactUs",
+                                        "/css/**",
+                                        "/images/**",
+                                        "/js/**",
+                                        "/components/**",
+                                        "/informationTechnologies",
+                                        "/digitalMarketing",
+                                        "/dataScienceAnalytics",
+                                        "/businessEntrepreneurship",
+                                        "/course",
+                                        "/search",
+                                        "/payment",
+                                        "/checkout",
+                                        "/processPayment",
+                                        "/MyCourses",
+                                        "/favoriteCourses"
+                                ).permitAll()
+                                .requestMatchers("/admin-dashboard").hasAuthority("ROLE_ADMIN")
+                                .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
