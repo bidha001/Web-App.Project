@@ -61,6 +61,7 @@ src
 ### Prerequisites
 - Java 17+
 - Maven 3+
+- MySQL server installed
 
 ### Run the App
 
@@ -68,6 +69,9 @@ src
 # Clone the project
 git clone https://github.com/bidha001/Web-App.Project.git
 cd learniverse-connect
+
+# Define database values in application.properties
+
 
 # Build and run the app
 ./mvnw spring-boot:run
@@ -114,7 +118,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 ## 👥 Contributors
 
 - Binit Dhungana (bidha001)
-- Write you name here!
+- Mantas Bagodnavicius (pahmel0)
 - Write you name here!
 
 This project was collaboratively developed by a group of students as part of the IDATA2301 Web Technologies
