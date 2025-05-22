@@ -136,9 +136,14 @@ public class CartController {
      * @return The name of the view to be rendered
      */
     @GetMapping("/checkout")
-    public String showPaymentPage(Model model, Principal principal) {
+    public String showPaymentPage(Model model, Principal principal, RedirectAttributes redirectAttributes) {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
         List<Order> orders = orderRepository.findByUser_UserIdAndOrderStatus(user.getUserId(), OrderStatus.PENDING);
+
+        if (orders.isEmpty()) {
+            redirectAttributes.addFlashAttribute("error", "Your cart is empty. Add courses before checking out.");
+            return "redirect:/cart";
+        }
 
         double total = 0;
         for (Order o : orders) {
@@ -170,10 +175,16 @@ public class CartController {
                                  @RequestParam String expiry,
                                  @RequestParam String cvc,
                                  Principal principal,
-                                 Model model) {
+                                 Model model,
+                                 RedirectAttributes redirectAttributes) {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();
-
         List<Order> orders = orderRepository.findByUser_UserIdAndOrderStatus(user.getUserId(), OrderStatus.PENDING);
+
+        if (orders.isEmpty()) {
+            redirectAttributes.addFlashAttribute("error", "Cannot process payment. Your cart is empty.");
+            return "redirect:/cart";
+        }
+
         for (Order order : orders) {
             order.setOrderStatus(OrderStatus.COMPLETED);
             order.setFakeCardLast4(cardNumber.length() >= 4
@@ -182,10 +193,10 @@ public class CartController {
             orderRepository.save(order);
         }
 
-        // Add flag to trigger popup and redirect in frontend
         model.addAttribute("showSuccessPopup", true);
         return "payment";
     }
+
 
     /**
      * Displays the user's completed courses.

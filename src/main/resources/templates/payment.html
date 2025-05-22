@@ -39,6 +39,19 @@
 <script th:if="${showSuccessPopup}">
   alert("Your purchase is successful!");
   window.location.href = "/course";
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", function () {
+    navLinks.classList.toggle("mobile-menu");
+  });
+  }
+  });
+
 </script>
 
 </body>

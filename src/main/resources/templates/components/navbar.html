@@ -14,7 +14,8 @@
             <button type="submit" class="search-btn">🔍</button>
         </form>
 
-
+        <!-- Hamburger menu for mobile view -->
+        <div class="menu-btn">☰</div>
 
         <ul class="nav-links">
             <li><a th:href="@{/home}">Home</a></li>
@@ -77,17 +78,7 @@
 
         </ul>
 
-        <img th:src="@{/images/menu.png}" alt="Menu" class="menu-btn" />
     </nav>
-
- <script>
-        const menuBtn = document.querySelector('.menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('mobile-menu');
-        });
- </script>
 
 </body>
 </html>

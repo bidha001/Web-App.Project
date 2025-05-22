@@ -26,7 +26,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 // Disable CSRF protection for simplicity
-                .authorizeHttpRequests(auth -> auth                        .requestMatchers(
+                .authorizeHttpRequests(auth -> auth.requestMatchers(
                                 "/",
                                 "/home",
                                 "/login",

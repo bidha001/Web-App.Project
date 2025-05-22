@@ -45,12 +45,33 @@
   <div class="cart-summary">
     <h2>Total:</h2>
     <div class="total-price" th:text="'kr' + ${total}">kr0</div>
-    <a th:href="@{/checkout}" class="checkout-btn">Proceed to Checkout</a>
+
+    <!-- Show button only if cart has items -->
+    <a th:if="${#lists.size(orders) > 0}"
+       th:href="@{/checkout}" class="checkout-btn">Proceed to Checkout</a>
+
+    <!-- Show warning if cart is empty -->
+    <p th:if="${#lists.size(orders) == 0}" style="color: red; margin-top: 1rem;">
+      Your cart is empty. Add some courses first!
+    </p>
   </div>
 </div>
 
 <!-- Footer -->
 <div th:replace="components/footer :: footer"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("mobile-menu");
+      });
+    }
+  });
+</script>
 
 </body>
 </html>

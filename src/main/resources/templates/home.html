@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" th:href="@{/css/home.css}" />
   <link rel="stylesheet" th:href="@{/css/footer.css}" />
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <title>LEARNIVERSE CONNECT</title>
 </head>
@@ -92,5 +93,17 @@
 <!-- Footer -->
 <div th:replace="components/footer :: footer"></div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("mobile-menu");
+      });
+    }
+  });
+</script>
 </body>
 </html>
