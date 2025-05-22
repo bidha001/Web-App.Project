@@ -186,16 +186,19 @@ public class CourseController {
      * @param courseId ID of the course to edit
      * @param model Model object to pass data to the view
      * @return The name of the view to be rendered
-     */
-    @GetMapping("/admin/edit-course")
+     */    @GetMapping("/admin/edit-course")
     public String showEditCourseForm(@RequestParam("courseId") Long courseId, Model model) {
         Optional<Course> courseOptional = courseService.getCourseById(courseId);
         if (courseOptional.isPresent()) {
-            model.addAttribute("course", courseOptional.get());
-            return "admin/edit-course";
+            Course course = courseOptional.get();
+            model.addAttribute("course", course);
+            model.addAttribute("categories", categoryService.getAllCategories());
+            List<CourseProvider> providers = courseProviderService.getProvidersByCourse(courseId);
+            model.addAttribute("provider", !providers.isEmpty() ? providers.get(0) : new CourseProvider());
+            return "edit-course";
         }
         return "redirect:/admin-dashboard";
-    }    /**
+    }/**
      * Handles course deletion
      * @param courseId ID of the course to delete
      * @return Redirects to admin dashboard
@@ -213,4 +216,47 @@ public class CourseController {
         return "redirect:/admin-dashboard";
     }
 
+    /**
+     * Handles updating an existing course
+     * @param courseId ID of the course to update
+     * @param course The updated course object from form submission
+     * @param categoryId The ID of the selected category
+     * @param providerName The name of the provider
+     * @param providerId The ID of the provider to update
+     * @param price The price of the course
+     * @param currency The currency used for the price
+     * @return Redirects to admin dashboard
+     */
+    @PostMapping("/admin/update-course")
+    public String updateCourse(@RequestParam("courseId") Long courseId,
+                             @ModelAttribute Course course,
+                             @RequestParam("categoryId") Long categoryId,
+                             @RequestParam("providerName") String providerName,
+                             @RequestParam(value = "providerId", required = false) Long providerId,
+                             @RequestParam("price") BigDecimal price,
+                             @RequestParam("currency") String currency) {
+        
+        Optional<Category> categoryOptional = categoryService.getCategoryById(categoryId);
+        if (categoryOptional.isPresent()) {
+            course.setCourseId(courseId); // Ensure ID is set correctly
+            course.setCategory(categoryOptional.get());
+            Course savedCourse = courseService.saveCourse(course);
+            
+            // Update or create course provider
+            if (providerName != null && !providerName.isEmpty() && price != null) {
+                CourseProvider provider;
+                if (providerId != null) {
+                    provider = courseProviderService.getProviderById(providerId).orElse(new CourseProvider());
+                } else {
+                    provider = new CourseProvider();
+                }
+                provider.setCourse(savedCourse);
+                provider.setProviderName(providerName);
+                provider.setPrice(price);
+                provider.setCurrency(currency != null && !currency.isEmpty() ? currency : "USD");
+                courseProviderService.saveProvider(provider);
+            }
+        }
+        return "redirect:/admin-dashboard";
+    }
 }

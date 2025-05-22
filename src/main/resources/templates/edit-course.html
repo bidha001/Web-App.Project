@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Course - LEARNIVERSE CONNECT</title>
+  <link rel="stylesheet" th:href="@{/css/home.css}">
+  <link rel="stylesheet" th:href="@{/css/footer.css}" />
+  <link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .edit-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .edit-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #e1e1e1;
+      padding-bottom: 15px;
+    }
+
+    .edit-header h1 {
+      color: #333;
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    .form-section-header {
+      background-color: #f7f7f7;
+      padding: 10px 15px;
+      margin: 25px 0 15px;
+      border-radius: 4px;
+      border-left: 4px solid #2c73d2;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+      color: #2c73d2;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb .separator {
+      margin: 0 10px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Include the navbar fragment -->
+  <div th:replace="~{components/navbar :: navbar}"></div>
+
+  <!-- Edit Course Content -->
+  <div class="edit-container">
+    <div class="breadcrumb">
+      <a th:href="@{/admin-dashboard}"><i class="fa fa-dashboard"></i> Dashboard</a>
+      <span class="separator">></span>
+      <span>Edit Course</span>
+    </div>
+
+    <div class="edit-header">
+      <h1>Edit Course</h1>
+      <a th:href="@{/admin-dashboard}" class="cancel-btn"><i class="fa fa-times"></i> Cancel</a>
+    </div>
+    <form class="course-form" th:action="@{/admin/update-course}" method="post">
+      <!-- Hidden field for course ID -->
+      <input type="hidden" name="courseId" th:value="${course.courseId}">
+
+      <!-- Hidden field for provider ID if exists -->
+      <input type="hidden" name="providerId" th:value="${provider.providerId}" th:if="${provider.providerId != null}">
+
+      <div class="form-group">
+        <label for="title">Course Title</label>
+        <input type="text" id="title" name="title" th:value="${course.title}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="categoryId">Category</label>
+        <select id="categoryId" name="categoryId" required>
+          <option value="">Select Category</option>
+          <option th:each="category : ${categories}" th:value="${category.categoryId}" th:text="${category.name}"
+            th:selected="${course.category != null && course.category.categoryId == category.categoryId}">
+            Category Name
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" required th:text="${course.description}"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="level">Course Level</label>
+        <select id="level" name="level">
+          <option value="BEGINNER" th:selected="${course.level != null && course.level.name() == 'BEGINNER'}">
+            Beginner</option>
+          <option value="INTERMEDIATE" th:selected="${course.level != null && course.level.name() == 'INTERMEDIATE'}">
+            Intermediate</option>
+          <option value="EXPERT" th:selected="${course.level != null && course.level.name() == 'EXPERT'}">Expert
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="ectsCredits">ECTS Credits</label>
+        <input type="number" id="ectsCredits" name="ectsCredits" step="0.5" min="0" th:value="${course.ectsCredits}">
+      </div>
+
+      <div class="form-group">
+        <label for="hoursPerWeek">Hours Per Week</label>
+        <input type="number" id="hoursPerWeek" name="hoursPerWeek" min="0" th:value="${course.hoursPerWeek}">
+      </div>
+
+      <div class="form-group">
+        <label for="courseImageUrl">Course Image URL</label>
+        <input type="text" id="courseImageUrl" name="courseImageUrl" th:value="${course.courseImageUrl}">
+      </div>
+
+      <div class="form-group">
+        <label for="certification">Certification</label>
+        <input type="text" id="certification" name="certification" th:value="${course.certification}">
+      </div>
+
+      <!-- Provider Information Section -->
+      <div class="form-section-header">
+        <h3>Provider Information</h3>
+      </div>
+
+      <div class="form-group">
+        <label for="providerName">Provider Name</label>
+        <input type="text" id="providerName" name="providerName" required th:value="${provider.providerName}">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" id="price" name="price" step="0.01" min="0" required th:value="${provider.price}">
+        </div>
+        <div class="form-group">
+          <label for="currency">Currency</label>
+          <select id="currency" name="currency">
+            <option value="USD" th:selected="${provider.currency == 'USD'}">USD</option>
+            <option value="EUR" th:selected="${provider.currency == 'EUR'}">EUR</option>
+            <option value="NOK" th:selected="${provider.currency == 'NOK'}">NOK</option>
+            <option value="GBP" th:selected="${provider.currency == 'GBP'}">GBP</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="save-btn">Update Course</button>
+        <a th:href="@{/admin-dashboard}" class="cancel-btn" style="text-decoration: none;">Cancel</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div th:replace="~{components/footer :: footer}"></div>
+
+  <script>
+    // Additional client-side validation if needed
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('.course-form');
+      form.addEventListener('submit', function (e) {
+        const title = document.getElementById('title').value.trim();
+        const categoryId = document.getElementById('categoryId').value;
+        const description = document.getElementById('description').value.trim();
+
+        if (!title || !categoryId || !description) {
+          e.preventDefault();
+          alert('Please fill out all required fields.');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
