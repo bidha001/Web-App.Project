@@ -194,23 +194,7 @@ public class CourseController {
             return "edit-course";
         }
         return "redirect:/admin-dashboard";
-    }    /**
-     * Handles course deletion
-     * @param courseId ID of the course to delete
-     * @return Redirects to admin dashboard
-     */
-    @GetMapping("/admin/delete-course")
-    public String deleteCourse(@RequestParam("courseId") Long courseId) {
-        // First delete all providers associated with this course
-        List<CourseProvider> providers = courseProviderService.getProvidersByCourse(courseId);
-        for (CourseProvider provider : providers) {
-            courseProviderService.deleteProvider(provider.getProviderId());
-        }
-        
-        // Then delete the course itself
-        courseService.deleteCourse(courseId);
-        return "redirect:/admin-dashboard";
-    }
+    }   
     
     /**
      * Toggles course visibility status (ACTIVE/INACTIVE)
