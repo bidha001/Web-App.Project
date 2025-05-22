@@ -24,11 +24,6 @@ body {
     transition: background 0.3s ease;
 }
 
-.btn:hover, .ctn:hover {
-    background-color: whitesmoke;
-    transform: scale(1.05);
-}
-
 /* Course Container */
 .course-container {
     max-width: 1400px;
