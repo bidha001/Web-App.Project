@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+    <nav class="navbar" th:fragment="navbar">
+        <h1>
+            <a th:href="@{/home}" class="logo">LEARNIVERSE<br>CONNECT</a>
+        </h1>
+
+        <form th:action="@{/search}" method="get" class="search-container">
+            <label>
+                <input type="text" name="query" placeholder="Search courses..." class="search-input" required />
+            </label>
+            <button type="submit" class="search-btn">🔍</button>
+        </form>
+
+        <!-- Hamburger menu for mobile view -->
+        <div class="menu-btn">☰</div>
+
+        <ul class="nav-links">
+            <li><a th:href="@{/home}">Home</a></li>
+
+
+            <li class="dropdown">
+                <input type="checkbox" id="cat-toggle" />
+                <label for="cat-toggle" class="category-label">Category</label>
+                <ul class="dropdown-content">
+                    <li><a th:href="@{/informationTechnologies}">Information Technologies</a></li>
+                    <li><a th:href="@{/digitalMarketing}">Digital Marketing</a></li>
+                    <li><a th:href="@{/businessEntrepreneurship}">Business &amp; Entrepreneurship</a></li>
+                    <li><a th:href="@{/dataScienceAnalytics}">Data Science &amp; Analytics</a></li>
+                </ul>
+            </li>
+
+            <li><a th:href="@{/course}">Courses</a></li>
+            <li><a th:href="@{/contactUs}">Contact Us</a></li>
+
+            <!-- Admin Dashboard - Only visible to admin users -->
+            <li sec:authorize="hasRole('ROLE_ADMIN')">
+                <a th:href="@{/admin-dashboard}">Admin Dashboard</a>
+            </li>
+            <!-- Show Login when NOT logged in -->
+            <li class="ctn" sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}">Login</a>
+            </li>
+
+            <!-- Show icons when user IS logged in -->
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/cart}">
+                    <img th:src="@{/images/cart.png}" alt="Cart" class="icon" style="width:25px;" />
+                </a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="dropdown user-dropdown">
+                <input type="checkbox" id="user-toggle" />
+                <label for="user-toggle">
+                    <img th:src="@{/images/profile.png}" alt="Avatar" class="icon"
+                        style="width:30px; border-radius:50%;" />
+                </label>
+                <ul class="dropdown-content user-dropdown-content">
+                    <li><a th:href="@{/my-courses}">My Courses</a></li>
+                    <li><a th:href="@{/favorites}">My Favorite Courses</a></li>
+
+                    <li>
+                        <form th:action="@{/logout}" method="post" style="margin:0; padding:0;">
+                            <button type="submit" class="logout-btn"
+                                style="background-color: #ef9104; border: none; color: white; font: inherit; cursor: pointer; padding: 12px 15px; width: 100%; text-align: left; transition: all 0.3s ease; border-radius: 3px; margin: 5px 0;">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+            <!-- Show authentication status. Will be deleted after testing -->
+            <li>
+                <div>
+                    Authenticated: <span sec:authorize="isAuthenticated()">✅ Yes</span>
+                    <span sec:authorize="!isAuthenticated()">❌ No</span>
+                </div>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</body>
+
+</html>

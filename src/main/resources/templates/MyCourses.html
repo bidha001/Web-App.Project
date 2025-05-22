@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>My Courses</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/MyCourses.css}" />
+</head>
+<body>
+
+<!-- Navbar -->
+<div th:replace="components/navbar :: navbar"></div>
+
+<!-- Scoped course section -->
+<div class="my-courses-section">
+    <div class="container">
+        <h1>My Purchased Courses</h1>
+
+        <!-- No courses message -->
+        <div th:if="${#lists.isEmpty(completedOrders)}">
+            <p style="text-align:center;">You haven't purchased any courses yet.</p>
+        </div>
+
+        <!-- Course list -->
+        <div class="course-grid" th:if="${!#lists.isEmpty(completedOrders)}">
+            <div class="course-card" th:each="order : ${completedOrders}">
+                <!-- Image -->
+                <img th:src="@{'/images/' + ${order.course.courseImageUrl}}" alt="Course Image" />
+
+
+                <!-- Info -->
+                <div class="course-info">
+                    <h2 th:text="${order.course.title}">Course Title</h2>
+                    <p><strong>Category:</strong> <span th:text="${order.course.category.name}">Category</span></p>
+                    <p><strong>Hours/Week:</strong> <span th:text="${order.course.hoursPerWeek}">X</span></p>
+                    <p><strong>Purchased On:</strong>
+                        <span th:text="${#temporals.format(order.orderTimestamp, 'dd MMM yyyy')}">Date</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="components/footer :: footer"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuBtn = document.querySelector(".menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener("click", function () {
+                navLinks.classList.toggle("mobile-menu");
+            });
+        }
+    });
+</script>
+</body>
+</html>

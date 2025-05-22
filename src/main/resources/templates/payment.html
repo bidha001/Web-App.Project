@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment</title>
+  <link rel="stylesheet" th:href="@{/css/payment.css}" />
+</head>
+<body>
+
+<h2 class="payment-title">Continue payment via Card</h2>
+
+<div class="payment-container">
+  <!-- Card Form -->
+  <form class="card-form" th:action="@{/processPayment}" method="post">
+    <label for="cardName">Name on Card</label>
+    <input type="text" id="cardName" name="cardName" placeholder="John Doe" required />
+
+    <label for="cardNumber">Card Number</label>
+    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required />
+
+    <label for="expiry">Expiry Date</label>
+    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required />
+
+    <label for="cvc">CVC Code</label>
+    <input type="text" id="cvc" name="cvc" placeholder="123" required />
+
+    <button type="submit" class="pay-btn">Pay Now</button>
+  </form>
+
+  <!-- Order Summary -->
+  <div class="order-summary">
+    <h3>Order Summary</h3>
+    <p><span>Total Items:</span> <span th:text="${orders != null ? orders.size() : 0}">0</span></p>
+    <p><span>Total Price:</span> <span th:text="'kr' + (total != null ? total : 0)">kr0.00</span></p>
+    <div class="ssl-note">🔒 SSL Secure Payment — Encrypted by 256-bit SSL.</div>
+  </div>
+</div>
+
+<script th:if="${showSuccessPopup}">
+  alert("Your purchase is successful!");
+  window.location.href = "/course";
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", function () {
+    navLinks.classList.toggle("mobile-menu");
+  });
+  }
+  });
+
+</script>
+
+</body>
+</html>

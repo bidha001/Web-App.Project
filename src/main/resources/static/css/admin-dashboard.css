@@ -129,6 +129,14 @@
     color: #4caf50;
 }
 
+.hide-btn {
+    color: #ff9800;
+}
+
+.show-btn {
+    color: #9c27b0;
+}
+
 .actions button:hover {
     background-color: var(--bg-light);
 }
@@ -144,6 +152,8 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
     animation: fadeIn 0.3s ease;
+    overflow: hidden;
+    /* Prevent body scrolling when modal is open */
 }
 
 @keyframes fadeIn {
@@ -159,13 +169,38 @@
 .modal-content {
     background-color: white;
     margin: 5% auto;
-    padding: 2rem;
+    padding: 1.5rem;
     width: 90%;
     max-width: 600px;
+    max-height: 80vh;
+    /* Set maximum height to 80% of viewport height */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
     border-radius: 10px;
     position: relative;
     box-shadow: var(--shadow);
     animation: slideIn 0.3s ease;
+}
+
+/* Modal Header Styles */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow to separate header when scrolling */
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: var(--text-dark);
 }
 
 @keyframes slideIn {
@@ -180,14 +215,31 @@
     }
 }
 
+/* Custom scrollbar for better scrolling experience */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+}
+
 .close {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
     color: var(--text-light);
     transition: color 0.2s ease;
+    line-height: 1;
 }
 
 .close:hover {
@@ -199,12 +251,39 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1.5rem;
+    /* Add padding at the bottom for better scrolling experience */
+}
+
+.form-section-header {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.form-section-header h3 {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-row .form-group {
+    flex: 1;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .form-group label {
@@ -233,7 +312,15 @@
     display: flex;
     gap: 1rem;
     justify-content: flex-end;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+    /* Shadow for the sticky footer */
+    z-index: 5;
 }
 
 .save-btn,
@@ -258,6 +345,26 @@
 
 .save-btn:hover {
     background-color: var(--primary-hover);
+}
+
+.save-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.save-btn .fa-spinner {
+    margin-right: 5px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .cancel-btn:hover {
@@ -308,11 +415,7 @@
         overflow-x: auto;
     }
 
-    .modal-content {
-        width: 95%;
-        margin: 10% auto;
-        padding: 1.5rem;
-    }
+    /* Modal styles for mobile are defined below */
 
     .form-actions {
         flex-direction: column;
@@ -331,5 +434,55 @@
     .search-input {
         width: 100%;
         margin: 1rem 0;
+    }
+
+    /* Make modal more responsive on small screens */
+    .modal-content {
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    /* Adjust form actions for small screens */
+    .form-actions {
+        flex-direction: column;
+        padding: 0.75rem 0;
+    }
+
+    .save-btn,
+    .cancel-btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        padding: 0.9rem;
+        font-size: 1.1rem;
+    }
+
+    /* Improve form fields on mobile */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    /* Adjust form row for mobile view */
+    .form-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .modal-header {
+        padding: 0.5rem 0 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Fix input zoom on mobile */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+        /* Prevents iOS zoom on focus */
     }
 }

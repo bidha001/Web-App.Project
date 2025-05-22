@@ -1,6 +1,7 @@
-/*Google font*/
+/* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins');
 
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +11,7 @@
 a {
     text-decoration: none;
     color: #eeb54c;
+    font-family: Optima, serif;
 }
 
 ul {
@@ -22,14 +24,15 @@ ul {
     font-weight: bold;
 }
 
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100vh;
     overflow-x: hidden;
 }
 
-/*Navbar Style*/
+/* Navbar */
 .navbar {
     position: absolute;
     top: 0;
@@ -37,29 +40,32 @@ body, html {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 20px;
+    padding: 12px;
     color: #eeb54c;
     background-color: #000000;
+}
+
+.logo {
+    font-family: Didot, serif;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
+    transition: margin-top 0.5s ease;
     color: #eeb54c;
 }
 
 .nav-links li {
     margin: 0 30px;
     color: #eeb54c;
+    font-family: Optima, serif;
 }
 
 .nav-links li :hover {
     color: #E3F2FD;
-}
-
-.logo{
-    font-size: 23px;
-    font-weight: bold
 }
 
 .search-container {
@@ -72,9 +78,8 @@ body, html {
     background-color: #fff;
     border-radius: 20px;
     padding: 5px 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 
 .search-input {
     border: none;
@@ -93,16 +98,11 @@ body, html {
     color: #2a2b2d;
 }
 
+/* Dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
 }
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
 
 .dropdown input[type="checkbox"] {
     display: none;
@@ -117,13 +117,12 @@ body, html {
     display: inline-block;
 }
 
-
 .dropdown-content {
     display: none;
     position: absolute;
     top: 150%;
     left: 0;
-    background-color: #1b1c1c;
+    background-color: #000000;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -131,7 +130,6 @@ body, html {
     z-index: 999;
     border-radius: 5px;
 }
-
 
 .dropdown-content li a {
     display: block;
@@ -142,17 +140,25 @@ body, html {
     white-space: nowrap;
 }
 
-
 .dropdown-content li a:hover {
     background-color: #604107;
     color: #fff;
 }
 
-
-.dropdown input[type="checkbox"]:checked~.dropdown-content {
+.dropdown input[type="checkbox"]:checked ~ .dropdown-content {
     display: block;
 }
 
+/* Menu Button */
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #eeb54c;
+    z-index: 2000;
+}
+
+/* Header */
 header {
     width: 100vw;
     height: 100vh;
@@ -166,40 +172,30 @@ header {
 
 .header-content {
     margin-bottom: 200px;
-    color: whitesmoke;
     text-align: center;
+    font-family: SansSerif, serif;
 }
 
 .header-content h2 {
-    font-size: 6vmin;
+    font-size: 5vmin;
+    color: whitesmoke;
 }
 
-
 .header-content h1 {
-    font-size: 2vmin;
-    margin-top: 50px;
+    font-size: 2.7vmin;
+    margin-top: 15px;
     margin-bottom: 50px;
+    color: whitesmoke;
 }
 
 .ctn {
-    padding: 8px 15px;
+    padding: 10px 20px;
     background: rgb(6, 41, 81);
     border-radius: 30px;
     color: whitesmoke;
 }
 
-
-
-.menu-btn {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    width: 40px;
-    cursor: pointer;
-    display: none;
-}
-
-/*Events*/
+/* Events */
 section {
     width: 80%;
     margin: 80px auto;
@@ -208,7 +204,8 @@ section {
 .title {
     text-align: center;
     font-size: 4vmin;
-    color: rgb(244, 104, 3);
+    font-family: SansSerif, serif;
+    color: rgb(47, 63, 95);
 }
 
 .row {
@@ -231,7 +228,7 @@ section {
 h4 {
     font-size: 3vmin;
     color: #555555;
-    margin: 20px auto;
+    margin: 30px auto;
 }
 
 p {
@@ -243,6 +240,7 @@ p {
     margin-top: 30px;
 }
 
+/* Explore */
 .explore {
     width: 100%;
     height: 100vh;
@@ -273,7 +271,7 @@ p {
 }
 
 .explore-content p {
-    color: rgb(221, 221, 221);
+    color: whitesmoke;
     width: 70%;
 }
 
@@ -281,6 +279,7 @@ p {
     margin-top: 20px;
 }
 
+/* Tours */
 .content-col {
     width: 30%;
 }
@@ -294,7 +293,6 @@ p {
     flex-wrap: wrap;
     width: 100%;
     align-items: center;
-
 }
 
 .images-gallery img {
@@ -303,96 +301,96 @@ p {
 }
 
 .content-col h1 {
-    font-size: 7vmin;
-    color: #484871;
+    font-size: 6vmin;
+    color: #2f3f5f;
 }
 
 .content-col p {
+    text-align: center;
+    font-size: 2.7vmin;
     padding: 0;
-    margin: 30px auto;
+    margin: 20px auto;
 }
 
 .content-col .ctn {
     margin-left: -100px;
 }
 
-.footer {
-    background-color: #2a2b2d;
-    padding: 60px 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* Icons */
+.icon {
+    width: 10px;
+    height: 25px;
+    margin-left: 1px;
+}
+
+.avatar-icon {
+    border-radius: 40%;
+    border: 2px solid #eeb54c;
+}
+
+/* User Dropdown */
+.user-dropdown {
     position: relative;
-    margin-bottom: 0px;
 }
 
-.footer-content {
-    max-width: 1200px;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    color: #eeb54c;
+.user-dropdown label {
+    cursor: pointer;
 }
 
-.footer-col {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
+.user-dropdown label img {
+    transition: all 0.3s ease;
 }
 
-.footer-col h1 {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
+.user-dropdown input[type="checkbox"]:checked ~ label img {
+    border: 2px solid #eeb54c;
 }
 
-.footer-col ul {
-    list-style: none;
-    padding: 0;
+.user-dropdown-content {
+    right: 0;
+    left: auto;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
 }
 
-.footer-col li {
-    margin-bottom: 8px;
+.user-dropdown-content li {
+    margin: 0;
+    border-bottom: 1px solid #333;
 }
 
-.footer-col a {
-    text-decoration: none;
-    color: whitesmoke;
-    transition: color 0.3s ease-in-out;
+.user-dropdown-content li:last-child {
+    border-bottom: none;
 }
 
-.footer-col a:hover {
-    color: #fc036b;
+.user-dropdown-content li a {
+    padding: 12px 18px;
+    transition: all 0.2s ease;
 }
 
-.footer-bottom {
-    text-align: center;
-    font-size: 0.9rem;
-    color: whitesmoke;
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
+.user-dropdown-content li a:hover {
+    background-color: #604107;
+    color: white;
 }
 
-.footer-bottom p {
-    color: whitesmoke;
+.logout-btn:hover {
+    background-color: #d32f2f !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
 }
 
+.user-dropdown-content li:last-child a {
+    color: #ff5252;
+}
 
+.user-dropdown-content li:last-child a:hover {
+    background-color: #ff5252;
+    color: white;
+}
 
-/*Mobile device*/
+/* Mobile Responsive */
 @media only screen and (max-width: 850px) {
-
-    .menu-btn {
-        display: block;
-    }
-
     .navbar {
+        flex-wrap: wrap;
         padding: 1.5vmin;
     }
 
@@ -401,25 +399,37 @@ p {
     }
 
     .nav-links {
+        display: none;
         flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
         width: 100%;
-        height: 100vh;
-        justify-content: center;
-        background: rgba(16, 16, 16, 0.9);
-        margin-top: -899px;
-        transition: all 0.5s ease;
+        background-color: #000;
+        z-index: 2500;
+
     }
 
-    .mobile-menu {
-        margin-top: 0px;
-        border-bottom-right-radius: 30%;
+    .nav-links.mobile-menu {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        font-size: 2rem;
+        color: #eeb54c;
+        top: 10px;
+        right: 15px;
+        z-index: 3000;
     }
 
     .nav-links li {
-        margin: 30px auto;
+        margin: 20px auto;
     }
 
-    /*Events*/
     .row {
         flex-direction: column;
     }
@@ -432,7 +442,6 @@ p {
         width: 90%;
     }
 
-    /*Explore*/
     .explore-content {
         width: 100%;
     }

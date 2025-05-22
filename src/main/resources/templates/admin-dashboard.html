@@ -1,28 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard - LEARNIVERSE CONNECT</title>
-    <link rel="stylesheet" href="../static/css/home.css">
-    <link rel="stylesheet" href="../static/css/admin-dashboard.css">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <h2 class="logo"><a href="./home.html">LEARNIVERSE<br>CONNECT</a></h2>
-        <ul class="nav-links">
-            <li><a href="./home.html">Home</a></li>
-            <li><a href="./admin-dashboard.html" class="active">Dashboard</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Settings</a></li>
-        </ul>
-        <div class="auth-buttons">
-            <button class="login-btn"><a href="./home.html">Logout</a></button>
-        </div>
-    </nav>
+    <!-- Include the navbar fragment -->
+    <div th:replace="~{components/navbar :: navbar}"></div>
 
     <!-- Admin Dashboard Content -->
     <div class="admin-container">
@@ -46,38 +36,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Web Design & Development</td>
-                        <td>Information Technologies</td>
-                        <td><span class="status active">Active</span></td>
+                    <!-- Dynamically generate rows for each course -->
+                    <tr th:each="course : ${courses}">
+                        <td th:text="${course.courseId}">1</td>
+                        <td th:text="${course.title}">Course Title</td>
+                        <td th:text="${course.category != null ? course.category.name : ''}">Category</td>
+                        <td>
+                            <!-- Display course status (ACTIVE/INACTIVE) -->
+                            <span th:class="${'status ' + (course.status.name() == 'ACTIVE' ? 'active' : 'draft')}"
+                                th:text="${course.status.name()}">
+                                ACTIVE
+                            </span>
+                        </td>
                         <td class="actions">
-                            <button class="edit-btn"><i class="fa fa-edit"></i></button>
-                            <button class="delete-btn"><i class="fa fa-trash"></i></button>
-                            <button class="view-btn"><i class="fa fa-eye"></i></button>
+                            <a th:href="@{/admin/edit-course(courseId=${course.courseId})}" class="edit-btn"
+                                title="Edit Course">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a th:href="@{/admin/toggle-course-status(courseId=${course.courseId})}"
+                                th:class="${course.status.name() == 'ACTIVE' ? 'hide-btn' : 'show-btn'}"
+                                th:title="${course.status.name() == 'ACTIVE' ? 'Hide Course' : 'Show Course'}">
+                                <i th:class="${course.status.name() == 'ACTIVE' ? 'fa fa-eye-slash' : 'fa fa-eye'}"></i>
+                            </a>
+
+                            <a th:href="@{/coursesDetails(courseId=${course.courseId})}" class="view-btn"
+                                title="View Course Details">
+                                <i class="fa fa-eye"></i>
+                            </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Digital Marketing Fundamentals</td>
-                        <td>Digital Marketing</td>
-                        <td><span class="status draft">Draft</span></td>
-                        <td class="actions">
-                            <button class="edit-btn"><i class="fa fa-edit"></i></button>
-                            <button class="delete-btn"><i class="fa fa-trash"></i></button>
-                            <button class="view-btn"><i class="fa fa-eye"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Business Analytics</td>
-                        <td>Business & Entrepreneurship</td>
-                        <td><span class="status active">Active</span></td>
-                        <td class="actions">
-                            <button class="edit-btn"><i class="fa fa-edit"></i></button>
-                            <button class="delete-btn"><i class="fa fa-trash"></i></button>
-                            <button class="view-btn"><i class="fa fa-eye"></i></button>
-                        </td>
+                    <!-- Display message when no courses are available -->
+                    <tr th:if="${#lists.isEmpty(courses)}">
+                        <td colspan="5" class="no-data">No courses available</td>
                     </tr>
                 </tbody>
             </table>
@@ -87,56 +77,92 @@
     <!-- Add/Edit Course Modal -->
     <div id="courseModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Add New Course</h2>
-            <form class="course-form">
+            <div class="modal-header">
+                <h2>Add New Course</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form class="course-form" th:action="@{/admin/add-course}" method="post">
                 <div class="form-group">
-                    <label for="courseTitle">Course Title</label>
-                    <input type="text" id="courseTitle" required>
+                    <label for="title">Course Title</label>
+                    <input type="text" id="title" name="title" required>
                 </div>
                 <div class="form-group">
-                    <label for="courseCategory">Category</label>
-                    <select id="courseCategory" required>
+                    <label for="categoryId">Category</label>
+                    <select id="categoryId" name="categoryId" required>
                         <option value="">Select Category</option>
-                        <option value="it">Information Technologies</option>
-                        <option value="marketing">Digital Marketing</option>
-                        <option value="business">Business & Entrepreneurship</option>
-                        <option value="data">Data Science and Analytics</option>
+                        <option th:each="category : ${categories}" th:value="${category.categoryId}"
+                            th:text="${category.name}">Category Name</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="courseDescription">Description</label>
-                    <textarea id="courseDescription" rows="4" required></textarea>
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="courseImage">Course Image</label>
-                    <input type="file" id="courseImage" accept="image/*">
+                    <label for="level">Course Level</label> <select id="level" name="level">
+                        <option value="BEGINNER">Beginner</option>
+                        <option value="INTERMEDIATE">Intermediate</option>
+                        <option value="EXPERT">Expert</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Visibility Status</label> <select id="status" name="status">
+                        <option value="ACTIVE">Active (Visible)</option>
+                        <option value="INACTIVE">Inactive (Hidden)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ectsCredits">ECTS Credits</label>
+                    <input type="number" id="ectsCredits" name="ectsCredits" step="0.5" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="hoursPerWeek">Hours Per Week</label>
+                    <input type="number" id="hoursPerWeek" name="hoursPerWeek" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="courseImageUrl">Course Image URL</label>
+                    <input type="text" id="courseImageUrl" name="courseImageUrl">
+                </div>
+                <div class="form-group">
+                    <label for="certification">Certification</label>
+                    <input type="text" id="certification" name="certification">
+                </div>
+
+                <!-- Provider Information Section -->
+                <div class="form-section-header">
+                    <h3>Provider Information</h3>
+                </div>
+
+                <div class="form-group">
+                    <label for="providerName">Provider Name</label>
+                    <input type="text" id="providerName" name="providerName" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" id="price" name="price" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <select id="currency" name="currency">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="NOK">NOK</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-actions">
-                    <button type="submit" class="save-btn">Save Course</button>
-                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="save-btn" id="saveCourseBtn">Save Course</button>
+                    <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
                 </div>
             </form>
         </div>
-    </div>
+    </div> <!-- Footer -->
+    <div th:replace="~{components/footer :: footer}"></div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h5>Quick Links</h5>
-                <ul>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Course Management</a></li>
-                    <li><a href="#">User Management</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 Learniverse Admin Panel. All rights reserved.</p>
-        </div>
-    </footer>
+    <script defer th:src="@{/js/admin-dashboard.js}"></script>
 </body>
-<script defer src="../js/admin-dashboard.js"></script>
 
 </html>

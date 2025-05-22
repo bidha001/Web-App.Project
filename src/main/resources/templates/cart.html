@@ -1,71 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopping Cart</title>
-  <link rel="stylesheet" href="../static/css/cart.css">
+  <link rel="stylesheet" th:href="@{/css/home.css}" />
+  <link rel="stylesheet" th:href="@{/css/footer.css}" />
+  <link rel="stylesheet" th:href="@{/css/cart.css}" />
 </head>
-
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <h2 class="logo"><a href="./home.html">LEARNIVERSE<br>CONNECT</a></h2>
+<!-- Navbar -->
+<div th:replace="components/navbar :: navbar"></div>
 
-    <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
-      <li class="dropdown">
-        <input type="checkbox" id="cat-toggle">
-        <label for="cat-toggle" class="category-label">Category</label>
-        <ul class="dropdown-content">
-          <li><a href="informationTechnologies.html">Information Technologies</a></li>
-          <li><a href="digitalMarketing.html">Digital Marketing</a></li>
-          <li><a href="business&Entrepreneurship.html">Business & Entrepreneurship</a></li>
-          <li><a href="dataScience&Analytics.html">Data Science and Analytics</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Course</a></li>
-      <li><a href="contactUs.html">About</a></li>
-    </ul>
+<div class="cart-container">
 
-    <div class="auth-buttons">
-      <button class="login-btn"><a href="./login.html">Login</a></button>
-    </div>
-  </nav>
+  <!-- Left Section: Cart Items -->
+  <div class="cart-items">
+    <h2 th:text="${#lists.size(orders)} + ' Courses in Cart'">0 Courses in Cart</h2>
 
-  <div class="container">
-    <h1>Shopping Cart</h1>
-    <div class="products">
-      <div class="product">
-        <img src="../static/images/java.jpg" alt="Product">
-        <h2>Product 1</h2>
-        <p>Price: $10</p>
+    <div class="cart-item" th:each="order : ${orders}">
+      <img th:src="@{'/images/' + ${order.course.courseImageUrl}}" alt="Course Image">
+      <div class="item-details">
+        <h3 th:text="${order.course.title}">Course Title</h3>
+        <p th:text="${order.course.category.name}">Category</p>
+
+        <span
+                th:text="'⭐ ' + ${ratings[order.course.courseId]}">4.5¨
+        </span>
+
+        <div class="info">
+          <span th:text="${order.course.hoursPerWeek}">X</span> hours/week
+        </div>
+        <div class="actions">
+          <a th:href="@{'/removeFromCart?orderId=' + ${order.orderId}}">Remove</a>
+        </div>
       </div>
-
-      <div class="product">
-        <img src="../static/images/java.jpg" alt="Product">
-        <h2>Product 2</h2>
-        <p>Price: $15</p>
+      <div class="item-price">
+        <span class="current-price" th:text="'kr' + ${order.course.providers.iterator().next().price}">kr369</span>
       </div>
-    </div>
-
-    <h2>Cart</h2>
-    <div class="cart">
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody id="cart-items"></tbody>
-      </table>
-      <h3>Total: $<span id="cart-total">0</span></h3>
     </div>
   </div>
 
-</body>
+  <!-- Right Section: Cart Summary -->
+  <div class="cart-summary">
+    <h2>Total:</h2>
+    <div class="total-price" th:text="'kr' + ${total}">kr0</div>
 
+    <!-- Show button only if cart has items -->
+    <a th:if="${#lists.size(orders) > 0}"
+       th:href="@{/checkout}" class="checkout-btn">Proceed to Checkout</a>
+
+    <!-- Show warning if cart is empty -->
+    <p th:if="${#lists.size(orders) == 0}" style="color: red; margin-top: 1rem;">
+      Your cart is empty. Add some courses first!
+    </p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="components/footer :: footer"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("mobile-menu");
+      });
+    }
+  });
+</script>
+
+</body>
 </html>

@@ -1,56 +1,94 @@
-#courseDetails {
+/* Course Details Container*/
+
+.courseDetails .container {
     max-width: 1200px;
     margin: 50px auto;
     padding: 30px;
-    background-color: rgb(255, 255, 255);
+    background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: #333;
 }
 
-#courseDetails h4 {
-    color: #000000;
+
+   /*Typography*/
+
+.courseDetails .container h1 {
+    color: #000;
     font-size: 2.2rem;
     margin-bottom: 25px;
     border-bottom: 2px solid #63f306;
     padding-bottom: 15px;
 }
 
-#courseDetails p {
+.courseDetails .container p {
     font-size: 1.1rem;
     line-height: 1.6;
+    color: #444;
     margin: 15px 0;
 }
 
-#courseDetails ul {
-    margin: 40px 0;
-    padding: 15px;
-    border-radius: 8px;
+
+/*Course Image */
+
+.courseDetails .course-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.btn-container {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 20px;
+/* Providers Table */
+.courseDetails .provider-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    background-color: #fff;
 }
 
-.btn {
-    background: linear-gradient(135deg, #63f306 0%, #4bc0c8 100%);
-    padding: 10px 10px;
-    font-size: 1.2rem;
-    border-radius: 30px;
+.courseDetails .provider-table th {
+    background-color: #4bc0c8;
+    color: white;
+    padding: 15px 20px;
+    text-align: left;
+}
+
+.courseDetails .provider-table td {
+    padding: 15px 20px;
+    color: #222;
+    border-bottom: 1px solid #eee;
+}
+
+.courseDetails .provider-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Buttons */
+.courseDetails .ctn {
+    background: linear-gradient(135deg, #63f306, #4bc0c8);
     color: #171819;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
 }
 
-.btn:hover{
+.courseDetails .ctn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(99, 243, 6, 0.3);
+    box-shadow: 0 5px 15px rgba(99, 243, 6, 0.3);
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .courseDetails .container {
+        margin: 20px;
+        padding: 20px;
+    }
 
-
-
+    .courseDetails .provider-table th,
+    .courseDetails .provider-table td {
+        padding: 10px 15px;
+    }
+}

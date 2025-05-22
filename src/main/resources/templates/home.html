@@ -1,136 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/css/home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" th:href="@{/css/home.css}" />
+  <link rel="stylesheet" th:href="@{/css/footer.css}" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <title>LEARNIVERSE CONNECT</title>
 </head>
 
 <body>
 
-<!-- Navbar -->
-<div id="navbar-placeholder"> </div>
+<div class="main-content">
+  <!-- Navbar -->
+  <div th:replace="components/navbar :: navbar"></div>
 
-<header>
-  <div class="header-content">
-    <h2> Web Design & Development Course</h2>
-    <br>
-    <h1> Join our interactive Web Design & Development Course and build the digital skills for tomorrow.</h1>
-    <a href="login.html" class="ctn">Join Us</a>
-  </div>
-</header>
+  <!-- Flash message -->
+  <div th:if="${success}" class="flash-success" th:text="${success}"></div>
 
-<section class="events">
-  <div class="title">
-    <h1>Upcoming Events</h1>
-    <div class="line"></div>
-  </div>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <h2>Web Design & Development Course</h2>
+      <br>
+      <h1>Join our interactive Web Design & Development Course and build the digital skills for tomorrow.</h1>
+      <a th:href="@{/course}" class="ctn">Explore Courses</a>
+    </div>
+  </header>
 
-  <div class="row">
-    <div class="col">
-      <img src="../static/images/python.jpg" alt="">
-      <h4> JAVA</h4>
-      <p> This is the really exclusive event. If you are interested on it. Just join this event.</p>
-      <a href="#" class="ctn">Learn more</a>
+  <!-- Events -->
+  <section class="events">
+    <div class="title">
+      <h1>Live Learning Drops</h1>
     </div>
 
-    <div class="col">
-      <img src="../static/images/python.jpg" alt="">
-      <h4> Python</h4>
-      <p> This is the really exclusive event. I f you are interested on it. Just join this event.</p>
-      <a href="#" class="ctn">Learn more</a>
-    </div>
-  </div>
-</section>
+    <div class="row">
+      <div class="col">
+        <img th:src="@{/images/Machine Learning.jpg}" alt="Machine Learning">
+        <h4>Machine Learning</h4>
+        <p>Step into the world of intelligent algorithms and unlock the future. <br>
+          Whether you're just curious or ready to dive deep, this beginner-friendly <br>
+          workshop will guide you through machine learning fundamentals using Python.<br>
+          Perfect for those starting their AI journey.</p>
+        <a href="course.html" class="ctn">Learn more</a>
+      </div>
 
-<section class="explore">
-  <div class="explore-content">
-    <h1>EXPLORE OUR ONLINE LEARNING PLATFORM </h1>
-    <div class="line"></div>
-    <p>Unlock your potential with world-class courses, expert mentorship, and a vibrant learning community. Take the
-      next step in your journey today!</p>
-    <a href="#" class="ctn">Learn more</a>
-  </div>
-</section>
-
-<section class="tours">
-  <div class="row">
-    <div class="col content-col">
-      <h1>Our Courses</h1>
-      <p> Click and Learnmore about the Courses. </p>
-      <a href="#" class="ctn"> Learn more</a>
-    </div>
-
-    <div class="col image-col">
-      <div class="images-gallery">
-        <img src="../static/images/dataScience.jpg" alt="">
-        <img src="../static/images/Search%20Engine%20Optimization.png" alt="">
-        <img src="../static/images/python.jpg" alt="">
-        <img src="../static/images/coding.jpg" alt="">
+      <div class="col">
+        <img th:src="@{/images/Search Engine Optimization.png}" alt="Python">
+        <h4>Python</h4>
+        <p>The world runs on Python. So should you. <br>
+          Learn to speak the language behind automation, AI, web development, <br> and more.
+          Join this hands-on session and start building real Python projects <br> from day one.</p>
+        <a href="course.html" class="ctn">Learn more</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer-->
-<div id="footer-placeholder"></div>
+  <!-- Explore -->
+  <section class="explore">
+    <div class="explore-content">
+      <h1>EXPLORE OUR ONLINE LEARNING PLATFORM</h1>
+      <p>Unlock your potential with world-class courses, expert mentorship, and a vibrant learning community.
+        Take the next step in your journey today!</p>
+      <a href="course.html" class="ctn">Learn more</a>
+    </div>
+  </section>
 
-  <script>
-    // Navbar
-    fetch('navbar.html')
-    .then(res => res.text())
-    .then(data => {
-    document.getElementById('navbar-placeholder').innerHTML = data;
+  <!-- Courses -->
+  <section class="tours">
+    <div class="row">
+      <div class="col content-col">
+        <h1>Skill Up With Us</h1>
+        <p>Click and learn more about the Courses.</p>
+        <a th:href="@{/course}" class="ctn">Explore Courses</a>
+      </div>
 
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+      <div class="col image-col">
+        <div class="images-gallery">
+          <img th:src="@{/images/Search Engine Optimization.png}" alt="Search Engine Optimization">
+          <img th:src="@{/images/coding.jpg}" alt="Coding">
+          <img th:src="@{/images/java.jpg}" alt="Java">
+          <img th:src="@{/images/python.jpg}" alt="Python">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<div th:replace="components/footer :: footer"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
     if (menuBtn && navLinks) {
-    menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('mobile-menu');
+      menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("mobile-menu");
+      });
+    }
   });
-  }
-
-    // Inject avatar, cart, liked if logged in
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-    if (isLoggedIn && navLinks) {
-    const loginBtn = navLinks.querySelector("a[href='login.html']");
-    if (loginBtn) loginBtn.style.display = "none";
-
-    const avatar = document.createElement("li");
-    avatar.innerHTML = '<a href="#">👤</a>';
-
-    const cart = document.createElement("li");
-    cart.innerHTML = '<a href="#">🛒</a>';
-
-    const liked = document.createElement("li");
-    liked.innerHTML = '<a href="#">❤️</a>';
-
-    const logout = document.createElement("li");
-    logout.innerHTML = '<a href="#" onclick="logoutUser()">Logout</a>';
-
-    navLinks.appendChild(avatar);
-    navLinks.appendChild(cart);
-    navLinks.appendChild(liked);
-    navLinks.appendChild(logout);
-  }
-  });
-
-    // Footer
-    fetch('footer.html')
-    .then(res => res.text())
-    .then(data => {
-    document.getElementById('footer-placeholder').innerHTML = data;
-  });
-
-    // Logout function
-    function logoutUser() {
-    localStorage.removeItem("isLoggedIn");
-    window.location.reload();
-  }
-
 </script>
-
 </body>
 </html>
