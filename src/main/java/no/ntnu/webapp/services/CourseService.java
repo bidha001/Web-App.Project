@@ -9,9 +9,6 @@ import no.ntnu.webapp.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,14 +16,19 @@ import java.util.Optional;
  * Service class for handling Course-related business logic
  */
 @Service
-public class CourseService {
-
+public class CourseService {    
     private final CourseRepository courseRepository;
+    private final CourseProviderService courseProviderService;
+    private final CourseSessionService courseSessionService;
 
     @Autowired
-    public CourseService(CourseRepository courseRepository) {
+    public CourseService(CourseRepository courseRepository,
+                        CourseProviderService courseProviderService,
+                        CourseSessionService courseSessionService) {
         this.courseRepository = courseRepository;
-    }    /**
+        this.courseProviderService = courseProviderService;
+        this.courseSessionService = courseSessionService;
+    }/**
      * Get all courses (for admin use)
      * @return List of all courses
      */
@@ -81,18 +83,10 @@ public class CourseService {
         }
 
         Course course = courseOptional.get();
-        List<CourseProvider> providers = course.getProviders() == null 
-                ? new ArrayList<>() 
-                : new ArrayList<>(course.getProviders());
-
-        List<CourseSession> sessions = course.getSessions() == null 
-                ? new ArrayList<>() 
-                : new ArrayList<>(course.getSessions());
-
-        CourseSession nextSession = sessions.stream()
-                .filter(s -> s.getStartDate().isAfter(LocalDate.now()))
-                .min(Comparator.comparing(CourseSession::getStartDate))
-                .orElse(null);
+          // Fetch all providers for this course using CourseProviderService
+        List<CourseProvider> providers = courseProviderService.getProvidersByCourse(courseId);
+          // Fetch the next upcoming session using CourseSessionService
+        CourseSession nextSession = courseSessionService.getNextSessionForCourse(courseId);
 
         return new CourseDetails(course, providers, nextSession);
     }
