@@ -27,29 +27,29 @@ public class SecurityConfig {
         http
                 // Disable CSRF protection for simplicity
                 .authorizeHttpRequests(auth -> auth.requestMatchers(
-                                "/",
-                                "/home",
-                                "/login",
-                                "/signup",
-                                "/contactUs",
-                                "/css/**",
-                                "/images/**",
-                                "/js/**",
-                                "/components/**",
-                                "/informationTechnologies",
-                                "/digitalMarketing",
-                                "/dataScienceAnalytics",
-                                "/businessEntrepreneurship",
-                                "/course",
-                                "/search",
-                                "/payment",
-                                "/checkout",
-                                "/processPayment",
-                                "/MyCourses",
-                                "/favoriteCourses"
-                        ).permitAll()
-                        .requestMatchers("/admin-dashboard").hasAuthority("ROLE_ADMIN")
-                        .anyRequest().authenticated()
+                                        "/",
+                                        "/home",
+                                        "/login",
+                                        "/signup",
+                                        "/contactUs",
+                                        "/css/**",
+                                        "/images/**",
+                                        "/js/**",
+                                        "/components/**",
+                                        "/informationTechnologies",
+                                        "/digitalMarketing",
+                                        "/dataScienceAnalytics",
+                                        "/businessEntrepreneurship",
+                                        "/course",
+                                        "/search",
+                                        "/payment",
+                                        "/checkout",
+                                        "/processPayment",
+                                        "/MyCourses",
+                                        "/favoriteCourses"
+                                ).permitAll()
+                                .requestMatchers("/admin-dashboard").hasAuthority("ROLE_ADMIN")
+                                .anyRequest().authenticated()
                 )
                 // Enable CSRF protection
                 .formLogin(form -> form

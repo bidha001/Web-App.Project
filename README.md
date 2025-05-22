@@ -120,7 +120,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 - Binit Dhungana (bidha001)
 - Mantas Bagodnavicius (pahmel0)
-- Write you name here!
+- Bakri Ahmad (bruker132)
 
 This project was collaboratively developed by a group of students as part of the IDATA2301 Web Technologies
 and IDATA2306 Application development course at NTNU. Each member contributed significantly across different areas 
