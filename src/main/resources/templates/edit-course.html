@@ -120,6 +120,16 @@
       </div>
 
       <div class="form-group">
+        <label for="status">Visibility Status</label>
+        <select id="status" name="status">
+          <option value="ACTIVE" th:selected="${course.status != null && course.status.name() == 'ACTIVE'}">
+            Active (Visible)</option>
+          <option value="INACTIVE" th:selected="${course.status != null && course.status.name() == 'INACTIVE'}">
+            Inactive (Hidden)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label for="ectsCredits">ECTS Credits</label>
         <input type="number" id="ectsCredits" name="ectsCredits" step="0.5" min="0" th:value="${course.ectsCredits}">
       </div>

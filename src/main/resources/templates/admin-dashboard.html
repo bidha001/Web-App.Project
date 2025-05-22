@@ -42,22 +42,29 @@
                         <td th:text="${course.title}">Course Title</td>
                         <td th:text="${course.category != null ? course.category.name : ''}">Category</td>
                         <td>
-                            <!-- Determine status based on whether the course has upcoming sessions -->
-                            <span th:with="hasSessions=${!#lists.isEmpty(course.sessions)}"
-                                th:class="${'status ' + (hasSessions ? 'active' : 'draft')}"
-                                th:text="${hasSessions ? 'Active' : 'Draft'}">
-                                Active
+                            <!-- Display course status (ACTIVE/INACTIVE) -->
+                            <span th:class="${'status ' + (course.status.name() == 'ACTIVE' ? 'active' : 'draft')}"
+                                th:text="${course.status.name()}">
+                                ACTIVE
                             </span>
                         </td>
                         <td class="actions">
-                            <a th:href="@{/admin/edit-course(courseId=${course.courseId})}" class="edit-btn">
+                            <a th:href="@{/admin/edit-course(courseId=${course.courseId})}" class="edit-btn"
+                                title="Edit Course">
                                 <i class="fa fa-edit"></i>
                             </a>
+                            <a th:href="@{/admin/toggle-course-status(courseId=${course.courseId})}"
+                                th:class="${course.status.name() == 'ACTIVE' ? 'hide-btn' : 'show-btn'}"
+                                th:title="${course.status.name() == 'ACTIVE' ? 'Hide Course' : 'Show Course'}">
+                                <i th:class="${course.status.name() == 'ACTIVE' ? 'fa fa-eye-slash' : 'fa fa-eye'}"></i>
+                            </a>
                             <a th:href="@{/admin/delete-course(courseId=${course.courseId})}" class="delete-btn"
+                                title="Delete Course"
                                 onclick="return confirm('Are you sure you want to delete this course?');">
                                 <i class="fa fa-trash"></i>
                             </a>
-                            <a th:href="@{/coursesDetails(courseId=${course.courseId})}" class="view-btn">
+                            <a th:href="@{/coursesDetails(courseId=${course.courseId})}" class="view-btn"
+                                title="View Course Details">
                                 <i class="fa fa-eye"></i>
                             </a>
                         </td>
@@ -100,6 +107,12 @@
                         <option value="BEGINNER">Beginner</option>
                         <option value="INTERMEDIATE">Intermediate</option>
                         <option value="EXPERT">Expert</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="status">Visibility Status</label> <select id="status" name="status">
+                        <option value="ACTIVE">Active (Visible)</option>
+                        <option value="INACTIVE">Inactive (Hidden)</option>
                     </select>
                 </div>
                 <div class="form-group">

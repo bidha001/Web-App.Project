@@ -23,6 +23,10 @@ public class Course {
     
     @Enumerated(EnumType.STRING)
     private CourseLevel level;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private CourseStatus status = CourseStatus.ACTIVE; // Default to ACTIVE
 
     private Double ectsCredits;
     private Integer hoursPerWeek;

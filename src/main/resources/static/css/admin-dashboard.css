@@ -129,6 +129,14 @@
     color: #4caf50;
 }
 
+.hide-btn {
+    color: #ff9800;
+}
+
+.show-btn {
+    color: #9c27b0;
+}
+
 .actions button:hover {
     background-color: var(--bg-light);
 }

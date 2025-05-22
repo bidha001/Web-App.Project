@@ -4,6 +4,7 @@ import lombok.Getter;
 import no.ntnu.webapp.models.Course;
 import no.ntnu.webapp.models.CourseProvider;
 import no.ntnu.webapp.models.CourseSession;
+import no.ntnu.webapp.models.CourseStatus;
 import no.ntnu.webapp.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,23 +26,38 @@ public class CourseService {
     @Autowired
     public CourseService(CourseRepository courseRepository) {
         this.courseRepository = courseRepository;
-    }
-
-    /**
-     * Get all courses
+    }    /**
+     * Get all courses (for admin use)
      * @return List of all courses
      */
     public List<Course> getAllCourses() {
         return courseRepository.findAll();
     }
+    
+    /**
+     * Get all active courses (for regular users)
+     * @return List of all active courses
+     */
+    public List<Course> getAllActiveCourses() {
+        return courseRepository.findByStatus(CourseStatus.ACTIVE);
+    }
 
     /**
-     * Get courses by category name
+     * Get courses by category name (for admin use)
      * @param categoryName Name of the category
      * @return List of courses in the specified category
      */
     public List<Course> getCoursesByCategory(String categoryName) {
         return courseRepository.findByCategory_Name(categoryName);
+    }
+    
+    /**
+     * Get active courses by category name (for regular users)
+     * @param categoryName Name of the category
+     * @return List of active courses in the specified category
+     */
+    public List<Course> getActiveCoursesByCategory(String categoryName) {
+        return courseRepository.findByCategory_NameAndStatus(categoryName, CourseStatus.ACTIVE);
     }
 
     /**
@@ -96,10 +112,22 @@ public class CourseService {
      */
     public void deleteCourse(Long courseId) {
         courseRepository.deleteById(courseId);
-    }
-
+    }    /**
+     * Search all courses (for admin use)
+     * @param query Search query
+     * @return List of matching courses
+     */
     public List<Course> searchCourses(String query) {
         return courseRepository.findByTitleContainingIgnoreCase(query);
+    }
+    
+    /**
+     * Search only active courses (for regular users)
+     * @param query Search query
+     * @return List of matching active courses
+     */
+    public List<Course> searchActiveCourses(String query) {
+        return courseRepository.findByTitleContainingIgnoreCaseAndStatus(query, CourseStatus.ACTIVE);
     }
 
     /**

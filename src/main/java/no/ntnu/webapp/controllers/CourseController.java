@@ -2,6 +2,7 @@ package no.ntnu.webapp.controllers;
 import no.ntnu.webapp.models.Category;
 import no.ntnu.webapp.models.Course;
 import no.ntnu.webapp.models.CourseProvider;
+import no.ntnu.webapp.models.CourseStatus;
 import no.ntnu.webapp.services.CategoryService;
 import no.ntnu.webapp.services.CourseProviderService;
 import no.ntnu.webapp.services.CourseService;
@@ -38,10 +39,9 @@ public class CourseController {
      * Handles requests to the course categories and their respective pages.
      * @param model Model object to pass data to the view
      * @return The name of the view to be rendered
-     */
-    @GetMapping("/informationTechnologies")
+     */    @GetMapping("/informationTechnologies")
     public String getInformationTechnologiesPage(Model model) {
-        List<Course> courses = courseService.getCoursesByCategory("Information Technologies");
+        List<Course> courses = courseService.getActiveCoursesByCategory("Information Technologies");
         model.addAttribute("courses", courses);
         model.addAttribute("categoryTitle", "Information Technologies");
         return "informationTechnologies";
@@ -51,10 +51,9 @@ public class CourseController {
      * Handles requests to the Digital Marketing category page.
      * @param model Model object to pass data to the view
      * @return The name of the view to be rendered
-     */
-    @GetMapping("/digitalMarketing")
+     */    @GetMapping("/digitalMarketing")
     public String getDigitalMarketingPage(Model model) {
-        List<Course> courses = courseService.getCoursesByCategory("Digital Marketing");
+        List<Course> courses = courseService.getActiveCoursesByCategory("Digital Marketing");
         model.addAttribute("courses", courses);
         model.addAttribute("categoryTitle", "Digital Marketing");
         return "digitalMarketing";
@@ -64,10 +63,9 @@ public class CourseController {
      * Handles requests to the Business and Entrepreneurship category page.
      * @param model Model object to pass data to the view
      * @return The name of the view to be rendered
-     */
-    @GetMapping("/businessEntrepreneurship")
+     */    @GetMapping("/businessEntrepreneurship")
     public String getBusinessEntrepreneurshipPage(Model model) {
-        List<Course> courses = courseService.getCoursesByCategory("Business and Entrepreneurship");
+        List<Course> courses = courseService.getActiveCoursesByCategory("Business and Entrepreneurship");
         model.addAttribute("courses", courses);
         model.addAttribute("categoryTitle", "Business & Entrepreneurship");
         return "businessEntrepreneurship";
@@ -77,10 +75,9 @@ public class CourseController {
      * Handles requests to the Data Science and Analytics category page.
      * @param model Model object to pass data to the view
      * @return The name of the view to be rendered
-     */
-    @GetMapping("/dataScienceAnalytics")
+     */    @GetMapping("/dataScienceAnalytics")
     public String getDataScienceAnalyticsPage(Model model) {
-        List<Course> courses = courseService.getCoursesByCategory("Data Science and Analytics");
+        List<Course> courses = courseService.getActiveCoursesByCategory("Data Science and Analytics");
         model.addAttribute("courses", courses);
         model.addAttribute("categoryTitle", "Data Science and Analytics");
         return "dataScienceAnalytics";
@@ -90,10 +87,9 @@ public class CourseController {
      * Handles requests to the course page, displaying all courses.
      * @param model Model object to pass data to the view
      * @return The name of the view to be rendered
-     */
-    @GetMapping("/course")
+     */    @GetMapping("/course")
     public String getCoursePage(Model model) {
-        List<Course> courses = courseService.getAllCourses();
+        List<Course> courses = courseService.getAllActiveCourses();
         model.addAttribute("courses", courses);
         model.addAttribute("categoryTitle", "All Courses");
         return "course";
@@ -126,12 +122,12 @@ public class CourseController {
      * @return The name of the view to be rendered
      */    @GetMapping("/search")
     public String searchCourses(@RequestParam("query") String query, Model model) {
-        List<Course> matchedCourses = courseService.searchCourses(query);
+        List<Course> matchedCourses = courseService.searchActiveCourses(query);
         model.addAttribute("courses", matchedCourses);
         model.addAttribute("categoryTitle", "Search Results for \"" + query + "\"");
         model.addAttribute("searchQuery", query);
         return "searchResults";
-    }    /**
+    }/**
      * Handles requests to the admin dashboard page.
      * @param model Model object to pass data to the view
      * @return The name of the view to be rendered
@@ -198,7 +194,7 @@ public class CourseController {
             return "edit-course";
         }
         return "redirect:/admin-dashboard";
-    }/**
+    }    /**
      * Handles course deletion
      * @param courseId ID of the course to delete
      * @return Redirects to admin dashboard
@@ -213,6 +209,27 @@ public class CourseController {
         
         // Then delete the course itself
         courseService.deleteCourse(courseId);
+        return "redirect:/admin-dashboard";
+    }
+    
+    /**
+     * Toggles course visibility status (ACTIVE/INACTIVE)
+     * @param courseId ID of the course to toggle
+     * @return Redirects to admin dashboard
+     */
+    @GetMapping("/admin/toggle-course-status")
+    public String toggleCourseStatus(@RequestParam("courseId") Long courseId) {
+        Optional<Course> courseOptional = courseService.getCourseById(courseId);
+        if (courseOptional.isPresent()) {
+            Course course = courseOptional.get();
+            // Toggle the status
+            if (course.getStatus() == CourseStatus.ACTIVE) {
+                course.setStatus(CourseStatus.INACTIVE);
+            } else {
+                course.setStatus(CourseStatus.ACTIVE);
+            }
+            courseService.saveCourse(course);
+        }
         return "redirect:/admin-dashboard";
     }
 
