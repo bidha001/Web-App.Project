@@ -2,6 +2,7 @@ package no.ntnu.webapp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 /**
@@ -11,7 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PageController {
 
-    
+    /**
+     * Handles requests to the root URL (/) and redirects to home page.
+     * @return RedirectView to home page
+     */
+    @GetMapping("/")
+    public RedirectView redirectToHome() {
+        return new RedirectView("/home");
+    }
 
     /**
      * Handles requests to the home page.

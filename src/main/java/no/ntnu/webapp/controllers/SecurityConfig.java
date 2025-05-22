@@ -21,11 +21,11 @@ public class SecurityConfig {
      * @param http HttpSecurity object to configure security settings
      * @return SecurityFilterChain object
      * @throws Exception if an error occurs during configuration
-     */
+     */    
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // Disable CSRF protection for simplicity
+                .csrf(csrf -> csrf.disable())  // Disable CSRF protection
                 .authorizeHttpRequests(auth -> auth.requestMatchers(
                                 "/",
                                 "/home",
@@ -51,20 +51,21 @@ public class SecurityConfig {
                         .requestMatchers("/admin-dashboard").hasAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated()
                 )
-                // Enable CSRF protection
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/home", true)
                         .failureUrl("/login?error=true")
                         .permitAll()
                 )
-                // Enable logout functionality
                 .logout(logout -> logout
                         .logoutSuccessUrl("/home")
                         .permitAll()
+                )
+                // Set root URL "/" to redirect to "/home" by default
+                .exceptionHandling(exception -> 
+                    exception.accessDeniedPage("/home")
                 );
 
-        // Disable CSRF protection for simplicity
         return http.build();
     }
 
