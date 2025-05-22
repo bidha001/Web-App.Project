@@ -70,14 +70,15 @@ src
 git clone https://github.com/bidha001/Web-App.Project.git
 cd learniverse-connect
 
-# Define database values in application.properties
+# Define database values
+Create a .env file in the root folder and define the values of your database
 
 
 # Build and run the app
 ./mvnw spring-boot:run
 ```
 
-Then open `http://localhost:8080` in your browser.
+Then open `http://localhost:8080` in your browser to access the application.
 
 ---
 
